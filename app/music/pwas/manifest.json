@@ -1,0 +1,17 @@
+{
+	"name": "Music",
+	"short_name": "Music",
+	"description": "MusicPlayer",
+	"start_url": "index.html",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff",
+	"icons": [
+		{
+			"src": "icon.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		}
+	]
+}
