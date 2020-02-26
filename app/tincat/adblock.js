@@ -283,6 +283,15 @@
             rules: [
                 ".gg-item",
             ]
+        },
+        {
+            title: "猫眼电影",
+            hosts: ["m.maoyan.com"],
+            rules: [
+                "#download-header",
+                ".download-app-bar",
+                ".tip-open-app"
+            ]
         }
     ];
 
