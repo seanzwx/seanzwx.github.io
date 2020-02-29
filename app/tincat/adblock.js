@@ -86,7 +86,9 @@
             hosts: ["wx.tuhu.cn"],
             rules: [
                 ".wx_download",
-                ".tcmlink"
+                ".tcmlink",
+                ".tc_imgc-img",
+                ".downloadbtn"
             ]
         },
         {
