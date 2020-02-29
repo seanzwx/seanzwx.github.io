@@ -87,7 +87,7 @@
             rules: [
                 ".wx_download",
                 ".tcmlink",
-                ".tc_imgc-img",
+                ".tcs_tbmlink",
                 ".downloadbtn"
             ]
         },
