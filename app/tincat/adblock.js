@@ -294,6 +294,21 @@
                 ".download-app-bar",
                 ".tip-open-app"
             ]
+        },
+        {
+            title: "y2mate",
+            hosts: ["www.y2mate.com"],
+            rules: [
+                "#adInstallAndroid",
+                "#ads_spot1",
+                ".navbar",
+                ".box-guide",
+                ".ads-social-box",
+                "iframe",
+                ".homepage-grid",
+                ".hidden-md",
+                ".ads-place-download"
+            ]
         }
     ];
 
