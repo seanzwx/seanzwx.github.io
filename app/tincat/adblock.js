@@ -253,14 +253,14 @@
             hosts: ["www.xiaohongshu.com"],
             rules: [
                 "#navbar",
-                ".button-bottom-bar",
+                ".button-bottom-bar"
             ]
         },
         {
             title: "Bing",
             hosts: ["cn.bing.com"],
             rules: [
-                ".BottomAppPro",
+                ".BottomAppPro"
             ]
         },
         {
@@ -276,14 +276,14 @@
             title: "搜搜",
             hosts: ["wap.sogou.com"],
             rules: [
-                "#indexAppOne",
+                "#indexAppOne"
             ]
         },
         {
             title: "天涯社区",
             hosts: ["www.tianya.cn", "bbs.tianya.cn"],
             rules: [
-                ".gg-item",
+                ".gg-item"
             ]
         },
         {
@@ -308,6 +308,51 @@
                 ".homepage-grid",
                 ".hidden-md",
                 ".ads-place-download"
+            ]
+        },
+        {
+            title: "xnxx",
+            hosts: ["www.xnxx.com"],
+            rules: [
+                "#x-home-messages",
+                "#content-ad-top-zone-contener",
+                "#cookies-use-alert",
+                "#ad-footer",
+                "#ad-header-mobile-contener",
+                ".thumb-ad"
+            ]
+        },
+        {
+            title: "xvideos",
+            hosts: ["www.xvideos.com"],
+            rules: [
+                "#x-messages",
+                "#ad-footer",
+                "#x-x-messages-btn",
+                "#subs-home-toggle-cont",
+                "#ad-header-mobile-contener",
+                ".video-ad"
+            ]
+        },
+        {
+            title: "pornhub",
+            hosts: ["www.pornhub.com"],
+            rules: [
+                ".adContainer"
+            ]
+        },
+        {
+            title: "spankbang",
+            hosts: ["m.spankbang.com"],
+            rules: [
+                ".ptgncdn_holder"
+            ]
+        },
+        {
+            title: "redtube",
+            hosts: ["www.redtube.com"],
+            rules: [
+                ".adContainer"
             ]
         }
     ];
