@@ -34,6 +34,7 @@
             }
 
             callback(videoList);
+            return;
         }
 
         if(host.indexOf("www.xvideos.com") === 0 || host.indexOf("www.xnxx.com") === 0)
@@ -82,6 +83,9 @@
             {
                 callback(videoList);
             }
+            return;
         }
+
+        callback(videoList);
     };
 })();
