@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <title>今日精选</title>
+    <link rel="stylesheet" href="style/android.css"/>
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <div style="padding: 16px; font-size: 20px; font-weight: bold;">今日精选</div>
+    <div style="padding-bottom: 60px;">
+        <div @click="clickItem(it.url)" v-for="it,index in videoArray" class="android-item-selector" style="display: flex;padding: 16px;">
+            <div>
+                <img style="width: 100px; height: 80px;"/>
+            </div>
+            <div style="padding-left: 16px;flex-grow: 1;">
+                <div>标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                <div style="color: #9a9a9a; text-align: right;padding-top: 8px;font-size: 14px;">11:00</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: fixed; z-index: 1;bottom: 0px; left: 0px; right: 0px;background-color: #ffffff;padding: 8px 16px 8px 16px;">
+        <button @click="tincat()" class="android-button android-button-blue" style="width: 100%; height: 44px;">使用Tincat Browser免费下载</button>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                title: "今日精选",
+                videoArray: []
+            }
+        },
+
+        mounted: function()
+        {
+            for(var i = 0; i < 10; i++)
+            {
+                this.videoArray.push({});
+            }
+        },
+
+        methods: {
+            tincat: function()
+            {
+                window.open("https://play.google.com/store/apps/details?id=com.netsky.vfat");
+            },
+
+            clickItem: function(url)
+            {
+
+            }
+        }
+    });
+</script>
