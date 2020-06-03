@@ -1,89 +1,87 @@
 (function()
 {
-    var callback = function(videoList)
+    window.tincat.extractVideos = function(callback)
     {
-        console.log(JSON.stringify(videoList, null, 3));
-    };
+        var host = location.href.replace("http://", "").replace("https://", "");
+        var videoList = [];
 
-    var host = location.href.replace("http://", "").replace("https://", "");
-    var videoList = [];
-
-    if(host.indexOf("cn.pornhub.com") === 0)
-    {
-        for(var key in window)
+        if(host.indexOf("cn.pornhub.com") === 0)
         {
-            if(key.indexOf("flashvars") === 0)
+            for(var key in window)
             {
-                var flashvars = window[key];
-                var mediaDefinitions = flashvars.mediaDefinitions;
-                if(mediaDefinitions)
+                if(key.indexOf("flashvars") === 0)
                 {
-                    for(var i = 0; i < mediaDefinitions.length; i++)
+                    var flashvars = window[key];
+                    var mediaDefinitions = flashvars.mediaDefinitions;
+                    if(mediaDefinitions)
                     {
-                        var it = mediaDefinitions[i];
-                        if(it.videoUrl)
+                        for(var i = 0; i < mediaDefinitions.length; i++)
                         {
-                            if("hls" === it.format && "hls" !== it.quality)
+                            var it = mediaDefinitions[i];
+                            if(it.videoUrl)
                             {
-                                videoList.push({
-                                    quality: it.quality + "P",
-                                    url: it.videoUrl
-                                });
+                                if("hls" === it.format && "hls" !== it.quality)
+                                {
+                                    videoList.push({
+                                        quality: it.quality + "P",
+                                        url: it.videoUrl
+                                    });
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        callback(videoList);
-    }
-
-    if(host.indexOf("www.xvideos.com") === 0 || host.indexOf("www.xnxx.com") === 0)
-    {
-        if(html5player && html5player.url_hls)
-        {
-            var url_hls = html5player.url_hls;
-            $.ajax({
-                url: url_hls,
-                type: "get",
-                success: function(jsonstr)
-                {
-                    try
-                    {
-                        var lines = jsonstr.split("\n");
-                        for(var i = 0; i < lines.length; i++)
-                        {
-                            var line = lines[i];
-                            if(line)
-                            {
-                                if(line.indexOf("#") === 0)
-                                {
-                                    continue;
-                                }
-
-                                videoList.push({
-                                    quality: line.split(".")[0].split("-")[1].toUpperCase(),
-                                    url: url_hls.replace("hls.m3u8", "") + line
-                                });
-                            }
-                        }
-                        callback(videoList);
-                    }
-                    catch(e)
-                    {
-                        callback(videoList);
-                    }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                    callback(videoList);
-                },
-            });
-        }
-        else
-        {
             callback(videoList);
         }
-    }
+
+        if(host.indexOf("www.xvideos.com") === 0 || host.indexOf("www.xnxx.com") === 0)
+        {
+            if(html5player && html5player.url_hls)
+            {
+                var url_hls = html5player.url_hls;
+                $.ajax({
+                    url: url_hls,
+                    type: "get",
+                    success: function(jsonstr)
+                    {
+                        try
+                        {
+                            var lines = jsonstr.split("\n");
+                            for(var i = 0; i < lines.length; i++)
+                            {
+                                var line = lines[i];
+                                if(line)
+                                {
+                                    if(line.indexOf("#") === 0)
+                                    {
+                                        continue;
+                                    }
+
+                                    videoList.push({
+                                        quality: line.split(".")[0].split("-")[1].toUpperCase(),
+                                        url: url_hls.replace("hls.m3u8", "") + line
+                                    });
+                                }
+                            }
+                            callback(videoList);
+                        }
+                        catch(e)
+                        {
+                            callback(videoList);
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        callback(videoList);
+                    },
+                });
+            }
+            else
+            {
+                callback(videoList);
+            }
+        }
+    };
 })();
