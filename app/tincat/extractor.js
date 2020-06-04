@@ -89,6 +89,57 @@
             return;
         }
 
+        if(host.indexOf("spankbang.com") >= 0)
+        {
+            var video = $("#video");
+            if(video)
+            {
+                var id = video.attr("data-streamkey");
+                if(id)
+                {
+                    $.ajax({
+                        url: "https://m.spankbang.com/api/videos/stream",
+                        type: "post",
+                        data: {
+                            id: id
+                        },
+                        success: function(jsonstr)
+                        {
+                            try
+                            {
+                                for(var key in jsonstr)
+                                {
+                                    if(key.indexOf("m3u8") === 0 && key.indexOf("_") >= 0)
+                                    {
+                                        var videoArray = jsonstr[key];
+                                        if(videoArray.length > 0)
+                                        {
+                                            videoList.push({
+                                                quality: key.split("_")[1].toUpperCase(),
+                                                url: videoArray[0]
+                                            });
+                                        }
+                                    }
+                                }
+
+                                callback(videoList);
+                            }
+                            catch(e)
+                            {
+                                callback(videoList);
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown)
+                        {
+                            callback(videoList);
+                        },
+                    });
+                }
+            }
+
+            return;
+        }
+
         callback(videoList);
     };
 })();
