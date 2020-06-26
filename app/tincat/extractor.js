@@ -1,5 +1,10 @@
 (function()
 {
+    if(!window.tincat)
+    {
+        window.tincat = {};
+    }
+
     window.tincat.extractVideos = function(callback)
     {
         var host = location.href.replace("http://", "").replace("https://", "").split("/")[0];
@@ -152,9 +157,16 @@
                     if(dataStore)
                     {
                         var json = JSON.parse(dataStore);
-                        console.log(json.src);
+                        if(json.src)
+                        {
+                            videoList.push({
+                                url: json.src
+                            });
+                        }
                     }
                 }
+
+                callback(videoList);
             }
             catch(e)
             {
