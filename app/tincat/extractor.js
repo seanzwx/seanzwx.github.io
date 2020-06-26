@@ -140,6 +140,29 @@
             return;
         }
 
+        if(host.indexOf("facebook.com") >= 0)
+        {
+            try
+            {
+                var div = document.querySelectorAll("[data-sigil=inlineVideo]");
+                for(var i = 0; i < div.length; i++)
+                {
+                    var it = div[i];
+                    var dataStore = it.getAttribute("data-store");
+                    if(dataStore)
+                    {
+                        var json = JSON.parse(dataStore);
+                        console.log(json.src);
+                    }
+                }
+            }
+            catch(e)
+            {
+                callback(videoList);
+            }
+            return;
+        }
+
         callback(videoList);
     };
 })();
