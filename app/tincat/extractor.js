@@ -1,5 +1,10 @@
 (function()
 {
+    if(!window.tincat)
+    {
+        window.tincat = {};
+    }
+
     window.tincat.extractVideos = function(callback)
     {
         var host = location.href.replace("http://", "").replace("https://", "").split("/")[0];
@@ -137,6 +142,36 @@
                 }
             }
 
+            return;
+        }
+
+        if(host.indexOf("facebook.com") >= 0)
+        {
+            try
+            {
+                var div = document.querySelectorAll("[data-sigil=inlineVideo]");
+                for(var i = 0; i < div.length; i++)
+                {
+                    var it = div[i];
+                    var dataStore = it.getAttribute("data-store");
+                    if(dataStore)
+                    {
+                        var json = JSON.parse(dataStore);
+                        if(json.src)
+                        {
+                            videoList.push({
+                                url: json.src
+                            });
+                        }
+                    }
+                }
+
+                callback(videoList);
+            }
+            catch(e)
+            {
+                callback(videoList);
+            }
             return;
         }
 
