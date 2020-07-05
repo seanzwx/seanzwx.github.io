@@ -1,0 +1,10 @@
+{
+	"version": 1,
+	"webapps": [
+		{
+			"name": "Tincat Browser",
+			"url": "https://seanzwx.github.io/webapp/tincat/index.html",
+			"version": 1
+		}
+	]
+}
