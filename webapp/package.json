@@ -2,7 +2,7 @@
 	"version": 1,
 	"webapps": [
 		{
-			"name": "Tincat Browser",
+			"name": "Tincat",
 			"url": "https://seanzwx.github.io/webapp/tincat/index.html",
 			"version": 1
 		}
