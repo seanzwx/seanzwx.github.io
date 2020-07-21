@@ -263,11 +263,71 @@
             else
             {
                 callback(videoList);
-                return;
             }
+            return;
+        }
+
+        if(host.indexOf("vimeo.com") >= 0)
+        {
+            var div = document.querySelector("div[data-config-url]");
+            if(div)
+            {
+                var configUrl = div.getAttribute("data-config-url");
+                if(configUrl)
+                {
+                    var httpclient = new XMLHttpRequest();
+                    httpclient.onreadystatechange = function()
+                    {
+                        if(httpclient.readyState == 4)
+                        {
+                            if(httpclient.status == 200)
+                            {
+                                var responseText = httpclient.responseText;
+                                try
+                                {
+                                    var videoQuality = {};
+                                    var data = JSON.parse(responseText);
+                                    var progressive = data.request.files.progressive;
+                                    for(var i = 0; i < progressive.length; i++)
+                                    {
+                                        var it = progressive[i];
+                                        videoQuality[it.height + "P"] = it.url;
+                                    }
+
+                                    for(var key in videoQuality)
+                                    {
+                                        videoList.push({
+                                            quality: key,
+                                            url: videoQuality[key]
+                                        });
+                                    }
+                                    callback(videoList);
+                                }
+                                catch(e)
+                                {
+                                    callback(videoList);
+                                }
+                            }
+                            else
+                            {
+                                callback(videoList);
+                            }
+                        }
+                    };
+                    httpclient.open("GET", configUrl, true);
+                    httpclient.send(null);
+                    return;
+                }
+            }
+            callback(videoList);
             return;
         }
 
         callback(videoList);
     };
+
+    window.tincat.extractVideos(function(videoList)
+    {
+        console.log(JSON.stringify(videoList, null, 3));
+    });
 })();
