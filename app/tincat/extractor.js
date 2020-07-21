@@ -7,7 +7,7 @@
 
     window.tincat.extractVideos = function(callback)
     {
-        var host = location.href.replace("http://", "").replace("https://", "").split("/")[0];
+        var host = location.host;
         var videoList = [];
 
         if(host.indexOf("pornhub.com") >= 0)
@@ -171,6 +171,99 @@
             catch(e)
             {
                 callback(videoList);
+            }
+            return;
+        }
+
+        if(host.indexOf("dailymotion.com") >= 0)
+        {
+            var pathname = location.pathname;
+            if(pathname.indexOf("/video/") === 0)
+            {
+                $.ajax({
+                    url: "https://www.dailymotion.com/player/metadata" + pathname,
+                    type: "get",
+                    success: function(jsonstr)
+                    {
+                        var master = null;
+                        try
+                        {
+                            var master = jsonstr.qualities.auto[0].url;
+                        }
+                        catch(e)
+                        {
+                            callback(videoList);
+                            return;
+                        }
+
+                        $.ajax({
+                            url: master,
+                            type: "get",
+                            success: function(jsonstr)
+                            {
+                                try
+                                {
+                                    var quality = "";
+                                    var videoQuality = {};
+
+                                    var lines = jsonstr.split("\n");
+                                    for(var i = 0; i < lines.length; i++)
+                                    {
+                                        var line = lines[i];
+                                        if(line === "")
+                                        {
+                                            continue;
+                                        }
+
+                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
+                                        {
+                                            var tmp = line.split(",");
+                                            for(var j = 0; j < tmp.length; j++)
+                                            {
+                                                var kv = tmp[j];
+                                                if(kv.indexOf("NAME") === 0)
+                                                {
+                                                    quality = kv.split("=")[1].replace(/\"/g, "") + "P";
+                                                }
+                                            }
+                                        }
+
+                                        if(line.indexOf("#") !== 0)
+                                        {
+                                            videoQuality[quality] = line.trim();
+                                        }
+                                    }
+
+                                    for(var key in videoQuality)
+                                    {
+                                        videoList.push({
+                                            quality: key,
+                                            url: videoQuality[key]
+                                        });
+                                    }
+                                    callback(videoList);
+                                }
+                                catch(e)
+                                {
+                                    callback(videoList);
+                                }
+                            },
+                            error: function(XMLHttpRequest, textStatus, errorThrown)
+                            {
+                                callback(videoList);
+                            },
+                        });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        callback(videoList);
+                    },
+                });
+            }
+            else
+            {
+                callback(videoList);
+                return;
             }
             return;
         }
