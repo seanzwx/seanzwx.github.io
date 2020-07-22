@@ -1,10 +1,10 @@
 {
-	"version": 1,
+	"version": 2,
 	"webapps": [
 		{
 			"name": "Tincat",
 			"url": "https://seanzwx.github.io/webapp/tincat/index.html",
-			"version": 1
+			"version": 2
 		}
 	]
 }
