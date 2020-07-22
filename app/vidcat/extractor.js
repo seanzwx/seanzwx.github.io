@@ -324,6 +324,100 @@
             return;
         }
 
+        if(host.indexOf("twitter.com") >= 0)
+        {
+            if(!window.VidcatPlusNative.getInterceptVideoList)
+            {
+                callback(videoList);
+                return;
+            }
+
+            var interceptVideo = window.VidcatPlusNative.getInterceptVideoList();
+            interceptVideo = JSON.parse(interceptVideo);
+            if(interceptVideo.length > 0)
+            {
+                var master;
+                for(var i = 0; i < interceptVideo.length; i++)
+                {
+                    var url = interceptVideo[i];
+                    var tmp = url.split("/");
+                    for(var j = 0; j < tmp.length; j++)
+                    {
+                        if(tmp[j] === "pl")
+                        {
+                            var next = tmp[j + 1];
+                            if(next.indexOf("m3u8") >= 0)
+                            {
+                                master = url;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(master)
+                {
+                    var httpclient = new XMLHttpRequest();
+                    httpclient.onreadystatechange = function()
+                    {
+                        if(httpclient.readyState == 4)
+                        {
+                            if(httpclient.status == 200)
+                            {
+                                try
+                                {
+                                    var quality;
+                                    var lines = httpclient.responseText.split("\n");
+                                    for(var i = 0; i < lines.length; i++)
+                                    {
+                                        var line = lines[i];
+                                        if(line === "")
+                                        {
+                                            continue;
+                                        }
+
+                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
+                                        {
+                                            var tmp = line.split(",");
+                                            for(var j = 0; j < tmp.length; j++)
+                                            {
+                                                var kv = tmp[j];
+                                                if(kv.indexOf("RESOLUTION") === 0)
+                                                {
+                                                    quality = kv.split("=")[1];
+                                                }
+                                            }
+                                        }
+
+                                        if(line.indexOf("#") !== 0)
+                                        {
+                                            videoList.push({
+                                                quality: quality,
+                                                url: "https://video.twimg.com" + line.trim()
+                                            });
+                                        }
+                                    }
+                                    callback(videoList);
+                                }
+                                catch(e)
+                                {
+                                    callback(videoList);
+                                }
+                            }
+                            else
+                            {
+                                callback(videoList);
+                            }
+                        }
+                    };
+                    httpclient.open("GET", master, true);
+                    httpclient.send(null);
+                    return;
+                }
+            }
+            callback(videoList);
+            return;
+        }
+
         callback(videoList);
     };
 })();
