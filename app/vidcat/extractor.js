@@ -220,7 +220,7 @@
                                             var tmp = line.split(",");
                                             for(var j = 0; j < tmp.length; j++)
                                             {
-                                                var kv = tmp[j];
+                                                var kv = tmp[j].trim();
                                                 if(kv.indexOf("NAME") === 0)
                                                 {
                                                     quality = kv.split("=")[1].replace(/\"/g, "") + "P";
@@ -380,7 +380,7 @@
                                             var tmp = line.split(",");
                                             for(var j = 0; j < tmp.length; j++)
                                             {
-                                                var kv = tmp[j];
+                                                var kv = tmp[j].trim();
                                                 if(kv.indexOf("RESOLUTION") === 0)
                                                 {
                                                     quality = kv.split("=")[1];
@@ -393,6 +393,83 @@
                                             videoList.push({
                                                 quality: quality,
                                                 url: "https://video.twimg.com" + line.trim()
+                                            });
+                                        }
+                                    }
+                                    callback(videoList);
+                                }
+                                catch(e)
+                                {
+                                    callback(videoList);
+                                }
+                            }
+                            else
+                            {
+                                callback(videoList);
+                            }
+                        }
+                    };
+                    httpclient.open("GET", master, true);
+                    httpclient.send(null);
+                    return;
+                }
+            }
+            callback(videoList);
+            return;
+        }
+
+        if(host.indexOf("metacafe.com") >= 0)
+        {
+            var video = document.querySelector("video");
+            if(video)
+            {
+                var master = video.src;
+                if(master)
+                {
+                    var httpclient = new XMLHttpRequest();
+                    httpclient.onreadystatechange = function()
+                    {
+                        if(httpclient.readyState == 4)
+                        {
+                            if(httpclient.status == 200)
+                            {
+                                var baseUrl = "";
+                                var tmp = master.split("/");
+                                for(var i = 0; i < tmp.length - 1; i++)
+                                {
+                                    baseUrl += tmp[i] + "/";
+                                }
+
+                                try
+                                {
+                                    var quality;
+                                    var lines = httpclient.responseText.split("\n");
+                                    for(var i = 0; i < lines.length; i++)
+                                    {
+                                        var line = lines[i];
+                                        if(line === "")
+                                        {
+                                            continue;
+                                        }
+
+                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
+                                        {
+                                            var tmp = line.split(",");
+                                            for(var j = 0; j < tmp.length; j++)
+                                            {
+                                                var kv = tmp[j].trim();
+                                                if(kv.indexOf("RESOLUTION") === 0)
+                                                {
+                                                    quality = kv.split("=")[1];
+                                                }
+                                            }
+                                        }
+
+                                        if(line.indexOf("#") !== 0)
+                                        {
+                                            videoList.push({
+                                                quality: quality,
+                                                url: baseUrl + line.trim()
                                             });
                                         }
                                     }
