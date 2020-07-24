@@ -4,14 +4,117 @@
     {
         window.tincat = {};
     }
+    var Native = window.TincatPlusNative;
+
+    var extractM3U8Master = function(masterUrl, callback)
+    {
+        if(!masterUrl)
+        {
+            callback([]);
+            return;
+        }
+
+        var httpclient = new XMLHttpRequest();
+        httpclient.onreadystatechange = function()
+        {
+            if(httpclient.readyState == 4)
+            {
+                if(httpclient.status == 200)
+                {
+                    console.log(httpclient.responseText);
+
+                    try
+                    {
+                        var videoList = [];
+
+                        var quality;
+                        var lines = httpclient.responseText.split("\n");
+                        for(var i = 0; i < lines.length; i++)
+                        {
+                            var line = lines[i];
+                            if(line === "")
+                            {
+                                continue;
+                            }
+
+                            if(line.indexOf("#EXT-X-STREAM-INF") === 0)
+                            {
+                                var tmp = line.split(",");
+                                for(var j = 0; j < tmp.length; j++)
+                                {
+                                    var kv = tmp[j].trim();
+                                    if(kv.toUpperCase().indexOf("RESOLUTION") === 0)
+                                    {
+                                        quality = kv.split("=")[1].trim();
+                                    }
+                                }
+                            }
+
+                            if(line.indexOf("#") !== 0)
+                            {
+                                var masterURL = new URL(masterUrl);
+                                var m3u8Url = line.trim();
+                                var url = null;
+
+                                if(m3u8Url.indexOf("http") === 0)
+                                {
+                                    url = m3u8Url;
+                                }
+                                else if(m3u8Url.indexOf("/") === 0)
+                                {
+                                    url = masterURL.protocol + "//" + masterURL.host + m3u8Url;
+                                }
+                                else
+                                {
+                                    url = masterURL.protocol + "//" + masterURL.host;
+                                    var tmp = masterURL.pathname.split("/");
+                                    for(var j = 0; j < tmp.length - 1; j++)
+                                    {
+                                        url += tmp[j] + "/";
+                                    }
+                                    url += m3u8Url;
+                                }
+
+                                videoList.push({
+                                    quality: quality,
+                                    url: url
+                                });
+                            }
+                        }
+                        callback(videoList);
+                    }
+                    catch(e)
+                    {
+                        console.log(e);
+                        callback([]);
+                    }
+                }
+                else
+                {
+                    callback([]);
+                }
+            }
+        };
+        httpclient.open("GET", masterUrl, true);
+        httpclient.send(null);
+    };
+
+    var responseVideoList = function(callback, videoList)
+    {
+        if(!videoList)
+        {
+            videoList = [];
+        }
+        callback(videoList);
+    };
 
     window.tincat.extractVideos = function(callback)
     {
         var host = location.host;
-        var videoList = [];
 
         if(host.indexOf("pornhub.com") >= 0)
         {
+            var videoList = [];
             for(var key in window)
             {
                 if(key.indexOf("flashvars") === 0)
@@ -38,110 +141,31 @@
                 }
             }
 
-            callback(videoList);
+            responseVideoList(callback, videoList);
             return;
         }
 
         if(host.indexOf("xvideos.com") >= 0 || host.indexOf("xnxx.com") >= 0)
         {
-            if(html5player && html5player.url_hls)
+            if(!html5player || !html5player.url_hls)
             {
-                var url_hls = html5player.url_hls;
-                $.ajax({
-                    url: url_hls,
-                    type: "get",
-                    success: function(jsonstr)
-                    {
-                        try
-                        {
-                            var index = url_hls.lastIndexOf("/");
-                            var baseUrl = url_hls.substring(0, index) + "/";
-
-                            var lines = jsonstr.split("\n");
-                            for(var i = 0; i < lines.length; i++)
-                            {
-                                var line = lines[i];
-                                if(line)
-                                {
-                                    if(line.indexOf("#") === 0)
-                                    {
-                                        continue;
-                                    }
-
-                                    videoList.push({
-                                        quality: line.split(".")[0].split("-")[1].toUpperCase(),
-                                        url: baseUrl + line
-                                    });
-                                }
-                            }
-                            callback(videoList);
-                        }
-                        catch(e)
-                        {
-                            callback(videoList);
-                        }
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown)
-                    {
-                        callback(videoList);
-                    },
-                });
+                responseVideoList(callback);
+                return;
             }
-            else
-            {
-                callback(videoList);
-            }
+
+            extractM3U8Master(html5player.url_hls, callback);
             return;
         }
 
         if(host.indexOf("spankbang.com") >= 0)
         {
-            var video = $("#video");
-            if(video)
+            if(!stream_data || !stream_data.m3u8)
             {
-                var id = video.attr("data-streamkey");
-                if(id)
-                {
-                    $.ajax({
-                        url: "https://m.spankbang.com/api/videos/stream",
-                        type: "post",
-                        data: {
-                            id: id
-                        },
-                        success: function(jsonstr)
-                        {
-                            try
-                            {
-                                for(var key in jsonstr)
-                                {
-                                    if(key.indexOf("m3u8") === 0 && key.indexOf("_") >= 0)
-                                    {
-                                        var videoArray = jsonstr[key];
-                                        if(videoArray.length > 0)
-                                        {
-                                            videoList.push({
-                                                quality: key.split("_")[1].toUpperCase(),
-                                                url: videoArray[0]
-                                            });
-                                        }
-                                    }
-                                }
-
-                                callback(videoList);
-                            }
-                            catch(e)
-                            {
-                                callback(videoList);
-                            }
-                        },
-                        error: function(XMLHttpRequest, textStatus, errorThrown)
-                        {
-                            callback(videoList);
-                        },
-                    });
-                }
+                responseVideoList(callback);
+                return;
             }
 
+            extractM3U8Master(stream_data.m3u8, callback);
             return;
         }
 
@@ -149,6 +173,7 @@
         {
             try
             {
+                var videoList = [];
                 var div = document.querySelectorAll("[data-sigil=inlineVideo]");
                 for(var i = 0; i < div.length; i++)
                 {
@@ -165,12 +190,11 @@
                         }
                     }
                 }
-
-                callback(videoList);
+                responseVideoList(callback, videoList);
             }
             catch(e)
             {
-                callback(videoList);
+                responseVideoList(callback);
             }
             return;
         }
@@ -178,322 +202,182 @@
         if(host.indexOf("dailymotion.com") >= 0)
         {
             var pathname = location.pathname;
-            if(pathname.indexOf("/video/") === 0)
+            if(pathname.indexOf("/video/") !== 0)
             {
-                $.ajax({
-                    url: "https://www.dailymotion.com/player/metadata" + pathname,
-                    type: "get",
-                    success: function(jsonstr)
-                    {
-                        var master = null;
-                        try
-                        {
-                            var master = jsonstr.qualities.auto[0].url;
-                        }
-                        catch(e)
-                        {
-                            callback(videoList);
-                            return;
-                        }
-
-                        $.ajax({
-                            url: master,
-                            type: "get",
-                            success: function(jsonstr)
-                            {
-                                try
-                                {
-                                    var quality = "";
-                                    var videoQuality = {};
-
-                                    var lines = jsonstr.split("\n");
-                                    for(var i = 0; i < lines.length; i++)
-                                    {
-                                        var line = lines[i];
-                                        if(line === "")
-                                        {
-                                            continue;
-                                        }
-
-                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
-                                        {
-                                            var tmp = line.split(",");
-                                            for(var j = 0; j < tmp.length; j++)
-                                            {
-                                                var kv = tmp[j].trim();
-                                                if(kv.indexOf("NAME") === 0)
-                                                {
-                                                    quality = kv.split("=")[1].replace(/\"/g, "") + "P";
-                                                }
-                                            }
-                                        }
-
-                                        if(line.indexOf("#") !== 0)
-                                        {
-                                            videoQuality[quality] = line.trim();
-                                        }
-                                    }
-
-                                    for(var key in videoQuality)
-                                    {
-                                        videoList.push({
-                                            quality: key,
-                                            url: videoQuality[key]
-                                        });
-                                    }
-                                    callback(videoList);
-                                }
-                                catch(e)
-                                {
-                                    callback(videoList);
-                                }
-                            },
-                            error: function(XMLHttpRequest, textStatus, errorThrown)
-                            {
-                                callback(videoList);
-                            },
-                        });
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown)
-                    {
-                        callback(videoList);
-                    },
-                });
+                responseVideoList(callback);
+                return;
             }
-            else
-            {
-                callback(videoList);
-            }
+
+            $.ajax({
+                url: "https://www.dailymotion.com/player/metadata" + pathname,
+                type: "get",
+                success: function(jsonstr)
+                {
+                    try
+                    {
+                        var master = jsonstr.qualities.auto[0].url;
+                        extractM3U8Master(master, callback);
+                    }
+                    catch(e)
+                    {
+                        responseVideoList(callback);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown)
+                {
+                    responseVideoList(callback);
+                },
+            });
             return;
         }
 
         if(host.indexOf("vimeo.com") >= 0)
         {
             var div = document.querySelector("div[data-config-url]");
-            if(div)
+            if(!div)
             {
-                var configUrl = div.getAttribute("data-config-url");
-                if(configUrl)
-                {
-                    var httpclient = new XMLHttpRequest();
-                    httpclient.onreadystatechange = function()
-                    {
-                        if(httpclient.readyState == 4)
-                        {
-                            if(httpclient.status == 200)
-                            {
-                                var responseText = httpclient.responseText;
-                                try
-                                {
-                                    var videoQuality = {};
-                                    var data = JSON.parse(responseText);
-                                    var progressive = data.request.files.progressive;
-                                    for(var i = 0; i < progressive.length; i++)
-                                    {
-                                        var it = progressive[i];
-                                        videoQuality[it.height + "P"] = it.url;
-                                    }
-
-                                    for(var key in videoQuality)
-                                    {
-                                        videoList.push({
-                                            quality: key,
-                                            url: videoQuality[key]
-                                        });
-                                    }
-                                    callback(videoList);
-                                }
-                                catch(e)
-                                {
-                                    callback(videoList);
-                                }
-                            }
-                            else
-                            {
-                                callback(videoList);
-                            }
-                        }
-                    };
-                    httpclient.open("GET", configUrl, true);
-                    httpclient.send(null);
-                    return;
-                }
+                responseVideoList(callback);
+                return;
             }
-            callback(videoList);
+
+            var configUrl = div.getAttribute("data-config-url");
+            if(!configUrl)
+            {
+                responseVideoList(callback);
+                return;
+            }
+
+            var httpclient = new XMLHttpRequest();
+            httpclient.onreadystatechange = function()
+            {
+                if(httpclient.readyState == 4)
+                {
+                    if(httpclient.status == 200)
+                    {
+                        try
+                        {
+                            var videoList = [];
+                            var videoQuality = {};
+                            var data = JSON.parse(httpclient.responseText);
+                            var progressive = data.request.files.progressive;
+                            for(var i = 0; i < progressive.length; i++)
+                            {
+                                var it = progressive[i];
+                                videoQuality[it.height + "P"] = it.url;
+                            }
+
+                            for(var key in videoQuality)
+                            {
+                                videoList.push({
+                                    quality: key,
+                                    url: videoQuality[key]
+                                });
+                            }
+                            responseVideoList(callback, videoList);
+                        }
+                        catch(e)
+                        {
+                            responseVideoList(callback);
+                        }
+                    }
+                    else
+                    {
+                        responseVideoList(callback);
+                    }
+                }
+            };
+            httpclient.open("GET", configUrl, true);
+            httpclient.send(null);
             return;
         }
 
         if(host.indexOf("twitter.com") >= 0)
         {
-            if(!window.TincatPlusNative.getInterceptVideoList)
+            if(!Native.getInterceptVideoList)
             {
-                callback(videoList);
+                responseVideoList(callback);
                 return;
             }
 
-            var interceptVideo = window.TincatPlusNative.getInterceptVideoList();
+            var interceptVideo = Native.getInterceptVideoList();
             interceptVideo = JSON.parse(interceptVideo);
-            if(interceptVideo.length > 0)
+            if(interceptVideo.length <= 0)
             {
-                var master;
-                for(var i = 0; i < interceptVideo.length; i++)
+                responseVideoList(callback);
+                return;
+            }
+
+            var master;
+            for(var i = 0; i < interceptVideo.length; i++)
+            {
+                var url = interceptVideo[i];
+                var tmp = url.split("/");
+                for(var j = 0; j < tmp.length; j++)
                 {
-                    var url = interceptVideo[i];
-                    var tmp = url.split("/");
-                    for(var j = 0; j < tmp.length; j++)
+                    if(tmp[j] === "pl")
                     {
-                        if(tmp[j] === "pl")
+                        var next = tmp[j + 1];
+                        if(next.indexOf("m3u8") >= 0)
                         {
-                            var next = tmp[j + 1];
-                            if(next.indexOf("m3u8") >= 0)
-                            {
-                                master = url;
-                                break;
-                            }
+                            master = url;
+                            break;
                         }
                     }
                 }
-                if(master)
-                {
-                    var httpclient = new XMLHttpRequest();
-                    httpclient.onreadystatechange = function()
-                    {
-                        if(httpclient.readyState == 4)
-                        {
-                            if(httpclient.status == 200)
-                            {
-                                try
-                                {
-                                    var quality;
-                                    var lines = httpclient.responseText.split("\n");
-                                    for(var i = 0; i < lines.length; i++)
-                                    {
-                                        var line = lines[i];
-                                        if(line === "")
-                                        {
-                                            continue;
-                                        }
-
-                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
-                                        {
-                                            var tmp = line.split(",");
-                                            for(var j = 0; j < tmp.length; j++)
-                                            {
-                                                var kv = tmp[j].trim();
-                                                if(kv.indexOf("RESOLUTION") === 0)
-                                                {
-                                                    quality = kv.split("=")[1];
-                                                }
-                                            }
-                                        }
-
-                                        if(line.indexOf("#") !== 0)
-                                        {
-                                            videoList.push({
-                                                quality: quality,
-                                                url: "https://video.twimg.com" + line.trim()
-                                            });
-                                        }
-                                    }
-                                    callback(videoList);
-                                }
-                                catch(e)
-                                {
-                                    callback(videoList);
-                                }
-                            }
-                            else
-                            {
-                                callback(videoList);
-                            }
-                        }
-                    };
-                    httpclient.open("GET", master, true);
-                    httpclient.send(null);
-                    return;
-                }
             }
-            callback(videoList);
+            extractM3U8Master(master, callback);
             return;
         }
 
         if(host.indexOf("metacafe.com") >= 0)
         {
             var video = document.querySelector("video");
-            if(video)
+            if(!video)
             {
-                var master = video.src;
-                if(master)
-                {
-                    var httpclient = new XMLHttpRequest();
-                    httpclient.onreadystatechange = function()
-                    {
-                        if(httpclient.readyState == 4)
-                        {
-                            if(httpclient.status == 200)
-                            {
-                                var baseUrl = "";
-                                var tmp = master.split("/");
-                                for(var i = 0; i < tmp.length - 1; i++)
-                                {
-                                    baseUrl += tmp[i] + "/";
-                                }
-
-                                try
-                                {
-                                    var quality;
-                                    var lines = httpclient.responseText.split("\n");
-                                    for(var i = 0; i < lines.length; i++)
-                                    {
-                                        var line = lines[i];
-                                        if(line === "")
-                                        {
-                                            continue;
-                                        }
-
-                                        if(line.indexOf("#EXT-X-STREAM-INF") === 0)
-                                        {
-                                            var tmp = line.split(",");
-                                            for(var j = 0; j < tmp.length; j++)
-                                            {
-                                                var kv = tmp[j].trim();
-                                                if(kv.indexOf("RESOLUTION") === 0)
-                                                {
-                                                    quality = kv.split("=")[1];
-                                                }
-                                            }
-                                        }
-
-                                        if(line.indexOf("#") !== 0)
-                                        {
-                                            videoList.push({
-                                                quality: quality,
-                                                url: baseUrl + line.trim()
-                                            });
-                                        }
-                                    }
-                                    callback(videoList);
-                                }
-                                catch(e)
-                                {
-                                    callback(videoList);
-                                }
-                            }
-                            else
-                            {
-                                callback(videoList);
-                            }
-                        }
-                    };
-                    httpclient.open("GET", master, true);
-                    httpclient.send(null);
-                    return;
-                }
+                responseVideoList(callback);
+                return;
             }
-            callback(videoList);
+
+            extractM3U8Master(video.src, callback);
             return;
         }
 
-        callback(videoList);
+        if(host.indexOf("twitch.tv") >= 0)
+        {
+            if(!Native.getInterceptVideoList)
+            {
+                responseVideoList(callback);
+                return;
+            }
+
+            var interceptVideo = Native.getInterceptVideoList();
+            interceptVideo = JSON.parse(interceptVideo);
+            if(interceptVideo.length <= 0)
+            {
+                responseVideoList(callback);
+                return;
+            }
+
+            var videoId = location.pathname.replace("/", "") + ".m3u8";
+            var master;
+            for(var i = 0; i < interceptVideo.length; i++)
+            {
+                var url = interceptVideo[i];
+                if(url.indexOf(videoId) > 0)
+                {
+                    master = url;
+                    break;
+                }
+            }
+            extractM3U8Master(master, callback);
+            return;
+        }
+
+        responseVideoList(callback);
     };
+
+    window.tincat.extractVideos(function(videoList)
+    {
+        console.log(JSON.stringify(videoList, null, 3));
+    });
 })();
