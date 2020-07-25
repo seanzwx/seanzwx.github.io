@@ -285,12 +285,6 @@
             }
 
             var configUrl = div.getAttribute("data-config-url");
-            if(!configUrl)
-            {
-                responseVideoList(callback);
-                return;
-            }
-
             var httpclient = new XMLHttpRequest();
             httpclient.onreadystatechange = function()
             {
@@ -345,12 +339,6 @@
 
             var interceptVideo = Native.getInterceptVideoList();
             interceptVideo = JSON.parse(interceptVideo);
-            if(interceptVideo.length <= 0)
-            {
-                responseVideoList(callback);
-                return;
-            }
-
             var master;
             for(var i = 0; i < interceptVideo.length; i++)
             {
@@ -396,12 +384,6 @@
 
             var interceptVideo = Native.getInterceptVideoList();
             interceptVideo = JSON.parse(interceptVideo);
-            if(interceptVideo.length <= 0)
-            {
-                responseVideoList(callback);
-                return;
-            }
-
             var videoId = location.pathname.replace("/", "") + ".m3u8";
             var master;
             for(var i = 0; i < interceptVideo.length; i++)
