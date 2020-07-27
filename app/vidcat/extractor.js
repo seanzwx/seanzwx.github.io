@@ -37,10 +37,12 @@
                 try
                 {
                     console.log(httpclient.responseText);
+                    var isMaster = false;
                     var videoList = [];
                     var quality;
                     var sortable = false;
                     var lines = httpclient.responseText.split("\n");
+
                     for(var i = 0; i < lines.length; i++)
                     {
                         var line = lines[i].trim();
@@ -51,6 +53,8 @@
 
                         if(line.indexOf("#EXT-X-STREAM-INF") === 0)
                         {
+                            isMaster = true;
+
                             var tmp = line.split(",");
                             for(var j = 0; j < tmp.length; j++)
                             {
@@ -87,6 +91,11 @@
                                 url += m3u8Url;
                             }
 
+                            if(!quality)
+                            {
+                                quality = "unknown";
+                            }
+
                             if(quality.toLowerCase().indexOf("x") !== -1)
                             {
                                 quality = quality.toLowerCase().split("x")[1].trim() + "P";
@@ -116,24 +125,34 @@
                         }
                     }
 
-                    if(videoList.length > 1 && sortable)
+                    if(isMaster)
                     {
-                        for(i = 0; i < videoList.length - 1; i++)
+                        if(videoList.length > 1 && sortable)
                         {
-                            for(j = 0; j < videoList.length - 1 - i; j++)
+                            for(i = 0; i < videoList.length - 1; i++)
                             {
-                                var curr = parseInt(videoList[j].quality.replace("P", ""));
-                                var next = parseInt(videoList[j + 1].quality.replace("P", ""));
-                                if(curr < next)
+                                for(j = 0; j < videoList.length - 1 - i; j++)
                                 {
-                                    var temp = videoList[j];
-                                    videoList[j] = videoList[j + 1];
-                                    videoList[j + 1] = temp;
+                                    var curr = parseInt(videoList[j].quality.replace("P", ""));
+                                    var next = parseInt(videoList[j + 1].quality.replace("P", ""));
+                                    if(curr < next)
+                                    {
+                                        var temp = videoList[j];
+                                        videoList[j] = videoList[j + 1];
+                                        videoList[j + 1] = temp;
+                                    }
                                 }
                             }
                         }
+                        responseVideoList(callback, videoList);
                     }
-                    responseVideoList(callback, videoList);
+                    else
+                    {
+                        responseVideoList(callback, [{
+                            url: masterUrl,
+                            quality: "unknown"
+                        }]);
+                    }
                 }
                 catch(e)
                 {
@@ -396,6 +415,46 @@
                 }
             }
             extractM3U8Master(master, callback);
+            return;
+        }
+
+        if(host.indexOf("lang.live") >= 0)
+        {
+            var pathname = location.pathname;
+            if(pathname.indexOf("/room/") !== 0)
+            {
+                responseVideoList(callback);
+                return;
+            }
+
+            var roomId = pathname.split("/")[2];
+            var url = "https://langapi.lv-show.com/langweb/v1/room/liveinfo?room_id=" + roomId;
+            var httpclient = new XMLHttpRequest();
+            httpclient.onreadystatechange = function()
+            {
+                if(httpclient.readyState == 4)
+                {
+                    if(httpclient.status == 200)
+                    {
+                        try
+                        {
+                            var data = JSON.parse(httpclient.responseText);
+                            var master = data.data.live_info.liveurl_hls;
+                            extractM3U8Master(master, callback);
+                        }
+                        catch(e)
+                        {
+                            responseVideoList(callback);
+                        }
+                    }
+                    else
+                    {
+                        responseVideoList(callback);
+                    }
+                }
+            };
+            httpclient.open("GET", url, true);
+            httpclient.send(null);
             return;
         }
 
