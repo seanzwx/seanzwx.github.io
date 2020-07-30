@@ -1,10 +1,10 @@
 {
-	"version": 6,
+	"version": 67,
 	"webapps": [
 		{
 			"name": "Tincat",
 			"url": "https://seanzwx.github.io/webapp/release/tincat/index.html",
-			"version": 5
+			"version": 6
 		},
 		{
 			"name": "Vidcat",
