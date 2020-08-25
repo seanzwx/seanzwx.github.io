@@ -280,7 +280,8 @@
                     {
                         try
                         {
-                            var master = jsonstr.qualities.auto[0].url;
+                            var data = JSON.parse(httpclient.responseText);
+                            var master = data.qualities.auto[0].url;
                             extractM3U8Master(master, callback);
                         }
                         catch(e)
@@ -294,7 +295,8 @@
                     }
                 }
             };
-            httpclient.open("GET", "https://www.dailymotion.com/player/metadata" + pathname, true);
+            var url = "https://www.dailymotion.com/player/metadata" + pathname;
+            httpclient.open("GET", url, true);
             httpclient.send(null);
             return;
         }
