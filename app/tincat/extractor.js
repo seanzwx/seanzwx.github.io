@@ -467,9 +467,4 @@
 
         responseVideoList(callback);
     };
-
-    window.tincat.extractVideos(function(videoList)
-    {
-        console.log(JSON.stringify(videoList, null, 3));
-    });
 })();
