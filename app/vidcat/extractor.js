@@ -271,26 +271,31 @@
                 return;
             }
 
-            $.ajax({
-                url: "https://www.dailymotion.com/player/metadata" + pathname,
-                type: "get",
-                success: function(jsonstr)
+            var httpclient = new XMLHttpRequest();
+            httpclient.onreadystatechange = function()
+            {
+                if(httpclient.readyState == 4)
                 {
-                    try
+                    if(httpclient.status == 200)
                     {
-                        var master = jsonstr.qualities.auto[0].url;
-                        extractM3U8Master(master, callback);
+                        try
+                        {
+                            var master = jsonstr.qualities.auto[0].url;
+                            extractM3U8Master(master, callback);
+                        }
+                        catch(e)
+                        {
+                            responseVideoList(callback);
+                        }
                     }
-                    catch(e)
+                    else
                     {
                         responseVideoList(callback);
                     }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown)
-                {
-                    responseVideoList(callback);
-                },
-            });
+                }
+            };
+            httpclient.open("GET", "https://www.dailymotion.com/player/metadata" + pathname, true);
+            httpclient.send(null);
             return;
         }
 
