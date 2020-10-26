@@ -469,7 +469,7 @@
         {
             try
             {
-                var master = window.initials.xplayerSettings.sources.hls.fallback;
+                var master = location.protocol + "//" + location.hostname + window.initials.xplayerSettings.sources.hls.fallback;
                 extractM3U8Master(master, callback);
             }
             catch(e)

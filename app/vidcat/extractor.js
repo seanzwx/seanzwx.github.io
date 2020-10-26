@@ -465,6 +465,20 @@
             return;
         }
 
+        if(host.indexOf("xhamster.com") >= 0)
+        {
+            try
+            {
+                var master = location.protocol + "//" + location.hostname + window.initials.xplayerSettings.sources.hls.fallback;
+                extractM3U8Master(master, callback);
+            }
+            catch(e)
+            {
+                responseVideoList(callback);
+            }
+            return;
+        }
+
         responseVideoList(callback);
     };
 })();
