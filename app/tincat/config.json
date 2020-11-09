@@ -4,7 +4,7 @@
 			label: "Video",
 			icon: "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_light.png",
 			darkIcon: "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_dark.png",
-			badge: "",
+			badge: "Hot",
 			type: "webapp",
 			action: "/tincat/index.html#/video"
 		},
