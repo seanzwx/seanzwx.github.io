@@ -14,7 +14,7 @@
 			darkIcon: "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_dark.png",
 			badge: "New",
 			type: "webapp",
-			action: "/tincat/index.html#/live"
+			action: "/tincat/index.html#/tv"
 		},
 		{
 			label: "Game",
