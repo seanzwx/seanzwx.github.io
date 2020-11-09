@@ -12,7 +12,7 @@
 			label: "TV Live",
 			icon: "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_light.png",
 			darkIcon: "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_dark.png",
-			badge: "",
+			badge: "New",
 			type: "webapp",
 			action: "/tincat/index.html#/live"
 		},
