@@ -1,0 +1,900 @@
+#EXTINF: group-title="Entertainment",Adult Swim;
+https://adultswimtv.warnermediacdn.com/hls/live/2007031/livestream/master.m3u8
+#EXTINF: group-title="Entertainment",BlazeTV;
+https://theblaze4.akamaized.net/hls/live//699982/theblaze/cm-dvr/master.m3u8
+#EXTINF: group-title="Entertainment",Buzzr;
+https://buzzr.global.ssl.fastly.net/out/u/buzzr_hls_4.m3u8
+#EXTINF: group-title="Entertainment",ET Live;
+https://etlive-mediapackage-fastly.cbsaavideo.com/dvr/manifest.m3u8?iu=/8264/vaw-can/desktop/cbslocal
+#EXTINF: group-title="Entertainment",MTV (Latin America);
+http://161.0.157.9/PLTV/88888888/224/3221226825/index.m3u8
+#EXTINF: group-title="Entertainment",MTV Norge;
+https://unilivemtveu-lh.akamaihd.net/i/mtvno_1@346424/master.m3u8
+#EXTINF: group-title="Entertainment",USA;
+http://cdnak19.cast4u.info/channels/4/10804.m3u8
+
+#EXTINF: group-title="Fashion",Models Inc.;
+https://bozztv.com/36bay2/gin/giniko_modelinc_2000kb_36bay2/tracks-v1a1/mono.m3u8
+
+#EXTINF: group-title="Local",23 ABC (KERO);
+https://content.uplynk.com/channel/ff809e6d9ec34109abfb333f0d4444b5.m3u8
+#EXTINF: group-title="Local",7News Boston (WHDH);
+https://bcsecurelivehls-i.akamaihd.net/hls/live/598046/4744899807001_1/livestream/master.m3u8
+#EXTINF: group-title="Local",ABC 2 Baton Rouge LA (WBRZ-HD);
+http://cms-wowza.lunabyte.io/wbrz-live-1/_definst_/smil:wbrz-live.smil/playlist.m3u8
+#EXTINF: group-title="Local",ABC 7 Sarasota FL (WWSB);
+https://d2nt5wxzqbe1ad.cloudfront.net/out/raycom-wwsb1-hls/live.m3u8
+#EXTINF: group-title="Local",ABC 9 Chattanooga TN (WTVC);
+https://wxintribune-lh.akamaihd.net/i/WXINTribune_1@120151/master.m3u8
+#EXTINF: group-title="Local",ABC 9 Orlando FL (WFTV-HD);
+https://svc-lvanvato-cxtv-wftv.cmgvideo.com/wftv/2564k/index.m3u8
+#EXTINF: group-title="Local",Action News Jax (WJAX-TV);
+https://svc-lvanvato-cxtv-wjax.cmgvideo.com/wjax/2564k/index.m3u8
+#EXTINF: group-title="Local",Akaku 53 (Hawaii);
+https://akaku.vod.castus.tv/live/ch1.m3u8
+#EXTINF: group-title="Local",Akaku 54 (Hawaii);
+https://akaku.vod.castus.tv/live/ch2.m3u8
+#EXTINF: group-title="Local",Akaku 55 (Hawaii);
+https://akaku.vod.castus.tv/live/ch3.m3u8
+#EXTINF: group-title="Local",Boston 25 News (WFXT);
+https://svc-lvanvato-cxtv-wfxt.cmgvideo.com/wfxt/2564k/index.m3u8
+#EXTINF: group-title="Local",Bowie TV;
+https://granicusliveus3-a.akamaihd.net/cityofbowie/G0466_001/playlist.m3u8
+#EXTINF: group-title="Local",Buffalo TV;
+https://na-all15.secdn.net/pegstream3-live/play/c3e1e4c4-7f11-4a54-8b8f-c590a95b4ade/playlist.m3u8
+#EXTINF: group-title="Local",BUTV10 (Boston University);
+http://butv10-livestream.bu.edu/live/WIFI-2096k-1080p/WIFI-2096k-1080p.m3u8
+#EXTINF: group-title="Local",CBS 9 Washington DC (WUSA-HD);
+https://wusa-lh.akamaihd.net/i/WUSA_Breaking_1@98930/master.m3u8
+#EXTINF: group-title="Local",CBS46 (WGCL-TV);
+https://live.field59.com/wgcl/ngrp:wgcl1_all/playlist.m3u8
+#EXTINF: group-title="Local",Cerritos TV3;
+https://granicusliveus4-a.akamaihd.net/cerritos/G0010_002/chunklist.m3u8
+#EXTINF: group-title="Local",CSUDH TV (Dominguez Hills);
+http://dhtv5.csudh.edu:1935/live/myStream/playlist.m3u8
+#EXTINF: group-title="Local",FOX 23 Tulsa OK (KOKI-TV);
+https://svc-lvanvato-cxtv-koki.cmgvideo.com/koki/2564k/index.m3u8
+#EXTINF: group-title="Local",FOX 23 Tulsa OK (KOKI-TV);
+https://svc-lvanvato-cxtv-koki.cmgvideo.com/koki/master.m3u8
+#EXTINF: group-title="Local",FOX 28 Savannah GA (WTGS);
+https://content.uplynk.com/channel/e56ba52a1b9d45ad8c8a033fd83fe480.m3u8
+#EXTINF: group-title="Local",Galveston County TV;
+https://stream.swagit.com/live-edge/galvestontx/smil:hd-16x9-1-b/playlist.m3u8
+#EXTINF: group-title="Local",Glendale 11;
+https://stream.swagit.com/live-edge/glendaleaz/smil:std-4x3-1-a/chunklist.m3u8
+#EXTINF: group-title="Local",Globesville (New York Institute of Technology);
+https://live-h1.frontlayer.net/fl592468/live/playlist.m3u8
+#EXTINF: group-title="Local",Ion 8 Christiansted VI (WSVI-TV);
+https://dcunilive30-lh.akamaihd.net/i/dclive_1@534251/master.m3u8
+#EXTINF: group-title="Local",KBVR TV;
+https://klive-a.akamaihd.net/dc-0/live/hls/p/391241/e/0_bthpnu1j/sd/10000/t/YwqLo1YivB_aumq-LxAuWg/master.m3u8
+#EXTINF: group-title="Local",KIRO 7 News (KIRO-TV);
+https://svc-lvanvato-cxtv-kiro.cmgvideo.com/kiro/1864k/index.m3u8
+#EXTINF: group-title="Local",KOMO News (KOMO-TV);
+https://content.uplynk.com/2c88dfe19e1447e6a6aa27e8e143a140.m3u8
+#EXTINF: group-title="Local",KTLA 5;
+https://content.uplynk.com/channel/6cbf2d32a5384dc1b787539b1102433c.m3u8
+#EXTINF: group-title="Local",Leominster TV Educational;
+http://edu.leominster.tv/Edu/smil:Edu.smil/playlist.m3u8
+#EXTINF: group-title="Local",Leominster TV Government;
+http://gov.leominster.tv/Gov/smil:Gov.smil/playlist.m3u8
+#EXTINF: group-title="Local",Leominster TV Public;
+http://gov.leominster.tv/Pub/smil:Pub.smil/playlist.m3u8
+#EXTINF: group-title="Local",Lex TV;
+https://granicusliveus2-a.akamaihd.net/lfucg/G0264_002/playlist.m3u8
+#EXTINF: group-title="Local",MCN6;
+http://live.mcn6.org:8180/live/CELL-496k-270p/CELL-496k-270p.m3u8
+#EXTINF: group-title="Local",NBC 11 Pittsburgh PA (WPXI-HD);
+https://svc-lvanvato-cxtv-wpxi.cmgvideo.com/wpxi/2564k/index.m3u8
+#EXTINF: group-title="Local",NBC 15 Madison WI (WMTVNBC);
+https://ad-playlistserver.aws.syncbak.com/playlist/899088/master.m3u8?access_token=eyJhbGciOiJIUzI1NiIsImtpZCI6IkdyYXkyMDE2MDgyOSIsInN1YiI6IioiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3OTAzNjkxMDUsImlzcyI6IldMUyIsIm1kNSI6ImJhZTU4Y2ZlZWM2NmU1MjZkNmVjZmE1YmUzNTQxMzQ4IiwibWlkIjoiODk5MDg4In0.vBWkHmqS3z3dpq8UWfbk4wFd-vQlj6B0up-rpt7X_7Q
+#EXTINF: group-title="Local",NBC 26 (WGBA);
+https://content.uplynk.com/channel/1fbfb28ae5044f619f75ae0adb011989.m3u8
+#EXTINF: group-title="Local",NBC 6 Miami FL (WTVJ);
+http://161.0.157.51/PLTV/88888888/224/3221227040/index.m3u8
+#EXTINF: group-title="Local",NBC Charlotte NC (WCNC-TV);
+https://wcnc-lh.akamaihd.net/i/WCNC_Breaking_1@195112/master.m3u8
+#EXTINF: group-title="Local",NBC San Jose CA (KNTV);
+https://kntvlive-f.akamaihd.net/i/kntvb1_1@15530/master.m3u8
+#EXTINF: group-title="Local",NBC San Jose CA (KNTV);
+https://kntvlive-f.akamaihd.net/i/kntvb2_1@15530/master.m3u8
+#EXTINF: group-title="Local",Olelo 54;
+https://granicusliveus12-a.akamaihd.net/olelo/G0125_012/chunklist.m3u8
+#EXTINF: group-title="Local",Olelo 55;
+https://granicusliveus12-a.akamaihd.net/olelo/G0125_013/chunklist.m3u8
+#EXTINF: group-title="Local",Orange TV;
+http://otv3.ocfl.net:1936/OrangeTV/smil:OrangeTV.smil/playlist.m3u8
+#EXTINF: group-title="Local",TSTV;
+http://tstv-stream.tsm.utexas.edu/hls/livestream_hi/index.m3u8
+#EXTINF: group-title="Local",UALR TV;
+https://na-all23.secdn.net/pegstream3-live/play/65ea794b-dd82-41ce-8e98-a9177289a063/master.m3u8
+#EXTINF: group-title="Local",UWW-TV;
+http://vanadium.uww.edu:1935/uwwlive/smil:uwwtv.smil/playlist.m3u8
+#EXTINF: group-title="Local",WFTV 9;
+https://svc-lv-cxtv-wftv.cmgvideo.com/out/u/WFTVN1.m3u8
+#EXTINF: group-title="Local",WHIO;
+https://svc-lvanvato-cxtv-whio.cmgvideo.com/whio/2596k/index.m3u8
+#EXTINF: group-title="Local",WHPR;
+http://162.244.81.156:1935/whprtv33roku/whprtv33roku/playlist.m3u8
+#EXTINF: group-title="Local",WMFD;
+https://player-api.new.livestream.com/accounts/1194911/events/3466400/live.m3u8
+#EXTINF: group-title="Local",WPEC CBS12 News;
+https://content.uplynk.com/channel/0123b306191a4307a31b9fb573213fd3.m3u8
+
+#EXTINF: group-title="Kids",3ABN KIDS TV;
+https://moiptvhls-i.akamaihd.net/hls/live/652318/secure/master.m3u8
+#EXTINF: group-title="Kids",TCT Kids;
+https://bcoveliveios-i.akamaihd.net/hls/live/206632/1997976452001/FamilyHLS/playlist.m3u8
+
+#EXTINF: group-title="Weather",The Weather Channel;
+https://weather-lh.akamaihd.net/i/twc_1@92006/master.m3u8
+#EXTINF: group-title="Weather",Weather Nation;
+https://cdnapi.kaltura.com/p/931702/sp/93170200/playManifest/entryId/1_oorxcge2/format/applehttp/protocol/http/uiConfId/28428751.m3u8
+#EXTINF: group-title="Weather",WeatherNation TV;
+https://cdnapi.kaltura.com/p/931702/sp/93170200/playManifest/entryId/1_oorxcge2/format/applehttp/protocol/http/uiConfId/28428751/a.m3u8
+
+#EXTINF: group-title="Shop",HSN;
+https://html5-lh.akamaihd.net/i/html5_01@182967/master.m3u8
+#EXTINF: group-title="Shop",HSN2;
+https://hsn2html5-lh.akamaihd.net/i/hsn2html5_01@13178/master.m3u8
+#EXTINF: group-title="Shop",Jewelry Television;
+https://wowzaprod134-i.akamaihd.net/hls/live/577814/ccddaf02/playlist.m3u8
+#EXTINF: group-title="Shop",Shop HQ;
+https://aos01-evine.secure.footprint.net/evine/cleanfeed/master.m3u8
+#EXTINF: group-title="Shop",The Shopping Channel;
+https://tscstreaming-lh.akamaihd.net/i/TSCLiveStreaming_1@91031/master.m3u8
+
+#EXTINF: group-title="Sport",Bek Sports East;
+https://wowzaprod188-i.akamaihd.net/hls/live/728897/54d0bcd5/playlist.m3u8
+#EXTINF: group-title="Sport",Bek Sports West;
+https://wowzaprod188-i.akamaihd.net/hls/live/728897/89b077e6/playlist.m3u8
+#EXTINF: group-title="Sport",Edge Sports;
+https://imgedge.akamaized.net/amagi_hls_data_imgAAA2AA-edgesports/CDN/playlist.m3u8
+#EXTINF: group-title="Sport",Fight Sports;
+http://210.210.155.35/session/b09f20ac-0755-11e9-90c8-c81f66f89318/uq2663/h/h05/index.m3u8
+#EXTINF: group-title="Sport",Fight Sports;
+http://210.210.155.35/uq2663/h/h05/index.m3u8
+#EXTINF: group-title="Sport",FOX Sport HD 1;
+https://austchannel-live.akamaized.net/hls/live/2002736/austchannel-sport/master.m3u8
+#EXTINF: group-title="Sport",Olympic Channel;
+https://ott-live.olympicchannel.com/out/u/OC1_3.m3u8
+#EXTINF: group-title="Sport",Olympic Channel (HD);
+https://ott-live.olympicchannel.com/out/u/OC1_2.m3u8
+#EXTINF: group-title="Sport",Olympic Channel (UHD);
+https://ott-live.olympicchannel.com/out/u/OC1_1.m3u8
+#EXTINF: group-title="Sport",Sportskool;
+https://a.jsrdn.com/broadcast/22697/+0000/hi/c.m3u8
+#EXTINF: group-title="Sport",Super Tennis;
+https://ms003.happytv.com.tw/live/OcScNdWHvBx5P4w3/index.m3u8
+
+#EXTINF: group-title="Music",30A Music;
+https://30a-tv.com/music.m3u8
+#EXTINF: group-title="Music",California Music Channel;
+https://cmctv.ios.internapcdn.net/cmctv_vitalstream_com/live_1/CMC-TV/master.m3u8
+
+#EXTINF: group-title="Religious",3ABN Latino;
+https://moiptvhls-i.akamaihd.net/hls/live/652315/secure/master.m3u8
+#EXTINF: group-title="Religious",Al Horreya TV;
+http://media.smc-host.com:1935/alhorreya.tv/_definst_/mp4:alhorreya3/playlist.m3u8
+#EXTINF: group-title="Religious",Al Horreya TV;
+http://media.smc-host.com:1935/alhorreya.tv/_definst_mp4:alhorreya3/playlist.m3u8
+#EXTINF: group-title="Religious",Aliento Vision;
+http://livestreamcdn.net:1935/AlientoSD/smil:AlientoSD.smil/playlist.m3u8
+#EXTINF: group-title="Religious",Catholic TV;
+https://catholictvhd-lh.akamaihd.net/i/ctvhd_1@88148/master.m3u8
+#EXTINF: group-title="Religious",Christian Youth Channel;
+http://media.smc-host.com:1935/cycnow.com/cyc2/playlist.m3u8
+#EXTINF: group-title="Religious",CSat TV;
+http://media.smc-host.com:1935/csat.tv/smil:csat.smil/playlist.m3u8
+#EXTINF: group-title="Religious",Divine Vision;
+https://divineplayout-us2.tulix.tv/live/Stream1/.m3u8
+#EXTINF: group-title="Religious",Dr. Gene Scott;
+https://wescottcchls-lh.akamaihd.net/i/wcc_wowlivehls@24607/master.m3u8
+#EXTINF: group-title="Religious",ESNE TV;
+https://zypelive-lh.akamaihd.net/i/default_1@710948/master.m3u8
+#EXTINF: group-title="Religious",Faith & Life TV;
+https://na-all9.secdn.net/logos-channel/live/faithlifetv/playlist.m3u8
+#EXTINF: group-title="Religious",Inspiration TV;
+https://inspnetworks-lh.akamaihd.net/i/insp_2@393793/master.m3u8
+#EXTINF: group-title="Religious",ISN;
+https://cpdc101-lh.akamaihd.net/i/ISNCPDCMB1_1@314337/master.m3u8
+#EXTINF: group-title="Religious",LifevisionTV;
+https://uni5rtmp.tulix.tv/lifevision/lifevision.stream/playlist.m3u8
+#EXTINF: group-title="Religious",LoveWorld USA;
+https://loveworldusa-lh.akamaihd.net/i/lwusa2_1@514985/master.m3u8
+#EXTINF: group-title="Religious",SBN;
+https://sonlife7-i.akamaihd.net/hls/live/585011/ch7/master.m3u8
+#EXTINF: group-title="Religious",SBN Global;
+https://sonlife10-i.akamaihd.net/hls/live/585013/ch10/master.m3u8
+#EXTINF: group-title="Religious",TCT;
+https://bcoveliveios-i.akamaihd.net/hls/live/206632/1997976452001/TCTHLS/playlist.m3u8
+#EXTINF: group-title="Religious",Trinity Channel;
+http://rtmp1.abnsat.com/hls/trinity.m3u8
+#EXTINF: group-title="Religious",Victory Television Network;
+http://184.173.179.163:1935/victorytelevisionnetwork/victorytelevisionnetwork/playlist.m3u8
+
+#EXTINF: group-title="News",3News Now (KMTV-TV);
+https://content.uplynk.com/channel/328d1434fb51476cb6567c74d5b2cc70.m3u8
+#EXTINF: group-title="News",ABC News Digital 1;
+https://abclive1-lh.akamaihd.net/i/abc_live01@423395/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 10;
+https://abclive1-lh.akamaihd.net/i/abc_live10@420897/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 2;
+https://abclive1-lh.akamaihd.net/i/abc_live02@423396/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 3;
+https://abclive1-lh.akamaihd.net/i/abc_live03@423397/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 4;
+https://abclive1-lh.akamaihd.net/i/abc_live04@423398/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 5;
+https://abclive1-lh.akamaihd.net/i/abc_live05@423399/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 6;
+https://abclive1-lh.akamaihd.net/i/abc_live06@423400/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 7;
+https://abclive1-lh.akamaihd.net/i/abc_live07@423401/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 8;
+https://abclive1-lh.akamaihd.net/i/abc_live08@423402/master.m3u8
+#EXTINF: group-title="News",ABC News Digital 9;
+https://abclive1-lh.akamaihd.net/i/abc_live09@420891/master.m3u8
+#EXTINF: group-title="News",Al Hurra;
+https://mbnhls-lh.akamaihd.net/i/MBN_1@118619/master.m3u8
+#EXTINF: group-title="News",Bloomberg;
+https://liveproduseast.global.ssl.fastly.net/btv/desktop/us_live.m3u8
+#EXTINF: group-title="News",CBN News;
+https://bcliveuniv-lh.akamaihd.net/i/iptv1_1@194050/master.m3u8
+#EXTINF: group-title="News",CBN News;
+https://bcliveuniv-lh.akamaihd.net/i/news_1@194050/master.m3u8
+#EXTINF: group-title="News",CBN News;
+https://bcliveunivsecure-lh.akamaihd.net/i/iptv1_1@500579/master.m3u8
+#EXTINF: group-title="News",CBN News;
+https://bcliveunivsecure-lh.akamaihd.net/i/news_1@500579/master.m3u8
+#EXTINF: group-title="News",CBS News Boston;
+https://dai.google.com/linear/hls/event/26FJK7wRSo6RhPsK70XS_w/master.m3u8?iu=/4128/CBS.BOSTON.OTT
+#EXTINF: group-title="News",CBS News Los Angeles;
+https://dai.google.com/linear/hls/event/TxSbNMu4R5anKrjV02VOBg/master.m3u8?iu=/4128/CBS.LA.OTT
+#EXTINF: group-title="News",CBSN;
+https://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/master.m3u8
+#EXTINF: group-title="News",CBSN;
+https://cbsnhls-i.akamaihd.net/hls/live/264710/CBSN_mdialog/prodstream/master.m3u8
+#EXTINF: group-title="News",CBSN New York;
+https://dai.google.com/linear/hls/event/rtcMlf4RTvOEkaudeany5w/master.m3u8?iu=/4128/CBS.NY.OTT
+#EXTINF: group-title="News",Cheddar;
+https://content.uplynk.com/channel/4ee18bd581dc4d3b90303e0cb9beeb0f.m3u8
+#EXTINF: group-title="News",Cheddar;
+https://live.chdrstatic.com/cheddar/primary/index.m3u8
+#EXTINF: group-title="News",Cheddar Big News;
+https://live.chdrstatic.com/cbn/primary/index.m3u8
+#EXTINF: group-title="News",Entertainment Tonight;
+https://etlive-mediapackage-fastly.cbsaavideo.com/dvr/manifest.m3u8
+#EXTINF: group-title="News",InfoWars;
+https://freespeech.akamaized.net/hls/live/2016712/live2/playlist.m3u8
+#EXTINF: group-title="News",Newsmax;
+https://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
+#EXTINF: group-title="News",NewsNet;
+http://broadcastny.yournewsnet.com:8081/master/newsnetweb/playlist.m3u8
+#EXTINF: group-title="News",OANN One America News Network;
+http://n1.klowdtv.net/live1/oan_720p/chunks.m3u8
+#EXTINF: group-title="News",RT America;
+https://rt-usa.secure.footprint.net/1105.m3u8
+
+#EXTINF: group-title="Legislative",CGTV;
+https://reflect-live-champaign.cablecast.tv/live/CELL-296k-234p/CELL-296k-234p.m3u8
+#EXTINF: group-title="Legislative",DC Council Channel;
+https://video.oct.dc.gov/out/u/15_12.m3u8
+#EXTINF: group-title="Legislative",District of Columbia Network;
+https://video.oct.dc.gov/out/u/DCN.m3u8
+#EXTINF: group-title="Legislative",Escambia County TV;
+https://stream.swagit.com/live-edge/escambiacountyfl/live-1-a/playlist.m3u8
+#EXTINF: group-title="Legislative",Fairfax Public Access;
+https://cs.ebmcdn.net/eastbay-live-hs-1/fairfax-pull/_definst_/mp4:fairfax.stream/chunklist.m3u8
+
+#EXTINF: group-title="XXX",Miami TV;
+https://59ec5453559f0.streamlock.net/miamitv/smil:miamitvROKU/chunklist_w1195980091_b2592000.m3u8
+#EXTINF: group-title="XXX",Miami TV Jenny Live;
+https://59ec5453559f0.streamlock.net/mexicotv/smil:miamitvmexicoROKU/chunklist_w1869403172_b1896000.m3u8
+#EXTINF: group-title="XXX",Miami TV Latino;
+https://59ec5453559f0.streamlock.net/canal18/smil:canal18/chunklist_w577650521_b2592000.m3u8
+
+#EXTINF: group-title="Movies",24/7 Retro TV;
+http://247retrotv.com:1935/live/smil:247retro.smil/chunklist_w1193920237_b1928000_sleng.m3u8
+#EXTINF: group-title="Movies",Movie Kingdom;
+https://a.jsrdn.com/broadcast/e9b4093a41/+0000/high/c.m3u8
+#EXTINF: group-title="Movies",The Film Detective;
+https://distro.akamaized.net/index.m3u8
+
+#EXTINF: group-title="Other",30A Investment Pitch;
+https://www.30a-tv.com/InvPit.m3u8
+#EXTINF: group-title="Other",30A Sidewalks;
+https://30a-tv.com/sidewalks.m3u8
+#EXTINF: group-title="Other",30A TV;
+https://30a-tv.com/my999.m3u8
+#EXTINF: group-title="Other",3ABN;
+https://moiptvhls-i.akamaihd.net/hls/live/652042/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Dare to Dream;
+https://moiptvhls-i.akamaihd.net/hls/live/652313/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Français;
+https://moiptvhls-i.akamaihd.net/hls/live/652314/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN International;
+https://moiptvhls-i.akamaihd.net/hls/live/652312/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Kids;
+https://moiptvhls-i.akamaihd.net/hls/live/652318/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Latino;
+https://moiptvhls-i.akamaihd.net/hls/live/652315/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Praise Him Music Channel;
+https://moiptvhls-i.akamaihd.net/hls/live/554145/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Proclaim!;
+https://moiptvhls-i.akamaihd.net/hls/live/652317/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",3ABN Russia;
+https://moiptvhls-i.akamaihd.net/hls/live/652316/secure/HQs/chunklist.m3u8
+#EXTINF: group-title="Other",A&E;
+https://bk7l2w4nlx53-hls-live.5centscdn.com/AETV/514c04b31b5f01cf00dd4965e197fdda.sdp/playlist.m3u8
+#EXTINF: group-title="Other",Action Sports 4U;
+https://nimble.dashmedia.tv/onestudio/actionsportstv/playlist.m3u8
+#EXTINF: group-title="Other",Adult Swim;
+https://adultswimtv.warnermediacdn.com/hls/live/2007031/livestream/master_Layer7.m3u8
+#EXTINF: group-title="Other",AFV!;
+https://linear-12.frequency.stream/dist/roku/12/hls/master/playlist.m3u8
+#EXTINF: group-title="Other",AKC TV;
+https://video.blivenyc.com/broadcast/2061/22/file-858k.m3u8
+#EXTINF: group-title="Other",AKC TV;
+https://video.blivenyc.com/broadcast/prod/2061/22/desktop-playlist.m3u8
+#EXTINF: group-title="Other",AKC TV;
+https://video.blivenyc.com/broadcast/prod/2061/22/file-3192k.m3u8
+#EXTINF: group-title="Other",AKC TV;
+https://video.blivenyc.com/broadcast/prod/2061/22/file-4692k.m3u8
+#EXTINF: group-title="Other",AKC TV - Meet the Breeds;
+https://video.blivenyc.com/broadcast/prod/2061/61/file-4692k.m3u8
+#EXTINF: group-title="Other",AKC TV - Puppies;
+https://video.blivenyc.com/broadcast/prod/2061/29/file-4692k.m3u8
+#EXTINF: group-title="Other",Albany | CBS 6 WRGB;
+https://content.uplynk.com/channel/bba3e7da884a49bba96341ecf5128f0f.m3u8
+#EXTINF: group-title="Other",America's Funniest Videos;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-americasfunniesthomevideos/CDN/1280x720_5000000/index.m3u8
+#EXTINF: group-title="Other",American Classic Network;
+https://nimble.dashstreams.net/onestudio/americanclassictv/playlist.m3u8
+#EXTINF: group-title="Other",American Classics;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-redboxamericanclassics/CDN/playlist.m3u8
+#EXTINF: group-title="Other",American Horrors;
+http://170.178.189.66:1935/live/Stream1/.m3u8
+#EXTINF: group-title="Other",American Horrors;
+http://170.178.189.66:1935/live/Stream1/playlist.m3u8
+#EXTINF: group-title="Other",AMG TV;
+https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/playlist.m3u8
+#EXTINF: group-title="Other",Apple Sauce TV;
+https://nimble.dashstreams.net/onestudio/applesaucetv/playlist.m3u8
+#EXTINF: group-title="Other",Atlanta Channel;
+http://media4.tripsmarter.com:1935/LiveTV/ACVBHD/playlist.m3u8
+#EXTINF: group-title="Other",Beach TV (30A);
+http://media4.tripsmarter.com:1935/LiveTV/DTVHD/playlist.m3u8
+#EXTINF: group-title="Other",Beach TV (CSULB);
+http://stream04.amp.csulb.edu:1935/Beach_TV/smil:BeachTV.smil/playlist.m3u8
+#EXTINF: group-title="Other",Beach TV (Panama City);
+http://media4.tripsmarter.com:1935/LiveTV/BTVHD/playlist.m3u8
+#EXTINF: group-title="Other",Beach TV (Pawleys Island);
+http://media4.tripsmarter.com:1935/LiveTV/MTVHD/playlist.m3u8
+#EXTINF: group-title="Other",Beauty IQ;
+https://lsqvc4us-lh.akamaihd.net/i/lsqvc4us_01@802711/master.m3u8
+#EXTINF: group-title="Other",Beto TV;
+https://content.jwplatform.com/manifests/vM7nH0Kl.m3u8
+#EXTINF: group-title="Other",Bible Explorations;
+http://stream.iphonewebtown.com:1935/bibleexplorations/bexplorationsmobile.stream/playlist.m3u8
+#EXTINF: group-title="Other",Big Life TV;
+https://biglife.sinclair.wurl.com/manifest/3000.m3u8
+#EXTINF: group-title="Other",Biz TV HD;
+https://thegateway.app/BizAndYou/Biz_1080p/playlist.m3u8
+#EXTINF: group-title="Other",Black Artist;
+https://nrpus.bozztv.com/36bay2/gusa-blackartist/index.m3u8
+#EXTINF: group-title="Other",Black Widow TV;
+https://nimble.dashstreams.net/onestudio/spydar/playlist.m3u8
+#EXTINF: group-title="Other",Bloomberg TV;
+https://ch.iptvmate.net/4ac2dd1a410b37e8357ae8bbac3264c5.m3u8
+#EXTINF: group-title="Other",Bloomberg TV Live Event;
+https://liveproduseast.akamaized.net/btv/desktop/us_event.m3u8
+#EXTINF: group-title="Other",Bloomberg TV Politics Live Event;
+https://liveproduseast.global.ssl.fastly.net/btv/desktop/us_politics.m3u8
+#EXTINF: group-title="Other",Blush Romance TV;
+https://nimble.dashstreams.net/onestudio/blushtv/playlist.m3u8
+#EXTINF: group-title="Other",Brut.;
+https://a.jsrdn.com/broadcast/baac3e801e/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Brut.;
+https://a.jsrdn.com/broadcast/d5b47/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Buzzr;
+https://buzzr.global.ssl.fastly.net/out/u/buzzr_hls.m3u8
+#EXTINF: group-title="Other",BUZZR;
+https://buzzr.global.ssl.fastly.net/out/u/buzzr_hls_8.m3u8
+#EXTINF: group-title="Other",Buzzr;
+https://dai.google.com/linear/hls/event/wFZ1ufQ8ToaSdPgGtbBbpw/master.m3u8
+#EXTINF: group-title="Other",byu TV;
+https://a.jsrdn.com/broadcast/d5b46/+0000/high/c.m3u8
+#EXTINF: group-title="Other",C-Span;
+https://skystreams-lh.akamaihd.net/i/SkyC1_1@500806/master.m3u8
+#EXTINF: group-title="Other",C-Span 2;
+https://skystreams-lh.akamaihd.net/i/SkyC2_1@500807/master.m3u8
+#EXTINF: group-title="Other",C-Span 3;
+https://skystreams-lh.akamaihd.net/i/SkyC3_1@500808/master.m3u8
+#EXTINF: group-title="Other",CARTOON NETWORK;
+http://178.132.3.162:88/cartoon_network/index.m3u8?token=test&lang=eng
+#EXTINF: group-title="Other",CBN Español;
+https://bcliveuniv-lh.akamaihd.net/i/iptv2_1@194050/master.m3u8
+#EXTINF: group-title="Other",CBS;
+http://161.0.157.5/PLTV/88888888/224/3221227041/index.m3u8
+#EXTINF: group-title="Other",CBS;
+http://161.0.157.50/PLTV/88888888/224/3221227041/index.m3u8
+#EXTINF: group-title="Other",CBS;
+http://161.0.157.51/PLTV/88888888/224/3221227041/index.m3u8
+#EXTINF: group-title="Other",CBSN;
+https://dai.google.com/linear/hls/event/26FJK7wRSo6RhPsK70XS_w/master.m3u8
+#EXTINF: group-title="Other",CBSN;
+https://dai.google.com/linear/hls/event/Sid4xiTQTkCT1SLu6rjUSQ/master.m3u8
+#EXTINF: group-title="Other",CBSN Bay Area;
+https://dai.google.com/linear/hls/event/VE8b4n-YStusEGv5Z2NmsQ/master.m3u8?iu=/4128/CBS.SF.OTT
+#EXTINF: group-title="Other",CBSN Minnesota;
+https://dai.google.com/linear/hls/event/zcWPVCfURNSPxeidcckQLA/master.m3u8?iu=/4128/CBS.MINN.OTT
+#EXTINF: group-title="Other",CBSN Philly;
+https://dai.google.com/linear/hls/event/Xu-ITJ2GTNGaxGn893mmWg/master.m3u8?iu=/4128/CBS.PHILLY.OTT
+#EXTINF: group-title="Other",CC-TV (Charlotte County);
+https://granicusliveus3-a.akamaihd.net/charlotte/G0055_002/chunklist.m3u8
+#EXTINF: group-title="Other",CCX1;
+http://156.142.85.152/live/WIFI-2096k-1080p/WIFI-2096k-1080p.m3u8
+#EXTINF: group-title="Other",Charge!;
+https://usgeowall.sinclairstoryline.com/channel/37eb732888614810b512fdd82604244e.m3u8
+#EXTINF: group-title="Other",Cheddar;
+https://live.chdrstatic.com/cheddar/primary/5.m3u8
+#EXTINF: group-title="Other",Cheddar News;
+https://live.chdrstatic.com/cbn/primary/5.m3u8
+#EXTINF: group-title="Other",Chef Champion;
+https://nrpus.bozztv.com/36bay2/gusa-chefchampion/index.m3u8
+#EXTINF: group-title="Other",Chef Roc Show;
+https://nrpus.bozztv.com/36bay2/gusa-chefrock/index.m3u8
+#EXTINF: group-title="Other",Chive TV;
+https://a.jsrdn.com/broadcast/4df1bf71c1/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Classic Arts Showcase;
+https://classicarts.global.ssl.fastly.net/live/cas/master.m3u8
+#EXTINF: group-title="Other",Classic Arts Showcase;
+https://classicarts.global.ssl.fastly.net/live/cas/master_3000k.m3u8
+#EXTINF: group-title="Other",Classic Cinema;
+https://nrpus.bozztv.com/36bay2/gusa-classiccinema/index.m3u8
+#EXTINF: group-title="Other",Classic TV 4U;
+https://nimble.dashmedia.tv/onestudio/classictv/playlist.m3u8
+#EXTINF: group-title="Other",Cloudflare TV;
+https://cloudflare.tv/hls/live.m3u8
+#EXTINF: group-title="Other",CMC-USA;
+https://cmctv.ios.internapcdn.net/cmctv_vitalstream_com/live_1/CMCU-92/playlist.m3u8
+#EXTINF: group-title="Other",CNBC;
+https://edge-1192-ch-gv.filmon.com/live/4130.high.stream/playlist.m3u8?checkedby:iptvcat.com
+#EXTINF: group-title="Other",CNBC Europe;
+https://edge-1192-ch-gv.filmon.com/live/4130.high.stream/playlist.m3u8
+#EXTINF: group-title="Other",ConTV;
+https://cinedigm.vo.llnwd.net/conssui/amagi_hls_data_xumo123-contv/CDN/1280x720_2108000/chunklist.m3u8
+#EXTINF: group-title="Other",CT-N Court Feed;
+http://video.ct-n.com/live/ctnSupreme/chunklist_DVR.m3u8
+#EXTINF: group-title="Other",CT-N Live Stream 2;
+http://video.ct-n.com/live/web2stream/playlist.m3u8
+#EXTINF: group-title="Other",CTN;
+http://admin.ottdemo.rrsat.com:1935/ctntv/ctntv2/playlist.m3u8
+#EXTINF: group-title="Other",CTN;
+http://rtmp.ottdemo.rrsat.com/ctntv/ctntvmulti.smil/chunklist.m3u8
+#EXTINF: group-title="Other",CTN;
+https://rrsatrtmp.tulix.tv/ctntv/ctntvmulti.smil/playlist.m3u8
+#EXTINF: group-title="Other",Cycle World;
+https://a.jsrdn.com/broadcast/3e5befe5dd/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Denver 8 TV;
+https://granicusliveus8-a.akamaihd.net/denver/G0080_002/chunklist.m3u8
+#EXTINF: group-title="Other",Denver | ABC 7 KMGH;
+https://content.uplynk.com/channel/64ca339f04964a5e961c3207a7771bf1.m3u8
+#EXTINF: group-title="Other",DISCOVERY;
+http://136.243.177.164/DISCOVERYCHANNEL/index.m3u8?h=WTL4O0zvYYEAVfZX-dwXvg
+#EXTINF: group-title="Other",Documentaries 4U;
+https://nimble.dashmedia.tv/onestudio/documentaries4u/playlist.m3u8
+#EXTINF: group-title="Other",Dove Channel;
+https://a.jsrdn.com/broadcast/76yg4erz/c.m3u8
+#EXTINF: group-title="Other",Dove Channel;
+https://cinedigm.vo.llnwd.net/conssui/amagi_hls_data_xumo1234A-dovenow/CDN/master.m3u8
+#EXTINF: group-title="Other",Dove Channel;
+https://dai.google.com/linear/hls/event/dfbBGQhPQQqypdEAjpUGlA/master.m3u8
+#EXTINF: group-title="Other",Dream TV;
+https://nimble.dashstreams.net/onestudio/dreamtv/playlist.m3u8
+#EXTINF: group-title="Other",Dust (Sci-Fi);
+https://dai.google.com/linear/hls/event/xuMJ1vhQQDGjEWlxK9Qh4w/master.m3u8
+#EXTINF: group-title="Other",DUSTx;
+https://dust.sinclair.wurl.com/manifest/playlist.m3u8
+#EXTINF: group-title="Other",ElectricNOW;
+https://a.jsrdn.com/broadcast/vf93fRSk7/playlist_360p.m3u8
+#EXTINF: group-title="Other",Everyday Heroes;
+https://a.jsrdn.com/broadcast/7b1451fa52/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Fail Army;
+https://dai.google.com/linear/hls/event/7tuuoX1wSsCTaki1HqJFYw/master.m3u8
+#EXTINF: group-title="Other",Field & Stream;
+https://a.jsrdn.com/broadcast/7536b84786/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Field & Stream;
+https://a.jsrdn.com/broadcast/7536b84786/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Filmrise Crime;
+https://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1212A-filmrisecrime/CDN/640x432_5000000/index.m3u8
+#EXTINF: group-title="Other",Filmrise Family;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-filmrisefamily/CDN/1280x720_5000000/chunklist.m3u8
+#EXTINF: group-title="Other",Filmrise Movies;
+https://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1212A-filmrisefreemovies/CDN/1280x720_5000000/chunklist.m3u8
+#EXTINF: group-title="Other",Folk TV;
+http://584b0aa350b92.streamlock.net:1935/folk-tv/myStream.sdp/playlist.m3u8
+#EXTINF: group-title="Other",FOOD CHANNEL;
+http://5.135.92.133:52841/out/u/502_1.m3u8
+#EXTINF: group-title="Other",Free Speech TV;
+https://edge.free-speech-tv-live.top.comcast.net/out/u/fstv.m3u8
+#EXTINF: group-title="Other",Futurism;
+https://dai.google.com/linear/hls/event/YakHdnr_RpyszducVuHOpQ/master.m3u8
+#EXTINF: group-title="Other",Glewed TV;
+https://dai.google.com/linear/hls/event/ChWV1GupQOWE92uG4DvbkQ/master.m3u8
+#EXTINF: group-title="Other",GOD TV;
+https://zypelive-lh.akamaihd.net/i/default_1@710958/master.m3u8
+#EXTINF: group-title="Other",Golden TV;
+https://nrpus.bozztv.com/36bay2/gusa-goldentv/index.m3u8
+#EXTINF: group-title="Other",Gospel Truth TV;
+https://bstna.tulix.tv/live/bs_2m/index.m3u8
+#EXTINF: group-title="Other",Gravitas Movies;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-redboxgravitas/CDN/playlist.m3u8
+#EXTINF: group-title="Other",HDFashion & LifeStyle;
+https://ch.iptvmate.net/417057fba179467854c0c947f5322307.m3u8?xtreamiptv.m3u8
+#EXTINF: group-title="Other",Hi-Yah!;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-redboxhi-ya/CDN/playlist.m3u8
+#EXTINF: group-title="Other",Honor TV;
+https://a.jsrdn.com/broadcast/d5b48/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Honor TV;
+https://a.jsrdn.com/broadcast/d5b48/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Hope Channel;
+https://bcliveunivsecure-lh.akamaihd.net/i/HopeChannel_1@571270/master.m3u8
+#EXTINF: group-title="Other",Horrified TV;
+https://nimble.dashstreams.net/onestudio/horrified/playlist.m3u8
+#EXTINF: group-title="Other",HSN 2;
+https://hsn2html5-lh.akamaihd.net/i/hsn2html5_01@13178/master.m3u8?b=728,1128
+#EXTINF: group-title="Other",HUMRAAZ TV;
+http://cdn61.liveonlineservices.com/hls/humraaz.m3u8
+#EXTINF: group-title="Other",Hunt Channel;
+https://1111296894.rsc.cdn77.org/LS-ATL-56868-1/index.m3u8
+#EXTINF: group-title="Other",Hunt Channel;
+https://1111296894.rsc.cdn77.org/LS-ATL-56868-1/tracks-v1a1/mono.m3u8
+#EXTINF: group-title="Other",IDG;
+https://a.jsrdn.com/broadcast/529a360c04/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Infowars;
+http://wpc.9ec1.edgecastcdn.net/249EC1/infowarshd-edgecast/hd720.m3u8
+#EXTINF: group-title="Other",ISN;
+http://cpdc101-lh.akamaihd.net/i/ISNCPDCMB1_1@314337/index_1728_av-p.m3u8
+#EXTINF: group-title="Other",It’s At The Movies;
+https://nimble.dashstreams.net/onestudio/its_comming_soon/playlist.m3u8
+#EXTINF: group-title="Other",JBS;
+http://uni8rtmp.tulix.tv:1935/shalomtv-pc/smil:shalomtv.smil/master.m3u8
+#EXTINF: group-title="Other",Jewish Life TV;
+https://d3svwuchx5fp62.cloudfront.net/rtplive/smil:jltv.smil/chunklist.m3u8
+#EXTINF: group-title="Other",KBP SPORTS;
+https://live-k2302-kbp.1plus1.video/sport/smil:sport.smil/chunklist_b6000000.m3u8
+#EXTINF: group-title="Other",Kentucky | PBS KET;
+https://2-fss-1.streamhoster.com/pl_134/amlst:200914-1282960/chunklist.m3u8
+#EXTINF: group-title="Other",Key TV;
+http://media4.tripsmarter.com:1935/LiveTV/KTVHD/playlist.m3u8
+#EXTINF: group-title="Other",Latido Music;
+https://a.jsrdn.com/broadcast/g8sfF32l0/playlist720p.m3u8
+#EXTINF: group-title="Other",Law & Crime;
+https://dai.google.com/linear/hls/event/3w3PsYzZQzS8lyRfi7e4mQ/master.m3u8
+#EXTINF: group-title="Other",Law And Crime Network;
+https://dai2.xumo.com/amagi_hls_data_xumo1234A-lawcrime/CDN/master.m3u8
+#EXTINF: group-title="Other",Live Live;
+https://dai.google.com/linear/hls/event/xC8SDBfbTKCTCa20kFJQXQ/master.m3u8
+#EXTINF: group-title="Other",Local Now Philidelphia;
+https://ottmanifest.weathergroup.com/live/10.233.185.101:58081/api/v1/live/hls/localnow/index.m3u8?network=OTT&experienceid=paPhiladelphia&seid=532865b2-796b-497d-abb2-56df16f62f32&showlocalnow=false&cdn=https%3a//ottcdn-a.akamaihd.net&sessionId=LocalNowWeb_bW9jLm9vYWNiQDM4NzkwZXd0&format=HLS&tpp=10443
+#EXTINF: group-title="Other",Magellan TV;
+https://dai.google.com/linear/hls/event/5xreV3X4T9WxeIbrwOmdMA/master.m3u8
+#EXTINF: group-title="Other",Maverick Movies;
+https://dai2.xumo.com/amagi_hls_data_xumo1212A-redbox-maverickmovies/CDN/playlist.m3u8
+#EXTINF: group-title="Other",MMN;
+https://a.jsrdn.com/broadcast/80f6ba72c8/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Mo Laughter;
+https://nimble.dashstreams.net/onestudio/molaughter/playlist.m3u8
+#EXTINF: group-title="Other",Mobcrush;
+https://dai.google.com/linear/hls/event/LGDVXxxyT8SxrL4-ZodxKw/master.m3u8
+#EXTINF: group-title="Other",Mobcrush;
+https://ott.mobcrush.com/hls/0/ott.m3u8
+#EXTINF: group-title="Other",Monarch;
+https://a.jsrdn.com/broadcast/0c9a09c94c/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Motorcyclist;
+https://a.jsrdn.com/broadcast/256ad9e679/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Motorcyclist;
+https://a.jsrdn.com/broadcast/256ad9e679/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Movee 4U;
+https://nimble.dashstreams.net/onestudio/movee4u/playlist.m3u8
+#EXTINF: group-title="Other",Music Baeble;
+https://dai.google.com/linear/hls/event/HuoWULBBQFKJalbtsd7qPw/master.m3u8
+#EXTINF: group-title="Other",MyHolyfield TV;
+https://nimble.dashstreams.net/onestudio/holyfield/playlist.m3u8
+#EXTINF: group-title="Other",Mythos;
+https://nrpus.bozztv.com/36bay2/gusa-mythos/index.m3u8
+#EXTINF: group-title="Other",NASA TV;
+http://iphone-streaming.ustream.tv/uhls/6540154/streams/live/iphone/playlist.m3u8
+#EXTINF: group-title="Other",NASA TV;
+https://hls.ums.ustream.tv/playlist/directhls/channel/6540154/playlist.m3u8?sgn=31d0dfb847c358d4cedcd2256dc4e1c42a7f13a7
+#EXTINF: group-title="Other",NASA TV;
+https://uplynkcontent.sinclairstoryline.com/channel/ddd76fdc1c0a456ba537e4f48e827d3e.m3u8
+#EXTINF: group-title="Other",NBC;
+http://161.0.157.5/PLTV/88888888/224/3221227040/index.m3u8
+#EXTINF: group-title="Other",NBC;
+http://161.0.157.8/PLTV/88888888/224/3221227040/index.m3u8
+#EXTINF: group-title="Other",NBC News Now;
+https://nbcnewshls-i.akamaihd.net/hls/live/1005170/nnn_live1/index.m3u8
+#EXTINF: group-title="Other",NBCLX;
+https://lxlive-lh.akamaihd.net/i/LX_LIVE@148206/index_1080P_av-p.m3u8
+#EXTINF: group-title="Other",New Orleans TV;
+http://media4.tripsmarter.com:1935/LiveTV/NOTVHD/playlist.m3u8
+#EXTINF: group-title="Other",NEWS NET;
+http://broadcastny.yournewsnet.com:8081/master/newsnetweb/playlist.m3u8?fluxustv.m3u8
+#EXTINF: group-title="Other",Newsmax;
+https://nmxlive.akamaized.net/hls/live/529965/Live_1/index_1080.m3u8
+#EXTINF: group-title="Other",Newsy;
+https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8
+#EXTINF: group-title="Other",Newsy;
+https://content.uplynk.com/channel/4bb4901b934c4e029fd4c1abfc766c37.m3u8?ad=newsyweb
+#EXTINF: group-title="Other",Newsy;
+https://dai.google.com/linear/hls/event/0PopB0AoSiClAGrHVHBTlw/master.m3u8
+#EXTINF: group-title="Other",NRBTV;
+https://uni6rtmp.tulix.tv/nrbnetwork/myStream.sdp/playlist.m3u8
+#EXTINF: group-title="Other",OAN Encore;
+https://oneamericanews-roku-us.amagi.tv/hls/amagi_hls_data_oneameric-oneamericanews/CDN/512x288_875600/index.m3u8
+#EXTINF: group-title="Other",Olympic Channel (US NBC);
+https://iocchannel-i.akamaihd.net/hls/live/514135/olylinear0629221316/DomesticOlympicsLinear_VIDEO_0_7064000.m3u8
+#EXTINF: group-title="Other",Olympic Channel 3;
+https://ott-live.olympicchannel.com/out/u/OC2_1.m3u8
+#EXTINF: group-title="Other",Olympic Channel 4;
+https://ott-live.olympicchannel.com/out/u/OC3_1.m3u8
+#EXTINF: group-title="Other",Olympic Channel 5;
+https://ott-live.olympicchannel.com/out/u/OC4_1.m3u8
+#EXTINF: group-title="Other",Olympic Channel 6;
+https://ott-live.olympicchannel.com/out/u/OC5_1.m3u8
+#EXTINF: group-title="Other",Omaha | CBS 3 KMTV;
+http://content.uplynk.com/channel/328d1434fb51476cb6567c74d5b2cc70.m3u8
+#EXTINF: group-title="Other",Opportunity Knocks;
+https://nimble.dashstreams.net/onestudio/myoktv/playlist.m3u8
+#EXTINF: group-title="Other",OUR TV;
+https://hls-cdn.tvstartup.net/barakyah-channel/play/mp4:ourtvedge/chunklist.m3u8
+#EXTINF: group-title="Other",Outdoor America;
+https://dai.google.com/linear/hls/event/WB-7LjdsRVm0wVoLZjR8mA/master.m3u8
+#EXTINF: group-title="Other",PBC Tapesh TV;
+http://iptv.tapesh.tv/tapesh/playlist.m3u8
+#EXTINF: group-title="Other",People TV;
+https://a.jsrdn.com/broadcast/b5d2k0x/playlist1080p.m3u8
+#EXTINF: group-title="Other",Planet Cannabis Entertainment;
+https://nimble.dashstreams.net/onestudio/pce/playlist.m3u8
+#EXTINF: group-title="Other",Plant-Based Network HD;
+https://hls-cdn.tvstartup.net/barakyah-channel/live/pbtv/chunklist_w1880221002.m3u8
+#EXTINF: group-title="Other",Pop;
+https://live-poptv-fastly-prod.global.ssl.fastly.net/pop/master.m3u8
+#EXTINF: group-title="Other",Popular Science;
+http://a.jsrdn.com/broadcast/447912f76b/+0000/low/c.m3u8
+#EXTINF: group-title="Other",Positiv TV;
+http://api.new.livestream.com/accounts/27460990/events/8973036/live.m3u8
+#EXTINF: group-title="Other",Prime Time Drama;
+https://nrpus.bozztv.com/36bay2/gusa-ptd/index.m3u8
+#EXTINF: group-title="Other",PTL TV Network;
+http://morningside-lh.akamaihd.net/i/jblive_1@303354/index_2008_av-p.m3u8
+#EXTINF: group-title="Other",Qello Concerts;
+https://dai.google.com/linear/hls/event/BakMHO8xRSmGKYeiyhsq3A/master.m3u8
+#EXTINF: group-title="Other",QVC;
+https://lsqvc1uscln-lh.akamaihd.net/i/lsqvc1uscln_01@809410/master.m3u8
+#EXTINF: group-title="Other",QVC 2;
+https://lsqvc2us-lh.akamaihd.net/i/lsqvc2us_01@809440/master.m3u8
+#EXTINF: group-title="Other",QVC 3;
+https://lsqvc3us-lh.akamaihd.net/i/lsqvc3us_01@809459/master.m3u8
+#EXTINF: group-title="Other",Radio y Televisión Martí;
+https://ocb-lh.akamaihd.net/i/ocb_mpls_tvmc1@383606/master.m3u8
+#EXTINF: group-title="Other",Real Vision;
+https://a.jsrdn.com/broadcast/2a755012a8/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Red Bull TV;
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
+#EXTINF: group-title="Other",Revelation TV;
+https://rtv.cdn.mangomolo.com/rtv/smil:switch.smil/playlist.m3u8
+#EXTINF: group-title="Other",RT;
+http://uiptv.do.am/1ufc/702424953/playlist.m3u8
+#EXTINF: group-title="Other",SafeTV;
+http://18.191.91.130:1935/live/safetv/playlist.m3u8
+#EXTINF: group-title="Other",Savannah | FOX 28 WTGS;
+http://content.uplynk.com/channel/e56ba52a1b9d45ad8c8a033fd83fe480.m3u8
+#EXTINF: group-title="Other",Screamfest;
+https://vcnleomarkstudios.teleosmedia.com/stream/leomarkstudios/screamfest/playlist.m3u8
+#EXTINF: group-title="Other",Sent TV Global Network;
+https://nrpus.bozztv.com/36bay2/gusa-stgn/index.m3u8
+#EXTINF: group-title="Other",Shout Factory TV;
+https://dai.google.com/linear/hls/event/JX5KKhKKRPqchP3LfXD-1A/master.m3u8
+#EXTINF: group-title="Other",Stadium;
+https://stadiumlivein-i.akamaihd.net/hls/live/522512/mux_4/master.m3u8
+#EXTINF: group-title="Other",Stingray Karaoke;
+https://dai.google.com/linear/hls/event/5bqbG8j7T_6_qMONC1SDsg/master.m3u8
+#EXTINF: group-title="Other",Stingray Naturescape;
+https://dai.google.com/linear/hls/event/6RPZlzksTCyB1euPqLcBZQ/master.m3u8
+#EXTINF: group-title="Other",STIRR 2020 LIVE;
+https://dai.google.com/linear/hls/event/mMP0Ny8OTb2Ev2EvsiIlrg/master.m3u8
+#EXTINF: group-title="Other",STIRR Biographies;
+https://dai.google.com/linear/hls/event/OzhtmoTQQjSNOimI6ikGCQ/master.m3u8
+#EXTINF: group-title="Other",STIRR Black Cinema;
+https://dai.google.com/linear/hls/event/9WuQ_LseR12mMx2-QW41XQ/master.m3u8
+#EXTINF: group-title="Other",STIRR CITY;
+https://dai.google.com/linear/hls/event/4aD5IJf0QgKUJwPbq2fngg/master.m3u8
+#EXTINF: group-title="Other",STIRR Comedy;
+https://dai.google.com/linear/hls/event/dGP9Z-PNRPCgGQSDEzxqYg/master.m3u8
+#EXTINF: group-title="Other",STIRR Cooks;
+https://dai.google.com/linear/hls/event/CHaUZsCfSyS2CVF7I-NktA/master.m3u8
+#EXTINF: group-title="Other",STIRR COVID-19 NEWS;
+https://dai.google.com/linear/hls/event/08ADpEIeQ8iZOjusLsZbCg/master.m3u8
+#EXTINF: group-title="Other",STIRR Fit;
+https://dai.google.com/linear/hls/event/ZidoyK28TXyMRTZU7rFuEQ/master.m3u8
+#EXTINF: group-title="Other",STIRR Movies;
+https://dai.google.com/linear/hls/event/f-zA7b21Squ7M1_sabGfjA/master.m3u8
+#EXTINF: group-title="Other",STIRR Music;
+https://dai.google.com/linear/hls/event/_e1csFnJR6W6y056PyiG6A/master.m3u8
+#EXTINF: group-title="Other",STIRR Sports;
+https://dai.google.com/linear/hls/event/1B2yihdIR1mCL63rXzERag/master.m3u8
+#EXTINF: group-title="Other",STIRR Travel;
+https://dai.google.com/linear/hls/event/0ZXyCbn9TYmrrAzcDfoU1w/master.m3u8
+#EXTINF: group-title="Other",STIRR TV MIX;
+https://dai.google.com/linear/hls/event/UQrixd_tTG2nC-lOUtw0mQ/master.m3u8
+#EXTINF: group-title="Other",STIRR Westerns;
+https://dai.google.com/linear/hls/event/YF2jfXh_QROPxoHEwp1Abw/master.m3u8
+#EXTINF: group-title="Other",SubRang TV;
+https://cdn61.liveonlineservices.com/hls/subrang.m3u8
+#EXTINF: group-title="Other",TAG TV;
+https://cdn30.liveonlineservices.com/hls/tagtv.m3u8
+#EXTINF: group-title="Other",Tastemade;
+https://tastemadessai.akamaized.net/amagi_hls_data_tastemade-tastemade/CDN/playlist.m3u8
+#EXTINF: group-title="Other",TBD;
+https://content.uplynk.com/channel/1831163f97674328ad9f4b4814ed39c5.m3u8
+#EXTINF: group-title="Other",TBD;
+https://content.uplynk.com/channel/1831163f97674328ad9f4b4814ed39c5.m3u8?tc=1&exp=1614631202&rn=614441536&ct=c&cid=1831163f97674328ad9f4b4814ed39c5&ad=comet&ad.adUnit=%2FTBD%2FLivestream_midroll&ad._debug=TBDNET_ssai_livestream_midroll&ad.ad_rule=1&ad.pmad=12&ad.output=xml_vmap1&sig=5d194a4e4c5a4d59023d6a39a2ba5ba82dcd817b615e9f82115c41d9b26ffd0a
+#EXTINF: group-title="Other",TBD.;
+https://dai.google.com/linear/hls/event/_xtY848OSRCm_k0veSjMHg/master.m3u8
+#EXTINF: group-title="Other",Telemundo 44;
+https://wrclive-f.akamaihd.net/i/wrcb2_1@46880/master.m3u8
+#EXTINF: group-title="Other",Tempe 11;
+https://granicusliveus1-a.akamaihd.net/tempe/G0355_003/chunklist.m3u8
+#EXTINF: group-title="Other",The 360 Channel;
+https://www.filmon.com/vr-streams/4136.high/playlist.m3u8
+#EXTINF: group-title="Other",The Asylum;
+https://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1212A-theasylum/CDN/1280x720_2500000/index.m3u8
+#EXTINF: group-title="Other",The Boat Show;
+https://a.jsrdn.com/broadcast/256ccf645e/+0000/high/c.m3u8
+#EXTINF: group-title="Other",The Film Detective;
+https://a.jsrdn.com/broadcast/9Kl3dcb5l/indexfd_1280x720.m3u8
+#EXTINF: group-title="Other",The Film Detective;
+https://dai.google.com/linear/hls/event/OYH9J7rZSK2fabKXWAYcfA/master.m3u8
+#EXTINF: group-title="Other",The Florida Channel;
+https://wowzaprod4-i.akamaihd.net/hls/live/254057/6380fec3/playlist.m3u8
+#EXTINF: group-title="Other",The Now Network;
+https://link.frontlayer.com/services/hls2/fl619843/index.m3u8
+#EXTINF: group-title="Other",The Outdoor Cooking Channel;
+http://edge1.tikilive.com:1935/unrestricted_tikilive/25947/amlst:NWKlw6jwyXpz/chunklist_w981409619_b1105254.m3u8
+#EXTINF: group-title="Other",The Outdoor Cooking Channel;
+http://edge1.tikilive.com:1935/unrestricted_tikilive/25947/amlst:NWKlw6jwyXpz/playlist.m3u8
+#EXTINF: group-title="Other",The Outdoor Cooking Channel;
+https://ch.iptvmate.net/11e118e202992ae500578c6f72bcf142.m3u8?fluxustv.m3u8
+#EXTINF: group-title="Other",The Southeastern Channel;
+http://147.174.13.196/live/WIFI-1296k-540p/WIFI-1296k-540p.m3u8
+#EXTINF: group-title="Other",The Tennis Channel;
+https://playoutengine.sinclairstoryline.com/playout/9f87522c-5a0e-4ff4-b82c-d5564216132f/g.m3u8
+#EXTINF: group-title="Other",The Works;
+https://mgm-ssai.akamaized.net/amagi_hls_data_mgmAAAAAA-theworks/CDN/720x404_1425600/index.m3u8
+#EXTINF: group-title="Other",Titanic TV;
+https://a.jsrdn.com/broadcast/22719/+0000/hi/c.m3u8
+#EXTINF: group-title="Other",TMZ;
+https://dai2.xumo.com/xumocdn/p=roku/amagi_hls_data_xumo1234A-tmz/CDN/1280x720_5000000/index.m3u8
+#EXTINF: group-title="Other",TVS Boxing;
+https://nrpus.bozztv.com/36bay2/gusa-tvsboxing/index.m3u8
+#EXTINF: group-title="Other",TVS Classic Movies;
+https://nrpus.bozztv.com/36bay2/gusa-tvsclassicmovies/index.m3u8
+#EXTINF: group-title="Other",TVS Classic Sports;
+https://nrpus.bozztv.com/36bay2/gusa-tvs/index.m3u8
+#EXTINF: group-title="Other",TVS Comedy Network;
+https://nrpus.bozztv.com/36bay2/gusa-tvscomedy/index.m3u8
+#EXTINF: group-title="Other",TVS Drive In Movie;
+https://nrpus.bozztv.com/36bay2/gusa-tvsdriveinmovie/index.m3u8
+#EXTINF: group-title="Other",TVS Family Channel;
+https://nrpus.bozztv.com/36bay2/gusa-TVSFamilyChannel/index.m3u8
+#EXTINF: group-title="Other",TVS Horror Network;
+https://nrpus.bozztv.com/36bay2/gusa-tvshorror/index.m3u8
+#EXTINF: group-title="Other",TVS Mainstreet;
+https://nrpus.bozztv.com/36bay2/gusa-tvsmainst/index.m3u8
+#EXTINF: group-title="Other",TVS Nostalgia Movies;
+https://nrpus.bozztv.com/36bay2/gusa-tvsNostalgiaMovies/index.m3u8
+#EXTINF: group-title="Other",TVS Sports;
+https://nrpus.bozztv.com/36bay2/gusa-tvssports/index.m3u8
+#EXTINF: group-title="Other",TVS Tally Ho;
+https://nrpus.bozztv.com/36bay2/gusa-tvstallyho/index.m3u8
+#EXTINF: group-title="Other",TVS Tavern;
+https://nrpus.bozztv.com/36bay2/gusa-tavern/index.m3u8
+#EXTINF: group-title="Other",TVS Travel Network;
+https://nrpus.bozztv.com/36bay2/gusa-tvstravel/index.m3u8
+#EXTINF: group-title="Other",TVS Turbo;
+https://nrpus.bozztv.com/36bay2/gusa-tvsturbo/index.m3u8
+#EXTINF: group-title="Other",TVS Western Movie;
+https://nrpus.bozztv.com/36bay2/gusa-tvswesternmovies/index.m3u8
+#EXTINF: group-title="Other",TVS Women Sports;
+https://nrpus.bozztv.com/36bay2/gusa-tvswsn/index.m3u8
+#EXTINF: group-title="Other",Unidentified;
+https://a.jsrdn.com/broadcast/4hhfi556/indexR720P.m3u8
+#EXTINF: group-title="Other",Venus TV (US Eastern);
+https://a.jsrdn.com/broadcast/22690/-0500/c.m3u8
+#EXTINF: group-title="Other",Venus TV (US Pacific);
+https://a.jsrdn.com/broadcast/22690/-0800/c.m3u8
+#EXTINF: group-title="Other",Victorville | KVVB-TV 33;
+https://2-fss-2.streamhoster.com/pl_138/amlst:201950-1309230/chunklist_b1000000.m3u8
+#EXTINF: group-title="Other",Viva Cristo TV;
+http://ss6.domint.net:1946/vct_str/vctv/playlist.m3u8
+#EXTINF: group-title="Other",VoA TV;
+https://voa-lh.akamaihd.net/i/voa_mpls_tvmc3_3@320295/master.m3u8
+#EXTINF: group-title="Other",VoA TV;
+https://voa-lh.akamaihd.net/i/voa_mpls_tvmc6@320298/master.m3u8
+#EXTINF: group-title="Other",VoA TV;
+https://voa-lh.akamaihd.net/i/voapnn_7@72817/master.m3u8
+#EXTINF: group-title="Other",Waypoint;
+https://dai.google.com/linear/hls/event/im0MqOKRTHy9nVa1sirQSg/master.m3u8
+#EXTINF: group-title="Other",WCCA-TV (Worcester);
+https://worcester.vod.castus.tv/live/ch1.m3u8
+#EXTINF: group-title="Other",WeatherNation TV;
+http://cdnapi.kaltura.com/p/931702/sp/93170200/playManifest/entryId/1_oorxcge2/format/applehttp/protocol/http/uiConfId/28428751/a.m3u8
+#EXTINF: group-title="Other",West Virginia | Cozi 16 WZTS;
+https://2-fss-2.streamhoster.com/pl_120/201852-1297026-1/master.m3u8
+#EXTINF: group-title="Other",White Plains Community Media;
+https://stream.swagit.com/live-edge/whiteplainsny/smil:std-4x3-1-b/playlist.m3u8
+#EXTINF: group-title="Other",Wink TV;
+https://nimble.dashstreams.net/onestudio/winktv/playlist.m3u8
+#EXTINF: group-title="Other",WOW! TV;
+http://cdn.elsalvadordigital.com:1935/wowtv/wowtv/playlist.m3u8
+#EXTINF: group-title="Other",WOW! TV;
+http://cdn.elsalvadordigital.com:1935/wowtv/wowtv/playlist.m3u8?JoCaRoIPTV.m3u8
+#EXTINF: group-title="Other",WSJ;
+https://wsjlivehls-lh.akamaihd.net/i/events1_1@174990/master.m3u8
+#EXTINF: group-title="Other",WWE;
+http://cdnak10.cast4u.info/channels/3/10803.m3u8
+#EXTINF: group-title="Other",Xcorps TV;
+https://nrpus.bozztv.com/36bay2/gusa-shetv/index.m3u8
+#EXTINF: group-title="Other",Xcorps TV;
+https://vcnxcorps.teleosmedia.com/stream/xcorps/xcorps/playlist.m3u8
+#EXTINF: group-title="Other",Young Hollywood;
+https://a.jsrdn.com/broadcast/e0f99ab19c/+0000/high/c.m3u8
+#EXTINF: group-title="Other",Youtoo America HD;
+https://thegateway.app/YouToo/CueTones/playlist.m3u8
+#EXTINF: group-title="Other",Z Living;
+https://y5w8j4a9.ssl.hwcdn.net/zlivingusa_r/index.m3u8
+#EXTINF: group-title="Other",Z Living;
+https://y5w8j4a9.ssl.hwcdn.net/zlivingusa_r_prod/tracks-v1a1/index.m3u8
+#EXTINF: group-title="Other",ZEE CINEMA;
+http://z5amshls.akamaized.net/cinemausa/tracks-v1a1/playlist.m3u8
+#EXTINF: group-title="Other",ZEE CINEMA;
+https://z5amshls.akamaized.net/cinemausa/tracks-v1a1/playlist.m3u8?silma.m3u8
+#EXTINF: group-title="Other",ZEE SMILE;
+http://z5amshls.akamaized.net/smileusa/tracks-v1a1/playlist.m3u8
+
+#EXTINF: group-title="Business",Bloomberg TV;
+http://210.210.155.35/session/1f4b9814-7ed5-11e8-aa50-c81f66f89318/uq2663/h/h03/index.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://cdn-videos.akamaized.net/btv/desktop/akamai/europe/live/primary.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://cdn-videos.akamaized.net/btv/desktop/akamai/us/live/primary.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://cdn-videos.akamaized.net/btv/desktop/fastly/asia/live/primary.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://liveproduseast.akamaized.net/btv/desktop/us_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://liveproduseast.akamaized.net/us/Channel-USTV-AWS-virginia-1/Source-USTV-1000-1_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV;
+https://liveproduseast.global.ssl.fastly.net/us/Channel-USTV-AWS-virginia-1/Source-USTV-240-1_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV Asia;
+https://liveprodapnortheast.global.ssl.fastly.net/btv/desktop/ap_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV Asia Live Event;
+https://liveprodapnortheast.global.ssl.fastly.net/btv/desktop/ap_event.m3u8
+#EXTINF: group-title="Business",Bloomberg TV EMEA Live Event;
+https://liveprodeuwest.global.ssl.fastly.net/btv/desktop/eu_event.m3u8
+#EXTINF: group-title="Business",Bloomberg TV Europe;
+https://liveprodeucentral.global.ssl.fastly.net/btv/desktop/eu_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV Europe;
+https://liveprodeuwest.akamaized.net/eu1/Channel-EUTVqvs-AWS-ireland-1/Source-EUTVqvs-1000-1_live.m3u8
+#EXTINF: group-title="Business",Bloomberg TV Europe;
+https://liveprodeuwest.global.ssl.fastly.net/btv/desktop/eu_live.m3u8
+#EXTINF: group-title="Business",CNBC Arabiya;
+https://vod.hibridcdn.net/cnbc/liveabr/playlist.m3u8
+#EXTINF: group-title="Business",CNBC TV18;
+https://cnbctv18-lh.akamaihd.net/i/cnbctv18_1@174868/index_5_av-p.m3u8
+#EXTINF: group-title="Business",CNBC TV18;
+https://cnbctv18-lh.akamaihd.net/i/cnbctv18_1@174868/index_5_av-p.m3u8?sd=10

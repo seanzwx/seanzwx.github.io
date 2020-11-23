@@ -1,0 +1,130 @@
+#EXTINF: group-title="央视频道",CCTV-1;
+http://112.50.243.8/PLTV/88888888/224/3221225829/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-2;
+http://112.50.243.8/PLTV/88888888/224/3221225923/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-3;
+http://112.17.40.8:80/PLTV/88888888/224/3221226485/index.m3u8
+#EXTINF: group-title="央视频道",CCTV-4;
+http://112.50.243.8/PLTV/88888888/224/3221225802/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-5;
+http://223.110.243.172/PLTV/3/224/3221227166/index.m3u8
+#EXTINF: group-title="央视频道",CCTV-5+;
+http://112.50.243.8/PLTV/88888888/224/3221225821/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-6;
+http://112.17.40.48:80/PLTV/88888888/224/3221226433/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-7;
+http://112.50.243.8/PLTV/88888888/224/3221225805/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-8;
+http://223.110.243.171/PLTV/3/224/3221227204/index.m3u8
+#EXTINF: group-title="央视频道",CCTV-9;
+http://112.50.243.8/PLTV/88888888/224/3221225820/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-10;
+http://112.50.243.8/PLTV/88888888/224/3221225814/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-11;
+http://112.50.243.8/PLTV/88888888/224/3221225815/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-12;
+http://112.50.243.8/PLTV/88888888/224/3221225816/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-13;
+http://112.50.243.8/PLTV/88888888/224/3221225817/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-14;
+http://112.50.243.8/PLTV/88888888/224/3221225819/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-15;
+http://112.50.243.8/PLTV/88888888/224/3221225818/1.m3u8
+#EXTINF: group-title="央视频道",CCTV-16;
+http://ott-live.olympicchannel.com/out/u/OC1_1.m3u8
+#EXTINF: group-title="央视频道",CCTV-17;
+http://112.50.243.8/PLTV/88888888/224/3221226986/1.m3u8
+
+#EXTINF: group-title="卫视频道",北京纪实;
+http://112.50.243.8/PLTV/88888888/224/3221225944/1.m3u8
+#EXTINF: group-title="卫视频道",湖南卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225827/1.m3u8
+#EXTINF: group-title="卫视频道",江苏卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225847/1.m3u8
+#EXTINF: group-title="卫视频道",浙江卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225825/1.m3u8
+#EXTINF: group-title="卫视频道",上海东方;
+http://112.50.243.8/PLTV/88888888/224/3221225828/1.m3u8
+#EXTINF: group-title="卫视频道",北京卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225826/1.m3u8
+#EXTINF: group-title="卫视频道",广东卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225824/1.m3u8
+#EXTINF: group-title="卫视频道",深圳卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225848/1.m3u8
+#EXTINF: group-title="卫视频道",天津卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225830/1.m3u8
+#EXTINF: group-title="卫视频道",安徽卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225844/1.m3u8
+#EXTINF: group-title="卫视频道",山东卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225843/1.m3u8
+#EXTINF: group-title="卫视频道",湖北卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225948/1.m3u8
+#EXTINF: group-title="卫视频道",辽宁卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225832/1.m3u8
+#EXTINF: group-title="卫视频道",重庆卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225831/1.m3u8
+#EXTINF: group-title="卫视频道",江西卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225834/1.m3u8
+#EXTINF: group-title="卫视频道",河北卫视;
+http://weblive.hebtv.com/live/hbws_bq/index.m3u8
+#EXTINF: group-title="卫视频道",贵州卫视;
+http://112.50.243.8/PLTV/88888888/224/3221226827/1.m3u8
+#EXTINF: group-title="卫视频道",四川卫视;
+http://112.50.243.8/PLTV/88888888/224/3221227006/1.m3u8
+#EXTINF: group-title="卫视频道",河南卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225842/1.m3u8
+#EXTINF: group-title="卫视频道",广西卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225836/1.m3u8
+#EXTINF: group-title="卫视频道",吉林卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225851/1.m3u8
+#EXTINF: group-title="卫视频道",海南卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225855/1.m3u8
+#EXTINF: group-title="卫视频道",厦门卫视;
+http://112.50.243.8/PLTV/88888888/224/3221226781/1.m3u8
+#EXTINF: group-title="卫视频道",东南卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225833/1.m3u8
+#EXTINF: group-title="卫视频道",黑龙江卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225862/1.m3u8
+#EXTINF: group-title="卫视频道",陕西卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225850/1.m3u8
+#EXTINF: group-title="卫视频道",甘肃卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225845/1.m3u8
+#EXTINF: group-title="卫视频道",山西卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225839/1.m3u8
+#EXTINF: group-title="卫视频道",青海卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225841/1.m3u8
+#EXTINF: group-title="卫视频道",云南卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225853/1.m3u8
+#EXTINF: group-title="卫视频道",宁夏卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225849/1.m3u8
+#EXTINF: group-title="卫视频道",新疆卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225852/1.m3u8
+#EXTINF: group-title="卫视频道",西藏卫视;
+http://111.13.111.242/otttv.bj.chinamobile.com/PLTV/88888888/224/3221225900/1.m3u8
+#EXTINF: group-title="卫视频道",内蒙古卫视;
+http://112.50.243.8/PLTV/88888888/224/3221225846/1.m3u8
+
+#EXTINF: group-title="剧场频道",动作电影;
+http://112.50.243.8/PLTV/88888888/224/3221225879/1.m3u8
+#EXTINF: group-title="剧场频道",惊悚悬疑;
+http://112.50.243.8/PLTV/88888888/224/3221225885/1.m3u8
+#EXTINF: group-title="剧场频道",明星大片;
+http://112.50.243.8/PLTV/88888888/224/3221225893/1.m3u8
+#EXTINF: group-title="剧场频道",家庭剧场;
+http://112.50.243.8/PLTV/88888888/224/3221225882/1.m3u8
+#EXTINF: group-title="剧场频道",精品大剧;
+http://112.50.243.8/PLTV/88888888/224/3221225889/1.m3u8
+#EXTINF: group-title="剧场频道",古装剧场;
+http://112.50.243.8/PLTV/88888888/224/3221225880/1.m3u8
+#EXTINF: group-title="剧场频道",爱情喜剧;
+http://112.50.243.8/PLTV/88888888/224/3221225877/1.m3u8
+#EXTINF: group-title="剧场频道",军旅剧场;
+http://112.50.243.8/PLTV/88888888/224/3221225887/1.m3u8
+#EXTINF: group-title="剧场频道",军事评论;
+http://112.50.243.8/PLTV/88888888/224/3221225890/1.m3u8
+#EXTINF: group-title="剧场频道",金牌综艺;
+http://112.50.243.8/PLTV/88888888/224/3221225884/1.m3u8
+#EXTINF: group-title="剧场频道",精品体育;
+http://112.50.243.8/PLTV/88888888/224/3221225886/1.m3u8
+#EXTINF: group-title="剧场频道",精品记录;
+http://112.50.243.8/PLTV/88888888/224/3221225888/1.m3u8
