@@ -479,6 +479,20 @@
             return;
         }
 
+        if(host.indexOf("business-credits.cc") >= 0)
+        {
+            try
+            {
+                var master = window.urlVideo;
+                extractM3U8Master(master, callback);
+            }
+            catch(e)
+            {
+                responseVideoList(callback);
+            }
+            return;
+        }
+
         responseVideoList(callback);
     };
 })();
