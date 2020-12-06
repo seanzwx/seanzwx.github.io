@@ -506,7 +506,6 @@
                 }
 
                 var master = "http://" + hostname + "/playlist/" + param["id"] + "/" + new Date().getTime() + '.m3u8';
-                alert(master);
                 extractM3U8Master(master, callback);
             }
             catch(e)
