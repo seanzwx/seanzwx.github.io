@@ -479,11 +479,33 @@
             return;
         }
 
-        if(host.indexOf("business-credits.cc") >= 0)
+        if(location.href.indexOf("business-credits.cc/media.php") >= 0)
         {
             try
             {
-                var master = window.urlVideo;
+                var targetSrc = null;
+                var iframes = document.querySelectorAll("iframe");
+                for(var i = 0; i < iframes.length; i++)
+                {
+                    var src = iframes[i].src;
+                    if(src.indexOf("p2p.drivewire.xyz") > -1)
+                    {
+                        targetSrc = src;
+                        break;
+                    }
+                }
+
+                var hostname = targetSrc.split("//")[1].split("/")[0];
+                var param = {};
+                var kvs = targetSrc.split("?")[1].split("&");
+                for(var i = 0; i < kvs.length; i++)
+                {
+                    var tmp = kvs[i].split("=");
+                    param[tmp[0]] = tmp[1];
+                }
+
+                var master = "http://" + hostname + "/playlist/" + param["id"] + "/" + new Date().getTime() + '.m3u8';
+                alert(master);
                 extractM3U8Master(master, callback);
             }
             catch(e)
