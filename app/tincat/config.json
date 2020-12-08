@@ -32,5 +32,9 @@
 			type: "webapp",
 			action: "/tincat/index.html#/more"
 		}
-	]
+	],
+	whatsAppGroup: {
+		url: "https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2",
+		qrcode: "https://seanzwx.github.com/app/tincat/drawable/icon_whatsapp_qrcode.jpg"
+	}
 }
