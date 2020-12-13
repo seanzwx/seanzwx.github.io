@@ -3,7 +3,9 @@
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
 		"title": "Tincat Browser",
 		"subtitle": "Fast powerful browser with m3u8 video downloader.",
-		"buttonAction": "https://play.google.com/store/apps/details?id=com.netsky.tincat",
-		"buttonAction": "https://play.google.com/store/apps/developer?id=Netsky+Tech"
+		"button1Text": "Install",
+		"button1Action": "https://play.google.com/store/apps/details?id=com.netsky.tincat",
+		"button2Text": "Family Apps",
+		"button2Action": "https://play.google.com/store/apps/developer?id=Netsky+Tech"
 	}
 }
