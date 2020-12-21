@@ -17,6 +17,7 @@
 
     var extractM3U8Master = function(masterUrl, callback)
     {
+        console.log("master地址:" + masterUrl);
         if(!masterUrl)
         {
             responseVideoList(callback);
@@ -40,7 +41,6 @@
                     var isMaster = false;
                     var videoList = [];
                     var quality;
-                    var sortable = false;
                     var lines = httpclient.responseText.split("\n");
 
                     for(var i = 0; i < lines.length; i++)
@@ -95,55 +95,20 @@
                             {
                                 quality = "unknown";
                             }
-
                             if(quality.toLowerCase().indexOf("x") !== -1)
                             {
                                 quality = quality.toLowerCase().split("x")[1].trim() + "P";
-                                sortable = true;
                             }
-                            else
-                            {
-                                sortable = false;
-                            }
-                            var exists = false;
-                            for(var j = 0; j < videoList.length; j++)
-                            {
-                                var it = videoList[j];
-                                if(it.quality === quality)
-                                {
-                                    exists = true;
-                                    break;
-                                }
-                            }
-                            if(!exists)
-                            {
-                                videoList.push({
-                                    quality: quality,
-                                    url: url
-                                });
-                            }
+
+                            videoList.push({
+                                quality: quality,
+                                url: url
+                            });
                         }
                     }
 
                     if(isMaster)
                     {
-                        if(videoList.length > 1 && sortable)
-                        {
-                            for(i = 0; i < videoList.length - 1; i++)
-                            {
-                                for(j = 0; j < videoList.length - 1 - i; j++)
-                                {
-                                    var curr = parseInt(videoList[j].quality.replace("P", ""));
-                                    var next = parseInt(videoList[j + 1].quality.replace("P", ""));
-                                    if(curr < next)
-                                    {
-                                        var temp = videoList[j];
-                                        videoList[j] = videoList[j + 1];
-                                        videoList[j + 1] = temp;
-                                    }
-                                }
-                            }
-                        }
                         responseVideoList(callback, videoList);
                     }
                     else
@@ -465,46 +430,11 @@
             return;
         }
 
-        if(host.indexOf("xhamster.com") >= 0 || host.indexOf("xhamster2.com") >= 0)
+        if(host.indexOf("xhamster.com") >= 0)
         {
             try
             {
                 var master = location.protocol + "//" + location.hostname + window.initials.xplayerSettings.sources.hls.fallback;
-                extractM3U8Master(master, callback);
-            }
-            catch(e)
-            {
-                responseVideoList(callback);
-            }
-            return;
-        }
-
-        if(location.href.indexOf("business-credits.cc/media.php") >= 0)
-        {
-            try
-            {
-                var targetSrc = null;
-                var iframes = document.querySelectorAll("iframe");
-                for(var i = 0; i < iframes.length; i++)
-                {
-                    var src = iframes[i].src;
-                    if(src.indexOf("p2p.drivewire.xyz") > -1)
-                    {
-                        targetSrc = src;
-                        break;
-                    }
-                }
-
-                var hostname = targetSrc.split("//")[1].split("/")[0];
-                var param = {};
-                var kvs = targetSrc.split("?")[1].split("&");
-                for(var i = 0; i < kvs.length; i++)
-                {
-                    var tmp = kvs[i].split("=");
-                    param[tmp[0]] = tmp[1];
-                }
-
-                var master = "http://" + hostname + "/playlist/" + param["id"] + "/" + new Date().getTime() + '.m3u8';
                 extractM3U8Master(master, callback);
             }
             catch(e)

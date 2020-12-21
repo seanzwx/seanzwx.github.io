@@ -41,7 +41,6 @@
                     var isMaster = false;
                     var videoList = [];
                     var quality;
-                    var sortable = false;
                     var lines = httpclient.responseText.split("\n");
 
                     for(var i = 0; i < lines.length; i++)
@@ -96,55 +95,20 @@
                             {
                                 quality = "unknown";
                             }
-
                             if(quality.toLowerCase().indexOf("x") !== -1)
                             {
                                 quality = quality.toLowerCase().split("x")[1].trim() + "P";
-                                sortable = true;
                             }
-                            else
-                            {
-                                sortable = false;
-                            }
-                            var exists = false;
-                            for(var j = 0; j < videoList.length; j++)
-                            {
-                                var it = videoList[j];
-                                if(it.quality === quality)
-                                {
-                                    exists = true;
-                                    break;
-                                }
-                            }
-                            if(!exists)
-                            {
-                                videoList.push({
-                                    quality: quality,
-                                    url: url
-                                });
-                            }
+
+                            videoList.push({
+                                quality: quality,
+                                url: url
+                            });
                         }
                     }
 
                     if(isMaster)
                     {
-                        if(videoList.length > 1 && sortable)
-                        {
-                            for(i = 0; i < videoList.length - 1; i++)
-                            {
-                                for(j = 0; j < videoList.length - 1 - i; j++)
-                                {
-                                    var curr = parseInt(videoList[j].quality.replace("P", ""));
-                                    var next = parseInt(videoList[j + 1].quality.replace("P", ""));
-                                    if(curr < next)
-                                    {
-                                        var temp = videoList[j];
-                                        videoList[j] = videoList[j + 1];
-                                        videoList[j + 1] = temp;
-                                    }
-                                }
-                            }
-                        }
                         responseVideoList(callback, videoList);
                     }
                     else
