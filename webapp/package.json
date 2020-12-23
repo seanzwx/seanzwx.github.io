@@ -1,10 +1,10 @@
 {
-	"version": 25,
+	"version": 26,
 	"webapps": [
 		{
 			"name": "Tincat",
 			"url": "/tincat/index.html",
-			"version": 24
+			"version": 25
 		},
 		{
 			"name": "Vidcat",
