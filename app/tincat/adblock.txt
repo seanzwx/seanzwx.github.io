@@ -1,10 +1,10 @@
-# 谷歌广告
+# google
 adservice.google.com
 www.google.com/ads
 g.doubleclick.net
 ad.doubleclick.net
 
-# Baidu广告
+# baidu
 hm.baidu.com
 pos.baidu.com
 
