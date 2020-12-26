@@ -430,7 +430,7 @@
             return;
         }
 
-        if(host.indexOf("xhamster.com") >= 0)
+        if(host.indexOf("xhamster") >= 0)
         {
             try
             {
