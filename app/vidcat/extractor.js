@@ -4,7 +4,6 @@
     {
         window.vidcat = {};
     }
-    var Native = window.VidcatPlusNative;
 
     var responseVideoList = function(callback, videoList)
     {
@@ -130,7 +129,7 @@
         httpclient.send(null);
     };
 
-    window.vidcat.extractVideos = function(callback)
+    var extractM3U8 = function(callback)
     {
         var host = location.host;
 
@@ -320,38 +319,6 @@
             return;
         }
 
-        if(host.indexOf("twitter.com") >= 0)
-        {
-            if(!Native.getInterceptVideoList)
-            {
-                responseVideoList(callback);
-                return;
-            }
-
-            var interceptVideo = Native.getInterceptVideoList();
-            interceptVideo = JSON.parse(interceptVideo);
-            var master;
-            for(var i = 0; i < interceptVideo.length; i++)
-            {
-                var url = interceptVideo[i];
-                var tmp = url.split("/");
-                for(var j = 0; j < tmp.length; j++)
-                {
-                    if(tmp[j] === "pl")
-                    {
-                        var next = tmp[j + 1];
-                        if(next.indexOf("m3u8") >= 0)
-                        {
-                            master = url;
-                            break;
-                        }
-                    }
-                }
-            }
-            extractM3U8Master(master, callback);
-            return;
-        }
-
         if(host.indexOf("metacafe.com") >= 0)
         {
             var video = document.querySelector("video");
@@ -362,31 +329,6 @@
             }
 
             extractM3U8Master(video.src, callback);
-            return;
-        }
-
-        if(host.indexOf("twitch.tv") >= 0)
-        {
-            if(!Native.getInterceptVideoList)
-            {
-                responseVideoList(callback);
-                return;
-            }
-
-            var interceptVideo = Native.getInterceptVideoList();
-            interceptVideo = JSON.parse(interceptVideo);
-            var videoId = location.pathname.replace("/", "") + ".m3u8";
-            var master;
-            for(var i = 0; i < interceptVideo.length; i++)
-            {
-                var url = interceptVideo[i];
-                if(url.indexOf(videoId) > 0)
-                {
-                    master = url;
-                    break;
-                }
-            }
-            extractM3U8Master(master, callback);
             return;
         }
 
@@ -445,5 +387,10 @@
         }
 
         responseVideoList(callback);
+    };
+
+    window.vidcat.extractVideos = function(callback)
+    {
+        extractM3U8(callback);
     };
 })();
