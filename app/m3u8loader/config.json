@@ -1,5 +1,5 @@
 {
-	bannerAd: {
+	"bannerAd": {
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
 		"title": "Tincat Browser",
 		"subtitle": "Fast powerful browser with m3u8 video downloader.",
