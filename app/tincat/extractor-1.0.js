@@ -410,7 +410,7 @@
                 {
                     var it = mediaDefinition[i];
                     videoList.push({
-                        quality: it.quality,
+                        quality: it.quality + "P",
                         url: it.videoUrl
                     });
                 }
