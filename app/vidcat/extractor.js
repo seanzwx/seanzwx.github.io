@@ -386,6 +386,43 @@
             return;
         }
 
+        if(host.indexOf("chaturbate.com") >= 0)
+        {
+            try
+            {
+                var master = JSON.parse(window.initialRoomDossier).hls_source;
+                extractM3U8Master(master, callback);
+            }
+            catch(e)
+            {
+                responseVideoList(callback);
+            }
+            return;
+        }
+
+        if(host.indexOf("youporn.com") >= 0)
+        {
+            try
+            {
+                var videoList = [];
+                var mediaDefinition = page_params.videoPlayer.mediaDefinition;
+                for(var i = 0; i < mediaDefinition.length; i++)
+                {
+                    var it = mediaDefinition[i];
+                    videoList.push({
+                        quality: it.quality,
+                        url: it.videoUrl
+                    });
+                }
+                responseVideoList(callback, videoList);
+            }
+            catch(e)
+            {
+                responseVideoList(callback);
+            }
+            return;
+        }
+
         responseVideoList(callback);
     };
 
