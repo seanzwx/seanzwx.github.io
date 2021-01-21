@@ -1,0 +1,40 @@
+{
+	"homeModuleArray": [
+		{
+			"label": "Video",
+			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_light.png",
+			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_dark.png",
+			"badge": "",
+			"type": "webapp",
+			"action": "/tincat/index.html#/video"
+		},
+		{
+			"label": "TV Live",
+			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_light.png",
+			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_dark.png",
+			"badge": "New",
+			"type": "webapp",
+			"action": "/tincat/index.html#/tv"
+		},
+		{
+			"label": "Game",
+			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_game_light.png",
+			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_game_dark.png",
+			"badge": "",
+			"type": "webapp",
+			"action": "/tincat/index.html#/game"
+		},
+		{
+			"label": "More",
+			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_more_light.png",
+			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_more_dark.png",
+			"badge": "",
+			"type": "webapp",
+			"action": "/tincat/index.html#/more"
+		}
+	],
+	"whatsAppGroup": {
+		"url": "https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2",
+		"qrcode": "https://seanzwx.github.com/app/tincat/drawable/icon_whatsapp_qrcode.jpg"
+	}
+}
