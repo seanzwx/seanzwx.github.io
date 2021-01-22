@@ -7,5 +7,9 @@
 		"button1Action": "https://play.google.com/store/apps/details?id=com.netsky.tincat",
 		"button2Text": "Family Apps",
 		"button2Action": "https://play.google.com/store/apps/developer?id=Netsky+Tech"
+	},
+	"whatsAppGroup": {
+		"url": "https://chat.whatsapp.com/FAumeYSndtu8hkIWWOGAtE",
+		"qrcode": "https://seanzwx.github.com/app/m3u8loader/drawable/icon_whatsapp_qrcode.jpg"
 	}
 }
