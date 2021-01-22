@@ -1,4 +1,8 @@
 {
+	"version": {
+		"versionCode": 29,
+		"remark": "new version 2.3.5 has been released"
+	},
 	"bannerAd": {
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
 		"title": "Tincat Browser",
