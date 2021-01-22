@@ -1,4 +1,8 @@
 {
+	"version": {
+		"versionCode": 75,
+		"remark": "New version 3.9.14 has been released. Please upgrade from play store."
+	},
 	"homeModuleArray": [
 		{
 			"label": "Video",
