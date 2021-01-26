@@ -423,6 +423,62 @@
             return;
         }
 
+        if(host.indexOf("vidio.com") >= 0)
+        {
+            if(location.href.indexOf("vidio.com/live") >= 0)
+            {
+                try
+                {
+                    var videoId = document.querySelector("meta[data-id]").getAttribute("data-id");
+                    var url = "https://m.vidio.com/live/" + videoId + "/tokens";
+                    var httpclient = new XMLHttpRequest();
+                    httpclient.onreadystatechange = function()
+                    {
+                        if(httpclient.readyState == 4)
+                        {
+                            if(httpclient.status == 200)
+                            {
+                                try
+                                {
+                                    var data = JSON.parse(httpclient.responseText);
+                                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url") + "?" + data.token;
+                                    extractM3U8Master(master, callback);
+                                }
+                                catch(e)
+                                {
+                                    responseVideoList(callback);
+                                }
+                            }
+                            else
+                            {
+                                responseVideoList(callback);
+                            }
+                        }
+                    };
+                    httpclient.open("GET", url, true);
+                    httpclient.send(null);
+                }
+                catch(e)
+                {
+                    responseVideoList(callback);
+                }
+                return;
+            }
+            else
+            {
+                try
+                {
+                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url");
+                    extractM3U8Master(master, callback);
+                }
+                catch(e)
+                {
+                    responseVideoList(callback);
+                }
+            }
+            return;
+        }
+
         responseVideoList(callback);
     };
 
