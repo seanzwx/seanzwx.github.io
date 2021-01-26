@@ -438,10 +438,13 @@
                         {
                             if(httpclient.status == 200)
                             {
+                                console.log("解析response:" + httpclient.responseText);
                                 try
                                 {
                                     var data = JSON.parse(httpclient.responseText);
-                                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url") + "?" + data.token;
+                                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url");
+                                    console.log("解析master = " + master);
+                                    var master = master + "?" + data.token;
                                     extractM3U8Master(master, callback);
                                 }
                                 catch(e)
@@ -451,11 +454,12 @@
                             }
                             else
                             {
+                                console.log("解析response:" + httpclient.responseText);
                                 responseVideoList(callback);
                             }
                         }
                     };
-                    httpclient.open("GET", url, true);
+                    httpclient.open("POST", url, true);
                     httpclient.send(null);
                 }
                 catch(e)
