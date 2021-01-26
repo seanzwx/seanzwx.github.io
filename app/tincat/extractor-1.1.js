@@ -430,7 +430,6 @@
                 try
                 {
                     var videoId = document.querySelector("meta[data-id]").getAttribute("data-id");
-                    console.log("解析videoId=" + videoId);
                     var url = "https://m.vidio.com/live/" + videoId + "/tokens";
                     var httpclient = new XMLHttpRequest();
                     httpclient.onreadystatechange = function()
@@ -455,6 +454,7 @@
                             }
                             else
                             {
+                                console.log("解析response:" + httpclient.responseText);
                                 responseVideoList(callback);
                             }
                         }
