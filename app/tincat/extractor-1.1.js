@@ -459,7 +459,7 @@
                             }
                         }
                     };
-                    httpclient.open("GET", url, true);
+                    httpclient.open("POST", url, true);
                     httpclient.send(null);
                 }
                 catch(e)
