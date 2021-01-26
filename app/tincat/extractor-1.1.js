@@ -430,6 +430,7 @@
                 try
                 {
                     var videoId = document.querySelector("meta[data-id]").getAttribute("data-id");
+                    console.log("解析videoId=" + videoId);
                     var url = "https://m.vidio.com/live/" + videoId + "/tokens";
                     var httpclient = new XMLHttpRequest();
                     httpclient.onreadystatechange = function()
@@ -438,10 +439,13 @@
                         {
                             if(httpclient.status == 200)
                             {
+                                console.log("解析response:" + httpclient.responseText);
                                 try
                                 {
                                     var data = JSON.parse(httpclient.responseText);
-                                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url") + "?" + data.token;
+                                    var master = document.querySelector("[data-vjs-clip-hls-url]").getAttribute("data-vjs-clip-hls-url");
+                                    console.log("解析master = " + master);
+                                    var master = master + "?" + data.token;
                                     extractM3U8Master(master, callback);
                                 }
                                 catch(e)
