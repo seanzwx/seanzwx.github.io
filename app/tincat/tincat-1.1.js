@@ -1,30 +1,34 @@
-window.tincat = {};
-
-/** 改变返回 **/
 (function()
 {
-    var rawGo = window.history.go;
-    window.history.back = function()
+    if(!window.tincat)
     {
-        window.TincatPlusNative.back();
-    };
-    window.history.go = function(numberOrUrl)
-    {
-        if(!isNaN(numberOrUrl))
-        {
-            if(numberOrUrl < 0)
-            {
-                window.TincatPlusNative.back();
-                return;
-            }
-        }
-        rawGo(numberOrUrl);
+        window.tincat = {};
     }
-})();
 
-/** 自动填充 **/
-(function()
-{
+    /** 改变返回 **/
+    if(!window.tincat.historyGo)
+    {
+        window.tincat.historyGo = window.history.go;
+
+        window.history.back = function()
+        {
+            window.TincatPlusNative.back();
+        };
+        window.history.go = function(numberOrUrl)
+        {
+            if(!isNaN(numberOrUrl))
+            {
+                if(numberOrUrl < 0)
+                {
+                    window.TincatPlusNative.back();
+                    return;
+                }
+            }
+            window.tincat.historyGo(numberOrUrl);
+        }
+    }
+
+    /** 自动填充 **/
     window.tincat.autofill = function(usernameValue, passwordValue)
     {
         var username = document.querySelector("input[id=username]");
@@ -52,11 +56,8 @@ window.tincat = {};
             }
         }
     };
-})();
 
-/** 全局长按 **/
-(function()
-{
+    /** 全局长按 **/
     document.body.ontouchstart = function(e)
     {
         window.tincat.touchDomHref = null;
@@ -88,7 +89,6 @@ window.tincat = {};
 
         window.tincat.touchDomHref = link;
     };
-
     window.tincat.getTouchDomHref = function()
     {
         var data = {
@@ -96,14 +96,11 @@ window.tincat = {};
         };
         return data;
     };
-})();
 
-/** 媒体资源抓取 **/
-(function()
-{
+    /** 媒体资源抓取 **/
     window.tincat.selectResources = function()
     {
-        window.tincat.extractVideos(function(videoList)
+        window.extractor.extract(function(videoList)
         {
             var videoArray = new Array();
             var imageArray = new Array();
