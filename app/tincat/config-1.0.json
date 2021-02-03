@@ -40,5 +40,17 @@
 	"whatsAppGroup": {
 		"url": "https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2",
 		"qrcode": "https://seanzwx.github.com/app/tincat/drawable/icon_whatsapp_qrcode.jpg"
+	},
+	"ad": {
+		"admob": {
+			"interstitial": "ca-app-pub-2438266699747782/8624687839",
+			"banner": "ca-app-pub-2438266699747782/8816259521",
+			"native": "ca-app-pub-2438266699747782/3372361159"
+		},
+		"audience": {
+			"interstitial": "317371103015941_318445852908466",
+			"banner": "317371103015941_318445972908454",
+			"native": "317371103015941_318445722908479"
+		}
 	}
 }

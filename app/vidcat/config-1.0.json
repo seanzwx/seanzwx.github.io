@@ -2,5 +2,17 @@
 	"version": {
 		"versionCode": 31,
 		"remark": "New version 1.9.12 has been released. Please upgrade from play store."
+	},
+	"ad": {
+		"admob": {
+			"interstitial": "ca-app-pub-2438266699747782/9287687416",
+			"banner": "ca-app-pub-2438266699747782/1508189141",
+			"native": "ca-app-pub-2438266699747782/9950134995"
+		},
+		"audience": {
+			"interstitial": "307735737176094_307937973822537",
+			"banner": "307735737176094_307939260489075",
+			"native": "307735737176094_307947090488292"
+		}
 	}
 }
