@@ -1,4 +1,11 @@
 {
+	"constant": {
+		"email": "zwish163@gmail.com"
+	},
+	"script": {
+		"vidcat": "https://seanzwx.github.io/app/vidcat/vidcat-1.1.js",
+		"extractor": "https://seanzwx.github.io/app/tincat/extractor-1.1.js"
+	},
 	"version": {
 		"versionCode": 31,
 		"remark": "New version 2.0.0 has been released. Please upgrade from play store."
