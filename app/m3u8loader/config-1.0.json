@@ -1,4 +1,7 @@
 {
+	"constant": {
+		"email": "zwish163@gmail.com"
+	},
 	"version": {
 		"versionCode": 30,
 		"remark": "New version 2.3.6 has been released. Please upgrade from play store."
