@@ -1,11 +1,14 @@
 {
 	"constant": {
-		"email": "zwish163@gmail.com",
-		"lvl": false
+		"email": "zwish163@gmail.com"
 	},
 	"version": {
 		"versionCode": 30,
 		"remark": "New version 2.3.6 has been released. Please upgrade from play store."
+	},
+	"license": {
+		"enable": true,
+		"publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw0oDH1SV24x3RyBssRympDKvihdKi3ggzRGoo6e12Kd/Sl3vldLjQHzt1Qj0eJeLR9HhotzW9uACMVokbxgWkaiQ8+tweCXPu9s9HZiIPZo9q55zY1t6nmM8/gD6rFmicMBC9JxmBHmu5kOI/TCDRy4yVjgtjVJQum+XRBMM7585fctMzTJmXxYLAh63WvKLxpJFoAJT9p7KuyVJhv2RPxec2DCd1oHbRvtX3oA9yGJm3+3jUPDviiOTgrcUCFHip4rJ+Cq2VEMWEBoKN4Ot7To0UGcdlf41JscYL4fxBHbq9ws9pj190Z1pacZvgtleyVGHxnVLO64QtaDqyASzBwIDAQAB"
 	},
 	"bannerAd": {
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
