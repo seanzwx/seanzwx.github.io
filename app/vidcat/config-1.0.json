@@ -1,6 +1,7 @@
 {
 	"constant": {
-		"email": "zwish163@gmail.com"
+		"email": "zwish163@gmail.com",
+		"lvl": false
 	},
 	"script": {
 		"vidcat": "https://seanzwx.github.io/app/vidcat/vidcat-1.1.js",
