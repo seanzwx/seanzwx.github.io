@@ -1,0 +1,26 @@
+{
+	"constant": {
+		"email": "zwish163@gmail.com",
+		"lvl": false
+	},
+	"script": {
+		"vidcat": "https://seanzwx.github.io/app/vidcat/vidcat-1.1.js",
+		"extractor": "https://seanzwx.github.io/app/tincat/extractor-1.1.js"
+	},
+	"version": {
+		"versionCode": 31,
+		"remark": "New version 2.0.0 has been released. Please upgrade from play store."
+	},
+	"ad": {
+		"admob": {
+			"interstitial": "ca-app-pub-2438266699747782/9287687416",
+			"banner": "ca-app-pub-2438266699747782/1508189141",
+			"native": "ca-app-pub-2438266699747782/9950134995"
+		},
+		"audience": {
+			"interstitial": "307735737176094_307937973822537",
+			"banner": "307735737176094_307939260489075",
+			"native": "307735737176094_307947090488292"
+		}
+	}
+}
