@@ -148,6 +148,12 @@
 
             try
             {
+                if(host.indexOf("youtube.com") >= 0)
+                {
+                    alert("Unable to download videos due to youtube policy!");
+                    return;
+                }
+
                 if(host.indexOf("pornhub.com") >= 0)
                 {
                     var videoList = [];
