@@ -150,7 +150,7 @@
             {
                 if(host.indexOf("youtube.com") >= 0)
                 {
-                    alert("Unable to download videos due to youtube policy!");
+                    alert("Unable to download videos due to youtube policy. You can send an email to us and we will help you.");
                     return;
                 }
 
