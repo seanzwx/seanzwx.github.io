@@ -4,8 +4,8 @@
 		"lvl": false
 	},
 	"version": {
-		"versionCode": 30,
-		"remark": "New version 2.3.6 has been released. Please upgrade from play store."
+		"versionCode": 33,
+		"remark": "New version 3.0.2 has been released. Please upgrade from play store."
 	},
 	"bannerAd": {
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
