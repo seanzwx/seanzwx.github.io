@@ -11,8 +11,8 @@
 		"adblockRule": "https://seanzwx.github.io/app/tincat/adblock-1.0.txt"
 	},
 	"version": {
-		"versionCode": 80,
-		"remark": "New version 4.0.3 has been released. Please upgrade from play store."
+		"versionCode": 81,
+		"remark": "New version 4.0.4 has been released. Please upgrade from play store."
 	},
 	"homeModuleArray": [
 		{
