@@ -1,11 +1,10 @@
 {
 	"constant": {
-		"email": "zwish163@gmail.com",
-		"lvl": false
+		"email": "zwish163@gmail.com"
 	},
 	"version": {
-		"versionCode": 33,
-		"remark": "New version 3.0.2 has been released. Please upgrade from play store."
+		"versionCode": 34,
+		"remark": "New version 3.0.3 has been released. Please upgrade from play store."
 	},
 	"bannerAd": {
 		"icon": "https://seanzwx.github.io/app/m3u8loader/banner_ad_icon.png",
