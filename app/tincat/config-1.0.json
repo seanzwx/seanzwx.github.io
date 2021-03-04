@@ -1,8 +1,7 @@
 {
 	"constant": {
 		"email": "zwish163@gmail.com",
-		"manual": "https://seanzwx.github.io/app/tincat/help.html",
-		"lvl": false
+		"manual": "https://seanzwx.github.io/app/tincat/help.html"
 	},
 	"script": {
 		"tincat": "https://seanzwx.github.io/app/tincat/tincat-1.1.js",
@@ -59,7 +58,6 @@
 			"native": "ca-app-pub-2438266699747782/3372361159"
 		},
 		"audience": {
-			"interstitial": "317371103015941_318445852908466"
 		}
 	}
 }
