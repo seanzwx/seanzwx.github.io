@@ -1,15 +1,15 @@
 {
-	"version": 34,
+	"version": 35,
 	"webapps": [
 		{
 			"label": "Tincat",
 			"name": "tincat",
-			"version": 32
+			"version": 33
 		},
 		{
 			"label": "Vidcat",
 			"name": "vidcat",
-			"version": 15
+			"version": 16
 		}
 	]
 }
