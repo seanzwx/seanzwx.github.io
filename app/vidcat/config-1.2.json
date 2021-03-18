@@ -1,0 +1,26 @@
+{
+	"constant": {
+		"email": "zwish163@gmail.com"
+	},
+	"script": {
+		"vidcat": "https://seanzwx.github.io/app/vidcat/vidcat-1.2.js",
+		"extractor": "https://seanzwx.github.io/app/tincat/extractor-1.1.js"
+	},
+	"version": {
+		"versionCode": 36,
+		"remark": "New version 2.0.4 has been released. Please upgrade from play store."
+	},
+	"license": {
+		"enable": true,
+		"publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk7o7PlMoKznwJBMDoxg/xYMJVMu6RGTDjjgCEYxxiML5+dpgmSooWIgFDhNAzPU8Q6sW1eemo5ibxFMQ3IaEMTjRb4tfNk9IAMwRa0FhUivfTWO4DU/DOOfAWEDVMXwA0h8JIpNOp8+w7j+DJEZh2jepHRF/2K0Ao/1wo8/6jLPpj4ML7PWkuby38v3wYfaudwbUK7MkWANWl2reuWl4hi4SRn5RtpTk6846dzJ0P8BHKLkmF4B5WyqkNq2GkByJoW3/RFXgxF7bhMMBJ/6idoCHBBq2AImcsuLXbESolk6O55wTSSmp1DZLeYhUymHaGhC4TaMmhjfLrmZ80e43/wIDAQAB"
+	},
+	"ad": {
+		"admob": {
+			"interstitial": "ca-app-pub-2438266699747782/9287687416",
+			"banner": "ca-app-pub-2438266699747782/1508189141",
+			"native": "ca-app-pub-2438266699747782/9950134995"
+		},
+		"audience": {
+		}
+	}
+}
