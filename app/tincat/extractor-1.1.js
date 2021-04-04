@@ -336,6 +336,26 @@
                     return;
                 }
 
+                if(host.indexOf("redtube.com") >= 0)
+                {
+                    var videoId = document.querySelector("#redtube-player").getAttribute("data-video-id");
+                    var mediaDefinition = page_params.video_player_setup["playerDiv_" + videoId].playervars.mediaDefinitions;
+                    var videoList = [];
+                    for(var i = 0; i < mediaDefinition.length; i++)
+                    {
+                        var it = mediaDefinition[i];
+                        if("hls" === it.format)
+                        {
+                            videoList.push({
+                                quality: it.quality + "P",
+                                url: it.videoUrl
+                            });
+                        }
+                    }
+                    window.extractor.responseVideoList(callback, videoList);
+                    return;
+                }
+
                 if(host.indexOf("vidio.com") >= 0)
                 {
                     if(location.href.indexOf("vidio.com/live") >= 0)
