@@ -10,29 +10,31 @@
             callback(videoList);
         },
 
-        getFullUrl: function(url)
+        getFullUrl: function(baseUrl, url)
         {
+            var base = new URL(baseUrl);
+
             if(url.indexOf("http") === 0)
             {
                 return url;
             }
-            else if(url.startsWith("/"))
+            else if(url.indexOf("/") === 0)
             {
-                var fullUrl = location.protocol + "//" + location.hostname;
-                if(location.port)
+                var fullUrl = base.protocol + "//" + base.host;
+                if(base.port)
                 {
-                    fullUrl += ":" + location.port;
+                    fullUrl += ":" + base.port;
                 }
                 return fullUrl + url;
             }
             else
             {
-                var fullUrl = location.protocol + "//" + location.hostname;
-                if(location.port)
+                var fullUrl = base.protocol + "//" + base.host;
+                if(base.port)
                 {
-                    fullUrl += ":" + location.port;
+                    fullUrl += ":" + base.port;
                 }
-                fullUrl += location.pathname;
+                fullUrl += base.pathname;
 
                 var index = fullUrl.lastIndexOf("/");
                 fullUrl = fullUrl.substring(0, index) + "/" + url;
@@ -80,7 +82,7 @@
 
         extractM3U8Master: function(masterUrl, callback)
         {
-            masterUrl = window.extractor.getFullUrl(masterUrl);
+            masterUrl = window.extractor.getFullUrl(location.href, masterUrl);
 
             console.log("解析 -> m3u8 master:" + masterUrl);
             if(!masterUrl)
@@ -121,30 +123,6 @@
 
                     if(line.indexOf("#") !== 0)
                     {
-                        console.log(masterUrl);
-                        var masterURL = new URL(masterUrl);
-                        var m3u8Url = line;
-                        var url = null;
-
-                        if(m3u8Url.indexOf("http") === 0)
-                        {
-                            url = m3u8Url;
-                        }
-                        else if(m3u8Url.indexOf("/") === 0)
-                        {
-                            url = masterURL.protocol + "//" + masterURL.host + m3u8Url;
-                        }
-                        else
-                        {
-                            url = masterURL.protocol + "//" + masterURL.host;
-                            var tmp = masterURL.pathname.split("/");
-                            for(var j = 0; j < tmp.length - 1; j++)
-                            {
-                                url += tmp[j] + "/";
-                            }
-                            url += m3u8Url;
-                        }
-
                         if(!quality)
                         {
                             quality = "unknown";
@@ -156,7 +134,7 @@
 
                         videoList.push({
                             quality: quality,
-                            url: url
+                            url: window.extractor.getFullUrl(masterUrl, line)
                         });
                     }
                 }
@@ -227,7 +205,7 @@
 
                 if(host.indexOf("spankbang.com") >= 0)
                 {
-                    window.extractor.extractM3U8Master(stream_data.m3u8, callback);
+                    window.extractor.extractM3U8Master(stream_data.m3u8[0], callback);
                     return;
                 }
 
@@ -391,10 +369,12 @@
         }
     };
 
-    /*
-    window.extractor.extract(function(videoList)
+    var test = false;
+    if(test)
     {
-        console.log(JSON.stringify(videoList, null, 3));
-    });
-    */
+        window.extractor.extract(function(videoList)
+        {
+            console.log(JSON.stringify(videoList, null, 3));
+        });
+    }
 })();
