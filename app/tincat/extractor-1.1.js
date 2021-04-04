@@ -297,7 +297,11 @@
 
                 if(host.indexOf("xhamster") >= 0)
                 {
-                    var master = location.protocol + "//" + location.hostname + window.initials.xplayerSettings.sources.hls.fallback;
+                    var master = window.initials.xplayerSettings.sources.hls.fallback;
+                    if(!master.indexOf("http") === 0)
+                    {
+                        master = location.protocol + "//" + location.hostname + master;
+                    }
                     window.extractor.extractM3U8Master(master, callback);
                     return;
                 }
