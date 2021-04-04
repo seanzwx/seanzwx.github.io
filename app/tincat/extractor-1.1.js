@@ -10,6 +10,36 @@
             callback(videoList);
         },
 
+        getFullUrl: function(url)
+        {
+            if(url.indexOf("http") === 0)
+            {
+                return url;
+            }
+            else if(url.startsWith("/"))
+            {
+                var fullUrl = location.protocol + "//" + location.hostname;
+                if(location.port)
+                {
+                    fullUrl += ":" + location.port;
+                }
+                return fullUrl + url;
+            }
+            else
+            {
+                var fullUrl = location.protocol + "//" + location.hostname;
+                if(location.port)
+                {
+                    fullUrl += ":" + location.port;
+                }
+                fullUrl += location.pathname;
+
+                var index = fullUrl.lastIndexOf("/");
+                fullUrl = fullUrl.substring(0, index) + "/" + url;
+                return fullUrl;
+            }
+        },
+
         httpGet: function(callback, url, response)
         {
             console.log("解析 -> 发起http请求:" + url);
@@ -50,6 +80,8 @@
 
         extractM3U8Master: function(masterUrl, callback)
         {
+            masterUrl = window.extractor.getFullUrl(masterUrl);
+
             console.log("解析 -> m3u8 master:" + masterUrl);
             if(!masterUrl)
             {
@@ -89,6 +121,7 @@
 
                     if(line.indexOf("#") !== 0)
                     {
+                        console.log(masterUrl);
                         var masterURL = new URL(masterUrl);
                         var m3u8Url = line;
                         var url = null;
@@ -298,10 +331,6 @@
                 if(host.indexOf("xhamster") >= 0)
                 {
                     var master = window.initials.xplayerSettings.sources.hls.fallback;
-                    if(!master.indexOf("http") === 0)
-                    {
-                        master = location.protocol + "//" + location.hostname + master;
-                    }
                     window.extractor.extractM3U8Master(master, callback);
                     return;
                 }
@@ -361,4 +390,11 @@
             window.extractor.responseVideoList(callback);
         }
     };
+
+    /*
+    window.extractor.extract(function(videoList)
+    {
+        console.log(JSON.stringify(videoList, null, 3));
+    });
+    */
 })();
