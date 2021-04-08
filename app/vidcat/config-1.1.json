@@ -7,8 +7,8 @@
 		"extractor": "https://seanzwx.github.io/app/tincat/extractor-1.1.js"
 	},
 	"version": {
-		"versionCode": 38,
-		"remark": "New version 2.0.6 has been released. Please upgrade from play store."
+		"versionCode": 39,
+		"remark": "New version 2.0.7 has been released. Please upgrade from play store."
 	},
 	"license": {
 		"enable": true,
