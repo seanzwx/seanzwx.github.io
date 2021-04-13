@@ -201,10 +201,13 @@
                         for(var i = 0; i < array.length; i++)
                         {
                             var it = array[i];
-                            videoList.push({
-                                url: it.videoUrl,
-                                quality: it.quality + "P"
-                            });
+                            if(it.videoUrl)
+                            {
+                                videoList.push({
+                                    url: it.videoUrl,
+                                    quality: it.quality + "P"
+                                });
+                            }
                         }
                         window.extractor.responseVideoList(callback, videoList);
                     });
