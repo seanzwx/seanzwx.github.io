@@ -167,33 +167,47 @@
 
                 if(host.indexOf("pornhub.com") >= 0)
                 {
-                    var videoList = [];
+                    var flashVarsKey;
                     for(var key in window)
                     {
                         if(key.indexOf("flashvars") === 0)
                         {
-                            var flashvars = window[key];
-                            var mediaDefinitions = flashvars.mediaDefinitions;
-                            if(mediaDefinitions)
-                            {
-                                for(var i = 0; i < mediaDefinitions.length; i++)
-                                {
-                                    var it = mediaDefinitions[i];
-                                    if(it.videoUrl)
-                                    {
-                                        if("hls" === it.format && "hls" !== it.quality)
-                                        {
-                                            videoList.push({
-                                                quality: it.quality + "P",
-                                                url: it.videoUrl
-                                            });
-                                        }
-                                    }
-                                }
-                            }
+                            flashVarsKey = key;
+                            break;
                         }
                     }
-                    window.extractor.responseVideoList(callback, videoList);
+
+                    var videoUrl;
+                    for(var i = 0; i < window[flashVarsKey].mediaDefinitions.length; i++)
+                    {
+                        var it = window[flashVarsKey].mediaDefinitions[i];
+                        if(it.format === "hls")
+                        {
+                            videoUrl = it.videoUrl;
+                            break;
+                        }
+                    }
+
+                    if(!videoUrl)
+                    {
+                        window.extractor.responseVideoList(callback);
+                        return;
+                    }
+
+                    window.extractor.httpGet(callback, videoUrl, function(responseText)
+                    {
+                        var videoList = [];
+                        var array = JSON.parse(responseText);
+                        for(var i = 0; i < array.length; i++)
+                        {
+                            var it = array[i];
+                            videoList.push({
+                                url: it.videoUrl,
+                                quality: it.quality + "P"
+                            });
+                        }
+                        window.extractor.responseVideoList(callback, videoList);
+                    });
                     return;
                 }
 
