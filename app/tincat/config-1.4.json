@@ -19,36 +19,36 @@
 	"homeModuleArray": [
 		{
 			"label": "Video",
-			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_light.png",
-			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_video_dark.png",
+			"icon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_video_light.png",
+			"darkIcon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_video_dark.png",
 			"badge": "",
 			"action": "webapp://tincat/video.html"
 		},
 		{
 			"label": "TV Live",
-			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_light.png",
-			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_tv_dark.png",
+			"icon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_tv_light.png",
+			"darkIcon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_tv_dark.png",
 			"badge": "New",
 			"action": "webapp://tincat/tv.html"
 		},
 		{
 			"label": "Game",
-			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_game_light.png",
-			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_game_dark.png",
+			"icon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_game_light.png",
+			"darkIcon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_game_dark.png",
 			"badge": "",
 			"action": "webapp://tincat/game.html"
 		},
 		{
 			"label": "More",
-			"icon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_more_light.png",
-			"darkIcon": "https://seanzwx.github.com/app/tincat/drawable/icon_module_more_dark.png",
+			"icon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_more_light.png",
+			"darkIcon": "https://seanzwx.github.io/app/tincat/drawable/icon_module_more_dark.png",
 			"badge": "",
 			"action": "webapp://tincat/more.html"
 		}
 	],
 	"whatsAppGroup": {
 		"url": "https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2",
-		"qrcode": "https://seanzwx.github.com/app/tincat/drawable/icon_whatsapp_qrcode.jpg"
+		"qrcode": "https://seanzwx.github.io/app/tincat/drawable/icon_whatsapp_qrcode.jpg"
 	},
 	"ad": {
 		"admob": {
