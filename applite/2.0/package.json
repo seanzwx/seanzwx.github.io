@@ -4,18 +4,18 @@
 	},
 	"tincat-game": {
 		"name": "Tincat Game",
-		"version": 38
+		"version": 36
 	},
 	"tincat-site": {
 		"name": "Tincat Site",
-		"version": 38
+		"version": 36
 	},
 	"tincat-tv": {
 		"name": "Tincat TV",
-		"version": 38
+		"version": 36
 	},
 	"tincat-video": {
 		"name": "Tincat Video",
-		"version": 38
+		"version": 36
 	}
 }
