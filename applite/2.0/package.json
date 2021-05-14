@@ -4,5 +4,21 @@
 	},
 	"vidcat": {
 		"version": 20
+	},
+	"tincat-game": {
+		"name": "Tincat Game",
+		"version": 38
+	},
+	"tincat-site": {
+		"name": "Tincat Site",
+		"version": 38
+	},
+	"tincat-tv": {
+		"name": "Tincat TV",
+		"version": 38
+	},
+	"tincat-video": {
+		"name": "Tincat Video",
+		"version": 38
 	}
 }
