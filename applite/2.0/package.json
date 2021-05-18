@@ -1,6 +1,7 @@
 {
 	"vidcat": {
-		"version": 20
+		"name": "Vidcat Site",
+		"version": 21
 	},
 	"tincat-game": {
 		"name": "Tincat Game",
