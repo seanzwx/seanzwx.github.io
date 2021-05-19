@@ -2365,7 +2365,6 @@ www.google.com/ads
 g.doubleclick.net
 ad.doubleclick.net
 
-hm.baidu.com
 pos.baidu.com
 
 trafficjunky.net
