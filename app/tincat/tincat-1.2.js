@@ -14,7 +14,7 @@
             "iframe[src*='pos.baidu.com']"
         ];
         var siteRules = {
-            ".baidu.com": [".top-ad-beneath-title", ".detail-bottom-ad"]
+            ".baidu.com": [".top-ad-beneath-title", ".detail-bottom-ad", ".n-item-ad", ".ad-item"]
         };
 
         var classes = "";
