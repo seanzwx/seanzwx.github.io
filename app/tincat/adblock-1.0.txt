@@ -2507,3 +2507,11 @@ zap.buzz
 cdn.onesignal.com/sdks/OneSignalSDK.js
 www.amateur.tv/cacheableAjax/GetWContentV3/device/mobile/target/guest/contentKey/bhd/language/es/folder/banners
 static.ads-twitter.com
+s1.wpcnzz.com/gateway
+ssp.aty.sohu.com/integration-api/mix/video/wap
+m.tv.sohu.com/cooperation/getBannerInfo
+m.da.mgtv.com/m5/page
+livew.l.qq.com/livemsg
+mf.atm.youku.com/mf
+t7z.cupid.iqiyi.com/show2
+a2put.chinaz.com/slot/
