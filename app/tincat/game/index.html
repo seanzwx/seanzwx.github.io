@@ -22,7 +22,7 @@
         <div style="padding: 8px 16px 8px 16px;background-color: #f6f6f6;font-size: 14px;">You can save game as miniapp for a better experience.</div>
 
         <div v-for="it in gameArray">
-            <div style="padding: 16px;font-weight: bold;">{{it.title}} </div>
+            <div style="padding: 16px;font-weight: bold;">{{it.title}}</div>
             <div style="display: flex; flex-wrap: wrap;">
                 <div @click="openSite(it.url)" v-for="it in it.itemArray" style="width: 25%;text-align: center;padding: 8px;">
                     <img :src="it.icon" style="width: 48px; height: 48px;border-radius: 8px;"/>
