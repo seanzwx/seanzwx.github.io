@@ -6,9 +6,5 @@
 	"tincat-tv": {
 		"name": "Tincat TV",
 		"version": 36
-	},
-	"tincat-video": {
-		"name": "Tincat Video",
-		"version": 36
 	}
 }
