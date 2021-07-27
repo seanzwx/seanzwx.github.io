@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tincat TV</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <script src="../common/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <div class="h5-actionbar">
+        <img @click="history.back();" src="drawable/icon_back.svg"/>
+        <div>Country</div>
+    </div>
+
+    <div style="padding-top: 50px;">
+        <div @click="channelList(it.id)" v-for="it in countryArray" style="padding: 12px 16px 12px 16px;" class="h5-selector">{{it.name}}</div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                countryArray: [{
+                    name: "Australia",
+                    id: "au"
+                }, {
+                    name: "Brazil",
+                    id: "br"
+                }, {
+                    name: "Canada",
+                    id: "ca"
+                }, {
+                    name: "China",
+                    id: "cn"
+                }, {
+                    name: "France",
+                    id: "fr"
+                }, {
+                    name: "Germany",
+                    id: "de"
+                }, {
+                    name: "HongKong",
+                    id: "hk"
+                }, {
+                    name: "India",
+                    id: "in"
+                }, {
+                    name: "Indonesia",
+                    id: "id"
+                }, {
+                    name: "Iran",
+                    id: "ir"
+                }, {
+                    name: "Iraq",
+                    id: "iq"
+                }, {
+                    name: "Italy",
+                    id: "it"
+                }, {
+                    name: "Japan",
+                    id: "jp"
+                }, {
+                    name: "Malaysia",
+                    id: "my"
+                }, {
+                    name: "Mexico",
+                    id: "mx"
+                }, {
+                    name: "Netherlands",
+                    id: "nl"
+                }, {
+                    name: "NewZealand",
+                    id: "nz"
+                }, {
+                    name: "Pakistan",
+                    id: "pk"
+                }, {
+                    name: "Palestine",
+                    id: "ps"
+                }, {
+                    name: "Philippines",
+                    id: "ph"
+                }, {
+                    name: "Poland",
+                    id: "pl"
+                }, {
+                    name: "Portugal",
+                    id: "pt"
+                }, {
+                    name: "Romania",
+                    id: "ro"
+                }, {
+                    name: "Russia",
+                    id: "ru"
+                }, {
+                    name: "Saudi",
+                    id: "sa"
+                }, {
+                    name: "Slovakia",
+                    id: "sk"
+                }, {
+                    name: "Korea",
+                    id: "kr"
+                }, {
+                    name: "Spain",
+                    id: "es"
+                }, {
+                    name: "Sweden",
+                    id: "se"
+                }, {
+                    name: "Switzerland",
+                    id: "ch"
+                }, {
+                    name: "Taiwan",
+                    id: "tw"
+                }, {
+                    name: "Thailand",
+                    id: "th"
+                }, {
+                    name: "Turkey",
+                    id: "tr"
+                }, {
+                    name: "Ukraine",
+                    id: "ua"
+                }, {
+                    name: "United Arab Emirates",
+                    id: "ae"
+                }, {
+                    name: "United Kingdom",
+                    id: "uk"
+                }, {
+                    name: "United States",
+                    id: "us"
+                }, {
+                    name: "Vietnam",
+                    id: "vn"
+                }]
+            };
+        },
+
+        methods: {
+            channelList: function(id)
+            {
+                var url = "https://iptv-org.github.io/iptv/countries/" + id + ".m3u";
+                location.href = "channels.html?url=" + encodeURIComponent(url);
+            }
+        }
+    });
+</script>
+</html>

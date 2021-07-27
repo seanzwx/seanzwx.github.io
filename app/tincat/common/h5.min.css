@@ -281,49 +281,24 @@ a:hover {
  * 中间弹窗
  */
 @keyframes h5-dialog-center-in {
-    from,
-    20%,
-    40%,
-    60%,
-    80%,
-    to {
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    0% {
+    from {
+        transform: translate3d(0, 4%, 0);
         opacity: 0;
-        transform: scale3d(0.3, 0.3, 0.3);
-    }
-    20% {
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-    40% {
-        transform: scale3d(0.9, 0.9, 0.9);
-    }
-    60% {
-        opacity: 1;
-        transform: scale3d(1.03, 1.03, 1.03);
-    }
-    80% {
-        transform: scale3d(0.97, 0.97, 0.97);
     }
     to {
+        transform: translate3d(0, 0%, 0);
         opacity: 1;
-        transform: scale3d(1, 1, 1);
     }
 }
 
 @keyframes h5-dialog-center-out {
-    20% {
-        transform: scale3d(0.9, 0.9, 0.9);
-    }
-    50%,
-    55% {
+    from {
+        transform: translate3d(0, 0%, 0);
         opacity: 1;
-        transform: scale3d(1.1, 1.1, 1.1);
     }
     to {
+        transform: translate3d(0, 4%, 0);
         opacity: 0;
-        transform: scale3d(0.3, 0.3, 0.3);
     }
 }
 
@@ -338,7 +313,7 @@ a:hover {
     right: 0px;
     bottom: 0px;
     background-color: transparent;
-    animation: h5-dialog-center-in 0.15s forwards ease-in;
+    animation: h5-dialog-center-in 0.2s;
 }
 
 /**
@@ -716,15 +691,22 @@ a:hover {
     background-color: #ffffff;
     display: flex;
     align-items: center;
+    border-bottom: solid 1px #eeeeee;
 }
 
-.h5-actionbar-back {
+.h5-actionbar > img:nth-child(1) {
     width: 50px;
     height: 50px;
     padding: 14px;
     border-radius: 100px;
 }
 
-.h5-actionbar-back:active {
+.h5-actionbar > img:nth-child(1):active {
     background-color: #f6f6f6;
+}
+
+.h5-actionbar > div:nth-child(2) {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1;
 }

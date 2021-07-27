@@ -5,17 +5,15 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 
-    <link href="style/h5.min.css" rel="stylesheet"/>
-    <script src="libs/vue.min.js"></script>
+    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <script src="../common/vue.min.js"></script>
 </head>
 
 <body style="background-color: #f6f6f6;">
 <div id="app">
     <div class="h5-actionbar">
-        <div>
-            <img @click="history.back();" class="h5-actionbar-back" src="drawable/icon_back.svg"/>
-        </div>
-        <div style="font-size: 18px;font-weight: bold;flex-grow: 1;">Site</div>
+        <img @click="history.back()" src="drawable/icon_back.svg"/>
+        <div>Site</div>
     </div>
 
     <div style="padding-top: 50px;padding-bottom: 16px;">

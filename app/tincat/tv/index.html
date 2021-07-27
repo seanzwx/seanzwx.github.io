@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>Tincat TV</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <style>
+        .app-tv-bottombar {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: #ffffff;
+            z-index: 2;
+            display: flex;
+            border-top: solid 1px #f6f6f6;
+        }
+
+        .app-tv-bottombar > div {
+            width: 20%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-tv-bottombar > div > img {
+            width: 22px;
+            height: 22px;
+        }
+    </style>
+
+    <script src="../common/jquery.min.js"></script>
+    <script src="../common/h5.min.js"></script>
+    <script src="../common/tincat.min.js"></script>
+    <script src="../common/vue.min.js"></script>
+    <script src="libs/context.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <div style="position: fixed; left: 0px; top: 0px; right: 0px;z-index: 2;background-color: #ffffff;">
+        <div style="margin-bottom: -5px;">
+            <video ref="video" controls="controls" controlslist="nodownload" preload="auto" autoplay="autoplay" style="width:100%;background-color: #000000;margin: 0px;padding: 0px;"/>
+        </div>
+        <div style="padding: 16px;font-weight: bold;border-bottom: solid 1px #f7f7f7;">Channel List</div>
+    </div>
+
+    <div style="padding-bottom: 50px;" ref="list">
+        <div v-if="channelArray.length>0">
+            <div v-for="it,index in channelArray" @click="play(index)" class="h5-selector" style="display: flex; align-items: center;height: 50px;padding: 0px 4px 0px 16px;">
+                <div>
+                    <img src="drawable/channel.svg" style="height: 20px; width: 20px;"/>
+                </div>
+                <div class="h5-singleline" style="flex-grow: 1;padding: 0px 16px 0px 16px;font-size: 15px;">{{it.title}}</div>
+                <div>
+                    <img @click.stop="more(index)" src="drawable/elipsis.svg" class="h5-selector" style="height: 44px; width: 44px;padding: 12px;transform:rotate(90deg);border-radius: 44px;"/>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="channelArray.length<=0" style="text-align: center;padding-top: 120px;">
+            <button @click="location.href='country.html'" class="h5-button-round h5-button-white">Add Global TV Channels</button>
+        </div>
+    </div>
+
+    <div class="app-tv-bottombar">
+        <div @click="previous()" class="h5-selector">
+            <img src="drawable/next.svg" style="transform:rotate(180deg);"/>
+        </div>
+        <div @click="next()" class="h5-selector">
+            <img src="drawable/next.svg"/>
+        </div>
+        <div @click="location.href='country.html'" class="h5-selector">
+            <img src="drawable/global.svg"/>
+        </div>
+        <div @click="location.href='channel_add.html'" class="h5-selector">
+            <img src="drawable/add.svg"/>
+        </div>
+        <div @click="getData()" class="h5-selector">
+            <img src="drawable/refresh.svg"/>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                video: null,
+                channelArray: [],
+                currChannelIndex: 0,
+                playCount: -1
+            };
+        },
+
+        mounted: function()
+        {
+            this.video = this.$refs.video;
+            var videoHeight = screen.width * 9 / 16;
+
+            // video设置
+            this.video.style.height = videoHeight + "px";
+            this.video.oncontextmenu = function()
+            {
+                return false;
+            };
+
+            // 列表
+            this.$refs.list.style.paddingTop = videoHeight + "px";
+
+            this.getData();
+        },
+
+        methods: {
+            getData: function()
+            {
+                var that = this;
+                tincat.http.restful({
+                    url: Api.tincat_tv_channelList_v1,
+                    mask: true,
+                    callback: function(data)
+                    {
+                        that.channelArray = data.channelArray;
+                    }
+                });
+            },
+
+            play: function(channelIndex)
+            {
+                if(this.channelArray.length <= channelIndex)
+                {
+                    return;
+                }
+
+                var that = this;
+                this.currChannelIndex = channelIndex;
+                var playFunc = function()
+                {
+                    var channel = that.channelArray[channelIndex];
+                    console.log("播放" + channel.title + ", " + channel.url);
+                    that.video.pause();
+                    that.video.src = channel.url;
+                    that.video.load();
+                    that.video.play();
+                };
+
+                this.playCount++;
+                if(this.playCount >= 3)
+                {
+                    this.playCount = 0;
+
+                    console.log("弹广告");
+                    tincat.ad.interstitial(function()
+                    {
+                        console.log("广告关闭了");
+                        playFunc();
+                    });
+                    return;
+                }
+
+                playFunc();
+            },
+
+            previous: function()
+            {
+                var channelIndex = this.currChannelIndex - 1;
+                if(channelIndex < 0)
+                {
+                    channelIndex = this.channelArray.length - 1;
+                }
+                this.play(channelIndex);
+            },
+
+            next: function()
+            {
+                var channelIndex = this.currChannelIndex + 1;
+                if(this.channelArray.length <= channelIndex)
+                {
+                    channelIndex = 0;
+                }
+                this.play(channelIndex);
+            },
+
+            more: function(index)
+            {
+                var that = this;
+                h5.dialog.list(["Share", "Download", "Copy", "Delete"], function(item)
+                {
+                    var channel = that.channelArray[index];
+                    switch(item)
+                    {
+                        case "Share":
+                        {
+                            tincat.system.share("Share Channel", channel.url);
+                            break;
+                        }
+                        case "Download":
+                        {
+                            tincat.system.download(channel.url, "video.mp4");
+                            break;
+                        }
+                        case "Copy":
+                        {
+                            tincat.system.copy(channel.url);
+                            tincat.system.toast("Copy Success");
+                            break;
+                        }
+                        case "Delete":
+                        {
+                            if(confirm("Delete this channel?"))
+                            {
+                                tincat.http.restful({
+                                    url: Api.tincat_tv_deleteChannel_v1,
+                                    body: {
+                                        channelId: channel.channelId
+                                    },
+                                    mask: true,
+                                    callback: function(data)
+                                    {
+                                        that.getData();
+                                    }
+                                });
+                            }
+                            break;
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+</html>

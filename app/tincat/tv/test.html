@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>Tincat TV</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <script src="../common/h5.min.js"></script>
+    <script src="../common/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <div>
+        <video ref="video" controls="controls" controlslist="nodownload" preload="auto" autoplay="autoplay" style="width:100%;background-color: #000000;margin: 0px;padding: 0px;"/>
+    </div>
+    <div style="padding: 16px;word-break: break-all;">{{m3u8Url}}</div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                m3u8Url: ""
+            };
+        },
+
+        mounted: function()
+        {
+            var url = decodeURIComponent(h5.util.getParameter("url"));
+            console.log(url);
+            var video = this.$refs.video;
+            video.pause();
+            video.src = url;
+            this.m3u8Url = url;
+        }
+    });
+</script>
+</html>
