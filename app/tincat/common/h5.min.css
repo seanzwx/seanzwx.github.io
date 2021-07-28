@@ -313,7 +313,7 @@ a:hover {
     right: 0px;
     bottom: 0px;
     background-color: transparent;
-    animation: h5-dialog-center-in 0.2s;
+    animation: h5-dialog-center-in 0.15s;
 }
 
 /**
