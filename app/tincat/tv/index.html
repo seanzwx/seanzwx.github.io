@@ -45,7 +45,7 @@
         <div style="margin-bottom: -5px;">
             <video ref="video" controls="controls" controlslist="nodownload" preload="auto" autoplay="autoplay" style="width:100%;background-color: #000000;margin: 0px;padding: 0px;"/>
         </div>
-        <div style="padding: 16px;font-weight: bold;border-bottom: solid 1px #f7f7f7;">Channel List</div>
+        <div style="padding-left: 16px;font-weight: bold;border-bottom: solid 1px #f7f7f7;height: 50px;display: flex;align-items: center;">Channel List</div>
     </div>
 
     <div style="padding-bottom: 50px;" ref="list">
@@ -113,7 +113,7 @@
             };
 
             // 列表
-            this.$refs.list.style.paddingTop = videoHeight + "px";
+            this.$refs.list.style.paddingTop = (videoHeight + 50) + "px";
 
             this.getData();
         },
@@ -190,10 +190,11 @@
 
             more: function(index)
             {
+                this.index = index;
                 var that = this;
                 h5.dialog.list(["Share", "Download", "Copy", "Delete"], function(item)
                 {
-                    var channel = that.channelArray[index];
+                    var channel = that.channelArray[that.index];
                     switch(item)
                     {
                         case "Share":
