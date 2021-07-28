@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tincat Amazon Store</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="style/style.css" rel="stylesheet"/>
+    <script src="../common/vue.min.js"></script>
+
+    <style>
+        .category {
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #f7f7f8;
+            border: solid 1px #DDDFE1;
+            border-radius: 14px;
+            padding: 10px;
+            margin: 8px;
+            white-space: nowrap;
+            word-break: keep-all;
+        }
+
+        .category:active {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <div style="padding: 16px 16px 0px 16px;display: flex;">
+        <div style="flex-grow: 1;">
+            <div style="font-size: 20px;font-weight: bold;">Tincat Amazon Store</div>
+            <div style="font-size: 18px;font-weight: bold;">best selection for you</div>
+        </div>
+        <div>
+            <img src="drawable/icon_user.svg" style="width: 36px; height: 36px;"/>
+        </div>
+    </div>
+
+    <div style="padding: 16px;">
+        <div style="border-radius: 14px;background-color: #f7f7f8;height: 50px;display: flex;align-items: center;padding: 0px 16px 0px 16px;">
+            <img src="drawable/icon_search.svg" style="width: 20px; height: 20px;"/>
+            <div style="color: #bbbbbb;margin-left: 8px;">Search</div>
+        </div>
+    </div>
+
+    <div>
+        <div style="font-weight: bold;padding: 16px 0px 0px 16px;">Hot</div>
+        <div style="overflow-x: auto; display: flex;padding: 8px">
+            <div v-for="it in deelArray" style="min-width: 300px; width: 300px; margin: 8px;">
+                <div class="h5-selector" style="box-shadow: 0px 0px 16px #efefef; display: flex; align-items: center;padding: 16px;border-radius: 14px;">
+                    <div style="width: 50px; height: 50px; background-color: #f7f7f8;border-radius: 8px;">
+                        <img src="https://m.media-amazon.com/images/I/41kfXEjd1wL._SL250_.jpg" style="width: 100%; height: 100%;"/>
+                    </div>
+                    <div style="flex-grow: 1;padding-left: 16px;">
+                        <div style="font-size: 14px;font-weight: bold;">Bruges Accent Chair</div>
+                        <div style="margin-top: 6px;color: #EBD067;">
+                            <span style="color: #EBD067;font-weight: bold;">$250</span>
+                            <span style="color: #EBD067;">/</span>
+                            <span style="text-decoration: line-through; color: #cecece;">350</span>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="drawable/icon_right.svg" style="background-color: #1C2534;border-radius: 10px;width: 30px; height: 30px;padding: 6px;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div style="font-weight: bold;padding: 16px 0px 0px 16px;">Categories</div>
+        <div style="display: flex; overflow-x: auto;padding: 8px;">
+            <div @click="location.href='category.html'" v-for="it in categoryArray" class="category">{{it}}</div>
+        </div>
+    </div>
+
+    <div>
+        <div style="display: flex; align-items: center;padding: 16px 16px 0px 16px;">
+            <div style="font-weight: bold;flex-grow: 1;">Today's Deels</div>
+            <div style="font-size: 14px;color: #9a9a9a;">View All</div>
+        </div>
+        <div style="display: flex;flex-wrap: wrap;padding: 8px;">
+            <div v-for="it in categoryArray" style="width: 50%;">
+                <div style="background-color: #f7f7f8;border-radius: 14px;padding: 16px;margin: 8px;position: relative;">
+                    <div style="background-color: #ffffff;height: 150px;border-radius: 14px;">
+                        <img src="https://m.media-amazon.com/images/I/41kfXEjd1wL._SL250_.jpg" style="width: 100%; height: 100%;padding: 16px;"/>
+                    </div>
+                    <div style="margin-top: 8px;font-size: 14px;font-weight: bold;">Bruges Accent Chair</div>
+                    <div style="color: #EBD067;margin-top: 8px;font-weight: bold;">$160</div>
+
+                    <img src="drawable/icon_add.svg" style="border-radius: 100px;width: 30px; height: 30px;background-color: #1C2534;position: absolute; right: 0px; bottom: 0px;padding: 6px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                deelArray: ["", "", ""],
+                categoryArray: ["Automotive", "Boy's Fashion", "Pet Supplies", "Sports & Outdoors", "Toys", "Arts & Crafts", "Electronics", "Luggage"]
+            };
+        },
+
+        methods: {}
+    });
+</script>
+</html>

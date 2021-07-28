@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tincat Amazon Store</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="style/style.css" rel="stylesheet"/>
+    <script src="../common/vue.min.js"></script>
+
+    <style>
+        .sort {
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #f7f7f8;
+            border: solid 1px #DDDFE1;
+            border-radius: 14px;
+            padding: 10px;
+            margin: 8px;
+            white-space: nowrap;
+            word-break: keep-all;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <div style="padding: 16px 16px 0px 16px;display: flex;">
+        <div style="font-size: 20px;font-weight: bold;flex-grow: 1;">Sports</div>
+        <img src="drawable/icon_category.svg" style="width: 24px; height: 24px;"/>
+    </div>
+
+    <div style="display: flex; align-items: center;padding: 16px 16px 0px 16px;">
+        <div style="color: #9a9a9a;padding-right: 8px;">Sort By</div>
+        <div class="sort">price</div>
+        <div class="sort">date</div>
+    </div>
+
+    <div style="display: flex;flex-wrap: wrap;padding: 8px;">
+        <div v-for="it in categoryArray" style="width: 50%;">
+            <div style="background-color: #f7f7f8;border-radius: 14px;padding: 16px;margin: 8px;position: relative;">
+                <div style="background-color: #ffffff;height: 150px;border-radius: 14px;">
+                    <img src="https://m.media-amazon.com/images/I/41kfXEjd1wL._SL250_.jpg" style="width: 100%; height: 100%;padding: 16px;"/>
+                </div>
+                <div style="margin-top: 8px;font-size: 14px;font-weight: bold;">Bruges Accent Chair</div>
+                <div style="color: #EBD067;margin-top: 8px;font-weight: bold;">$160</div>
+
+                <img src="drawable/icon_add.svg" style="border-radius: 100px;width: 30px; height: 30px;background-color: #1C2534;position: absolute; right: 0px; bottom: 0px;padding: 6px;"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                deelArray: ["", "", ""],
+                categoryArray: ["Automotive", "Boy's Fashion", "Pet Supplies", "Sports & Outdoors", "Toys", "Arts & Crafts", "Electronics", "Luggage"]
+            };
+        },
+
+        methods: {}
+    });
+</script>
+</html>
