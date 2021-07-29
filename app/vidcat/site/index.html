@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>Tincat Site</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <script src="../common/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <div class="h5-actionbar">
+        <img @click="history.back()" src="drawable/icon_back.svg"/>
+        <div>Site</div>
+    </div>
+
+    <div style="padding-top: 50px;padding-bottom: 16px;">
+        <div v-for="group in groupArray">
+            <div style="font-weight: bold;padding: 16px 0px 0px 16px;">{{group.name}}</div>
+            <div style="display: flex; flex-wrap: wrap;padding: 0px 8px 8px 8px;">
+                <div @click="openSite(it.url)" v-for="it in group.siteArray" style="width: 33.3333%;padding: 8px;">
+                    <div style="font-size: 12px;background-color: #f6f6f6;text-align: center;padding: 8px;color: #333333;">{{it.title}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data: function()
+        {
+            return {
+                groupArray: [
+                    {
+                        name: "Social",
+                        siteArray: [{
+                            title: "Instagram",
+                            url: "https://www.instagram.com"
+                        }, {
+                            title: "Facebook",
+                            url: "https://www.facebook.com"
+                        }, {
+                            title: "Twitter",
+                            url: "https://www.twitter.com"
+                        }, {
+                            title: "Vimeo",
+                            url: "https://www.vimeo.com"
+                        }, {
+                            title: "DailyMotion",
+                            url: "https://www.dailymotion.com"
+                        }, {
+                            title: "MetaCafe",
+                            url: "https://www.metacafe.com"
+                        }, {
+                            title: "LiveLeak",
+                            url: "https://www.liveleak.com"
+                        }, {
+                            title: "9GAG",
+                            url: "https://9gag.com"
+                        }, {
+                            title: "Tiktok",
+                            url: "https://www.tiktok.com/foryou"
+                        }]
+                    }, {
+                        name: "Live Show",
+                        siteArray: [{
+                            title: "Twitch",
+                            url: "https://www.twitch.tv"
+                        }, {
+                            title: "Periscope",
+                            url: "https://www.periscope.tv"
+                        }, {
+                            title: "Bigo",
+                            url: "https://www.bigo.tv"
+                        }, {
+                            title: "Tango",
+                            url: "https://www.tango.me"
+                        }, {
+                            title: "LiveMe",
+                            url: "https://www.liveme.com/en/explore.html"
+                        }, {
+                            title: "浪Live",
+                            url: "https://www.lang.live"
+                        }]
+                    }
+                ]
+            };
+        },
+
+        methods: {
+            openSite: function(url)
+            {
+                window.open(url);
+            }
+        }
+    });
+</script>
+</html>
