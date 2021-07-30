@@ -5,9 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 
+    <link href="../common/h5.css" rel="stylesheet"/>
     <link href="style/style.css" rel="stylesheet"/>
-    <script src="../common/vue.min.js"></script>
-
     <style>
         .sort {
             font-size: 14px;
@@ -21,12 +20,15 @@
             word-break: keep-all;
         }
     </style>
+
+    <script src="../common/vue.min.js"></script>
+    <script src="../common/h5.js"></script>
 </head>
 
 <body>
 <div id="app">
     <div style="padding: 16px 16px 0px 16px;display: flex;">
-        <div style="font-size: 20px;font-weight: bold;flex-grow: 1;">Sports</div>
+        <div style="font-size: 20px;font-weight: bold;flex-grow: 1;">{{categoryName}}</div>
         <img src="drawable/icon_category.svg" style="width: 24px; height: 24px;"/>
     </div>
 
@@ -59,9 +61,15 @@
         data: function()
         {
             return {
-                deelArray: ["", "", ""],
+                categoryName: "",
                 categoryArray: ["Automotive", "Boy's Fashion", "Pet Supplies", "Sports & Outdoors", "Toys", "Arts & Crafts", "Electronics", "Luggage"]
             };
+        },
+
+        mounted: function()
+        {
+            this.categoryId = h5.util.getParameter("categoryId");
+            this.categoryName = h5.util.getParameter("categoryName");
         },
 
         methods: {}

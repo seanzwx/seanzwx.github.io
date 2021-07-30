@@ -9,7 +9,6 @@
     <link href="style/style.css" rel="stylesheet"/>
 
     <script src="../common/vue.min.js"></script>
-    <script src="../common/jquery.min.js"></script>
     <script src="../common/h5.js"></script>
     <script src="../common/tincat.js"></script>
     <script src="libs/context.js"></script>
@@ -74,7 +73,7 @@
     <div>
         <div style="font-weight: bold;padding: 16px 0px 0px 16px;">Categories</div>
         <div style="display: flex; overflow-x: auto;padding: 8px;">
-            <div @click="location.href='category.html'" v-for="it in categoryArray" class="category">{{it.categoryName}}</div>
+            <div @click="openCategory(it)" v-for="it in categoryArray" class="category">{{it.categoryName}}</div>
         </div>
     </div>
 
@@ -168,6 +167,11 @@
             openProduct: function(url)
             {
                 location.href = url;
+            },
+
+            openCategory: function(category)
+            {
+                location.href = "category.html?categoryId=" + category.categoryId + "&categoryName=" + encodeURIComponent(category.categoryName);
             },
 
             showUserInfo: function()

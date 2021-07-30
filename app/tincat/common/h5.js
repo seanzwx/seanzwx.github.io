@@ -94,10 +94,11 @@
          * 自定义弹窗
          */
         dialog: {
-            create: function(selector)
+            create: function(selector, removeOnDismiss)
             {
                 var dialog = {
-                    _selector: selector,
+                    selector: selector,
+                    removeOnDismiss: removeOnDismiss,
 
                     showCenter: function()
                     {
@@ -121,30 +122,36 @@
 
                     setOnDismissListener: function(onDismissListener)
                     {
-                        this._onDismissListener = onDismissListener;
+                        this.onDismissListener = onDismissListener;
                     },
 
                     dismiss: function()
                     {
                         var that = this;
-                        var mask = $(".h5-mask");
-                        var dialog = $(this._selector);
+                        var mask = document.querySelector(".h5-mask");
+                        var dialog = document.querySelector(this.selector);
 
-                        dialog.css("animation", this._dialogClass + "-out 0.15s forwards ease-in");
-                        mask.css("animation", "h5-mask-out 0.15s forwards ease-in");
+                        mask.style.animation = "h5-mask-out 0.15s forwards ease-in"
+                        dialog.style.animation = this.dialogClass + "-out 0.15s forwards ease-in";
+
                         setTimeout(function()
                         {
-                            mask.remove();
-                            dialog.attr("class", "");
-                            dialog.css("animation", "");
-                            dialog.hide();
+                            document.body.style.overflowY = "auto";
 
-                            $("body").css("overflow-y", "auto");
+                            document.body.removeChild(mask);
 
-                            if(that._onDismissListener)
+                            dialog.setAttribute("class", "");
+                            dialog.style.animation = "";
+                            dialog.style.display = "none";
+                            if(that.removeOnDismiss)
                             {
-                                that._onDismissListener();
-                                that._onDismissListener = null;
+                                dialog.parentNode.removeChild(dialog);
+                            }
+
+                            if(that.onDismissListener)
+                            {
+                                that.onDismissListener();
+                                that.onDismissListener = null;
                             }
                         }, 200);
                     },
@@ -152,41 +159,28 @@
                     _show: function(dialogClass)
                     {
                         var that = this;
-                        this._dialogClass = dialogClass;
+                        this.dialogClass = dialogClass;
 
-                        $("body").css("overflow-y", "hidden");
+                        document.body.style.overflowY = "hidden";
 
-                        var maskDom = $("<div class=\"h5-mask\">&nbsp;</div>");
-                        $("body").append(maskDom);
+                        var maskDom = document.createElement("DIV");
+                        maskDom.setAttribute("class", "h5-mask");
+                        document.body.appendChild(maskDom);
 
-                        var dialogDom = $(this._selector);
-                        dialogDom.attr("class", dialogClass);
+                        var dialogDom = document.querySelector(this.selector);
+                        dialogDom.setAttribute("class", dialogClass);
 
                         setTimeout(function()
                         {
-                            dialogDom.show();
+                            dialogDom.style.display = "flex";
 
                             setTimeout(function()
                             {
-                                if("h5-dialog-center" === dialogClass)
+                                maskDom.addEventListener("click", function(e)
                                 {
-                                    dialogDom.bind("touchstart", function(e)
-                                    {
-                                        if(e.target === dialogDom.get(0))
-                                        {
-                                            that.dismiss();
-                                            return false;
-                                        }
-                                    });
-                                }
-                                else
-                                {
-                                    maskDom.bind("touchstart", function()
-                                    {
-                                        that.dismiss();
-                                        return false;
-                                    });
-                                }
+                                    e.stopPropagation();
+                                    that.dismiss();
+                                });
                             }, 200);
                         }, 100);
                     }
@@ -208,17 +202,19 @@
                     itemHtml += "<div class=\"h5-selector\" style=\"line-height: 50px;padding: 0px 16px 0px 16px;\">" + items[i] + "</div>";
                 }
                 html = html.replace("${items}", itemHtml);
+
                 var dialogDom = document.createElement("DIV");
                 dialogDom.setAttribute("id", "dialog_list");
                 dialogDom.style.display = "none";
                 dialogDom.innerHTML = html;
                 document.body.appendChild(dialogDom);
 
-                var dialog = this.create("#dialog_list");
+                var dialog = this.create("#dialog_list", true);
                 dialog.showCenter();
 
                 dialogDom.querySelector("#close").addEventListener("click", function(e)
                 {
+                    e.stopPropagation();
                     dialog.dismiss();
                 });
 
@@ -227,6 +223,8 @@
                 {
                     itemDoms[i].addEventListener("click", function(e)
                     {
+                        e.stopPropagation();
+
                         var button = this.innerHTML;
                         dialog.dismiss();
                         setTimeout(function()
