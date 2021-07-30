@@ -5,13 +5,13 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 
-    <link href="../common/h5.min.css" rel="stylesheet"/>
+    <link href="../common/h5.css" rel="stylesheet"/>
     <link href="style/style.css" rel="stylesheet"/>
 
     <script src="../common/vue.min.js"></script>
     <script src="../common/jquery.min.js"></script>
-    <script src="../common/h5.min.js"></script>
-    <script src="../common/tincat.min.js"></script>
+    <script src="../common/h5.js"></script>
+    <script src="../common/tincat.js"></script>
     <script src="libs/context.js"></script>
 
     <style>
@@ -45,7 +45,7 @@
     </div>
 
     <div style="padding: 16px;">
-        <div style="border-radius: 14px;background-color: #f7f7f8;height: 50px;display: flex;align-items: center;padding: 0px 16px 0px 16px;">
+        <div @click="tincat.system.toast('opening soon');" style="border-radius: 14px;background-color: #f7f7f8;height: 50px;display: flex;align-items: center;padding: 0px 16px 0px 16px;">
             <img src="drawable/icon_search.svg" style="width: 20px; height: 20px;"/>
             <div style="color: #bbbbbb;margin-left: 8px;">Search</div>
         </div>
