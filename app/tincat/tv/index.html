@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <title>Tincat TV</title>
-    <link rel="Shortcut Icon" href="drawable/icon.png" type="image/png" />
+    <link rel="Shortcut Icon" href="drawable/icon.png" type="image/png"/>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -191,11 +191,11 @@
 
             more: function(index)
             {
-                this.index = index;
                 var that = this;
+                var channel = this.channelArray[index];
+                
                 h5.dialog.list(["Share", "Download", "Copy", "Delete"], function(item)
                 {
-                    var channel = that.channelArray[that.index];
                     switch(item)
                     {
                         case "Share":
