@@ -11,7 +11,8 @@
     if("true" === enableAdBlocker)
     {
         var defRules = [
-            "iframe[src*='pos.baidu.com']"
+            "iframe[src*='pos.baidu.com']",
+            "iframe[src*='amazon-adsystem.com']"
         ];
         var siteRules = {
             ".baidu.com": [".fengchao-banner", ".top-ad-beneath-title", ".detail-bottom-ad", ".n-item-ad", ".ad-item"]
