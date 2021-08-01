@@ -188,51 +188,73 @@
                 return dialog;
             },
 
-            list: function(items, onSelectListener)
+            list: function()
             {
-                var html =
-                    "<div style=\"width: 80%;border-radius: 16px;background-color: #ffffff;\">" +
-                    "<div style=\"padding: 16px;font-weight: bold\">Select</div>" +
-                    "<div id=\"body\" style=\"border-top: solid 1px #f7f7f7;border-bottom: solid 1px #f7f7f7;\">${items}</div>" +
-                    "<div id='close' style=\"padding: 16px;border-radius: 0px 0px 16px 16px;text-align: center;\" class=\"h5-selector\">Close</div>" +
-                    "</div>";
-                var itemHtml = "";
-                for(var i = 0; i < items.length; i++)
-                {
-                    itemHtml += "<div class=\"h5-selector\" style=\"line-height: 50px;padding: 0px 16px 0px 16px;\">" + items[i] + "</div>";
-                }
-                html = html.replace("${items}", itemHtml);
+                var listDialog = {
+                    items: [],
 
-                var dialogDom = document.createElement("DIV");
-                dialogDom.setAttribute("id", "dialog_list");
-                dialogDom.style.display = "none";
-                dialogDom.innerHTML = html;
-                document.body.appendChild(dialogDom);
-
-                var dialog = this.create("#dialog_list", true);
-                dialog.showCenter();
-
-                dialogDom.querySelector("#close").addEventListener("click", function(e)
-                {
-                    e.stopPropagation();
-                    dialog.dismiss();
-                });
-
-                var itemDoms = dialogDom.querySelector("#body").childNodes;
-                for(var i = 0; i < itemDoms.length; i++)
-                {
-                    itemDoms[i].addEventListener("click", function(e)
+                    show: function()
                     {
-                        e.stopPropagation();
+                        var that = this;
 
-                        var button = this.innerHTML;
-                        dialog.dismiss();
-                        setTimeout(function()
+                        var html =
+                            "<div style=\"width: 80%;border-radius: 16px;background-color: #ffffff;\">" +
+                            "<div style=\"padding: 16px;font-weight: bold\">Select</div>" +
+                            "<div id=\"body\" style=\"border-top: solid 1px #f7f7f7;border-bottom: solid 1px #f7f7f7;\">${items}</div>" +
+                            "<div id='close' style=\"padding: 16px;border-radius: 0px 0px 16px 16px;text-align: center;\" class=\"h5-selector\">Close</div>" +
+                            "</div>";
+                        var itemHtml = "";
+                        for(var i = 0; i < that.items.length; i++)
                         {
-                            onSelectListener(button);
-                        }, 200);
-                    });
-                }
+                            itemHtml += "<div class=\"h5-selector\" style=\"line-height: 50px;padding: 0px 16px 0px 16px;\">" + that.items[i].label + "</div>";
+                        }
+                        html = html.replace("${items}", itemHtml);
+
+                        var dialogDom = document.createElement("DIV");
+                        dialogDom.setAttribute("id", "dialog_list");
+                        dialogDom.style.display = "none";
+                        dialogDom.innerHTML = html;
+                        document.body.appendChild(dialogDom);
+
+                        var dialog = h5.dialog.create("#dialog_list", true);
+                        dialog.showCenter();
+
+                        dialogDom.querySelector("#close").addEventListener("click", function(e)
+                        {
+                            e.stopPropagation();
+                            dialog.dismiss();
+                        });
+
+                        var itemDoms = dialogDom.querySelector("#body").childNodes;
+                        for(var i = 0; i < itemDoms.length; i++)
+                        {
+                            itemDoms[i].itemIndex = i;
+                            itemDoms[i].itemListener = this.items[i].listener;
+
+                            itemDoms[i].addEventListener("click", function(e)
+                            {
+                                var itemDom = this;
+
+                                e.stopPropagation();
+
+                                dialog.dismiss();
+                                setTimeout(function()
+                                {
+                                    itemDom.itemListener(itemDom.itemIndex);
+                                }, 200);
+                            });
+                        }
+                    },
+
+                    addItem: function(label, listener)
+                    {
+                        this.items.push({
+                            label: label,
+                            listener: listener
+                        });
+                    }
+                };
+                return listDialog;
             }
         }
     };

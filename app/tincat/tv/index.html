@@ -193,47 +193,62 @@
             {
                 var that = this;
                 var channel = this.channelArray[index];
-                
-                h5.dialog.list(["Share", "Download", "Copy", "Delete"], function(item)
+
+                var dialog = h5.dialog.list();
+                dialog.addItem("Cast", function()
                 {
-                    switch(item)
+                    tincat.system.cast(channel.url);
+                });
+                dialog.addItem("Download", function()
+                {
+                    tincat.system.download(channel.url, "video.mp4");
+                });
+                dialog.addItem("Edit Title", function()
+                {
+                    var title = prompt("Channel Title", channel.title);
+                    if(title)
                     {
-                        case "Share":
-                        {
-                            tincat.system.share("Share Channel", channel.url);
-                            break;
-                        }
-                        case "Download":
-                        {
-                            tincat.system.download(channel.url, "video.mp4");
-                            break;
-                        }
-                        case "Copy":
-                        {
-                            tincat.system.copy(channel.url);
-                            tincat.system.toast("Copy Success");
-                            break;
-                        }
-                        case "Delete":
-                        {
-                            if(confirm("Delete this channel?"))
+                        tincat.http.restful({
+                            url: Api.tincat_tv_updateTitle_v1,
+                            body: {
+                                channelId: channel.channelId,
+                                title: title
+                            },
+                            mask: true,
+                            callback: function(data)
                             {
-                                tincat.http.restful({
-                                    url: Api.tincat_tv_deleteChannel_v1,
-                                    body: {
-                                        channelId: channel.channelId
-                                    },
-                                    mask: true,
-                                    callback: function(data)
-                                    {
-                                        that.getData();
-                                    }
-                                });
+                                that.getData();
                             }
-                            break;
-                        }
+                        });
                     }
                 });
+                dialog.addItem("Share", function()
+                {
+                    tincat.system.share("Share Channel", channel.url);
+                });
+                dialog.addItem("Copy Url", function(index)
+                {
+                    tincat.system.copy(channel.url);
+                    tincat.system.toast("Copy Success");
+                });
+                dialog.addItem("Delete", function()
+                {
+                    if(confirm("Delete this channel?"))
+                    {
+                        tincat.http.restful({
+                            url: Api.tincat_tv_deleteChannel_v1,
+                            body: {
+                                channelId: channel.channelId
+                            },
+                            mask: true,
+                            callback: function(data)
+                            {
+                                that.getData();
+                            }
+                        });
+                    }
+                });
+                dialog.show();
             }
         }
     });
