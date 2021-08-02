@@ -1,7 +1,14 @@
-http://ad.
-https://ad.
-http://ads.
-https://ads.
+://ad.
+://ads.
+://ad-
+://ads-
+/ad/
+/ads/
+-ad.
+-ads.
+.biz/float
+.biz/redirect
+
 eiv.baidu.com
 tts.baidu.com
 pos.baidu.com
@@ -2673,8 +2680,6 @@ fastphonebooster.com
 fhsmtrnsfnt.com
 js.mylmurl.com
 
-/ad/
-/ads/
 ds.interworksmedia.co.kr
 msoplease.biz
 runative-syndicate.com
@@ -2712,4 +2717,14 @@ zz.bdstatic.com
 de.as.pptv.com
 jp.as.pptv.com
 tr.lqunionsoft.top
-.biz/float?
+glixaing.com
+jashautchord.com
+hadesleta.com
+517s61.reminews.com
+ringmypdas.biz
+www.govshenzhen.cn
+pv.vipwm.cc
+yd.yuanqitu.com
+metastead.com
+ovidesdme.biz
+thanosofcos5.com
