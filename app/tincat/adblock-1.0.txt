@@ -6,8 +6,8 @@
 /ads/
 -ad.
 -ads.
-ad.js
-ads.js
+/ad.js
+/ads.js
 .biz/float
 .biz/redirect
 .biz/utx
