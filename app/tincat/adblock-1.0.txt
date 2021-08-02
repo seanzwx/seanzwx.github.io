@@ -6,8 +6,12 @@
 /ads/
 -ad.
 -ads.
+ad.js
+ads.js
 .biz/float
 .biz/redirect
+.biz/utx
+.biz/multi
 
 eiv.baidu.com
 tts.baidu.com
