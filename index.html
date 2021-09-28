@@ -2,160 +2,16 @@
 <html lang="zh">
 
 <head>
-    <title>Netsky Tech App</title>
+    <title>Netsky Tech</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
     <meta name="theme-color" content="#ffffff"/>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-            border: none;
-            outline: none;
-            background-color: transparent;
-
-            /* 统一box-sizing */
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-
-            /* ios禁止点击效果 */
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-            /* 字体 */
-            font-family: "Roboto,HelveticaNeue,Arial,sans-serif";
-            font-size: 15px;
-            font-weight: normal;
-
-            line-height: 1;
-        }
-
-        body {
-            user-select: none;
-        }
-
-        .app-item {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-        }
-
-        .app-item > div:nth-child(1) > img {
-            width: 50px;
-            height: 50px;
-            border: solid 1px #eeeeee;
-            border-radius: 4px;
-        }
-
-        .app-item > div:nth-child(2) {
-            padding: 0px 16px 0px 16px;
-            flex-grow: 1;
-        }
-
-        .app-item > div:nth-child(2) > div:nth-child(2) {
-            font-size: 13px;
-            color: #9a9a9a;
-            margin-top: 2px;
-        }
-
-        .app-item > div:nth-child(3) > button {
-            background-color: #009DEC;
-            color: #ffffff;
-            padding: 5px 8px 5px 8px;
-            border: none;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 
 <body>
-
-<div style="position: relative;">
-    <img src="drawable/banner.png" width="100%"/>
-
-    <div style="line-height: 48px; text-align: center; font-weight: bold;font-size: 17px;position: absolute; left: 0px; top: 0px; right: 0px;color: #ffffff;">Netsky Tech App</div>
-</div>
-
-<div style="padding-left: 16px;background-color: #f6f6f6;padding: 8px 0px 8px 16px;color: #666666;">Free App With Ad</div>
-<div>
-    <div class="app-item">
-        <div>
-            <img src="drawable/icon_tincat.png"/>
-        </div>
-        <div>
-            <div>Tincat Browser</div>
-            <div>browser with m3u8 download.</div>
-        </div>
-        <div>
-            <button onclick="goToPlay('com.netsky.tincat')">Install</button>
-        </div>
-    </div>
-
-    <div class="app-item">
-        <div>
-            <img src="drawable/icon_vidcat.png"/>
-        </div>
-        <div>
-            <div>Video Download</div>
-            <div>video extractor and m3u8 download.</div>
-        </div>
-        <div>
-            <button onclick="goToPlay('com.netsky.vidcat.free')">Install</button>
-        </div>
-    </div>
-</div>
-
-<div style="padding-left: 16px;background-color: #f6f6f6;padding: 8px 0px 8px 16px;color: #666666;">Pro App With Completely Ad-Free</div>
-<div>
-    <div class="app-item">
-        <div>
-            <img src="drawable/icon_tincat.png"/>
-        </div>
-        <div>
-            <div>Tincat Browser Pro - $6.99</div>
-            <div>browser with m3u8 download.</div>
-        </div>
-        <div>
-            <button onclick="goToPlay('com.netsky.vfat.pro')">Install</button>
-        </div>
-    </div>
-
-    <div class="app-item">
-        <div>
-            <img src="drawable/icon_vidcat.png"/>
-        </div>
-        <div>
-            <div>Video Download Pro - $5.99</div>
-            <div>video extractor and m3u8 download.</div>
-        </div>
-        <div>
-            <button onclick="goToPlay('com.netsky.vidcat.pro')">Install</button>
-        </div>
-    </div>
-
-    <div class="app-item">
-        <div>
-            <img src="drawable/icon_m3u8loader.png"/>
-        </div>
-        <div>
-            <div>M3U8Loader Pro - $2.99</div>
-            <div>a tool for m3u8 download.</div>
-        </div>
-        <div>
-            <button onclick="goToPlay('com.netsky.m3u8loader.pro')">Install</button>
-        </div>
-    </div>
-</div>
-
-<div style="color: #9a9a9a; font-size: 13px; text-align: center; padding: 16px 0px 16px 0px;">Copyright © Netsky Tech. All Rights Reserved.</div>
 </body>
 
 <script>
-    window.goToPlay = function(package)
-    {
-        var url = "https://play.google.com/store/apps/details?id=" + package;
-        window.open(url);
-    };
+    location.href = "https://www.netsky123.com";
 </script>
-
 </html>
