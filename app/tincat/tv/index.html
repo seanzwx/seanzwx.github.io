@@ -50,6 +50,11 @@
     </div>
 
     <div style="padding-bottom: 50px;" ref="list">
+        <div style="display: flex; align-items: center;background-color: #f6f6f6;padding: 10px 16px 10px 16px;">
+            <img src="drawable/app.png" style="width: 26px; height: 26px; border-radius: 5px;"/>
+            <div style="font-size: 13px;padding-left: 8px;">Tincat TV app by Netsky now is available on Play Store.</div>
+        </div>
+
         <div v-if="channelArray.length>0">
             <div v-for="it,index in channelArray" @click="play(index)" class="h5-selector" style="display: flex; align-items: center;height: 50px;padding: 0px 4px 0px 16px;">
                 <div>
