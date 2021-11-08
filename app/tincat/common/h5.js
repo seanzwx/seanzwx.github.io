@@ -206,7 +206,7 @@
                         var itemHtml = "";
                         for(var i = 0; i < that.items.length; i++)
                         {
-                            itemHtml += "<div class=\"h5-selector\" style=\"line-height: 50px;padding: 0px 16px 0px 16px;\">" + that.items[i].label + "</div>";
+                            itemHtml += "<div class=\"h5-selector\" style=\"line-height: 50px;padding: 0px 16px 0px 16px;font-size: 14px;\">" + that.items[i].label + "</div>";
                         }
                         html = html.replace("${items}", itemHtml);
 
@@ -256,6 +256,71 @@
                 };
                 return listDialog;
             }
+        },
+
+        storage: {
+            table: "storage",
+
+            get: function(key, defaultValue, callback)
+            {
+                this.openDB(function(db)
+                {
+                    var transaction = db.transaction(h5.storage.table, "readwrite");
+                    var store = transaction.objectStore(h5.storage.table);
+                    store.get(key).onsuccess = function(e)
+                    {
+                        var result = e.target.result;
+                        if(!result || !result.value)
+                        {
+                            callback(defaultValue);
+                            return;
+                        }
+
+                        callback(result.value);
+                    };
+                });
+            },
+
+            set: function(key, value, callback)
+            {
+                this.openDB(function(db)
+                {
+                    var transaction = db.transaction(h5.storage.table, "readwrite");
+                    var store = transaction.objectStore(h5.storage.table);
+
+                    var kv = {
+                        key: key,
+                        value: value
+                    };
+                    store.put(kv).onsuccess = function(e)
+                    {
+                        if(callback)
+                        {
+                            callback();
+                        }
+                    }
+                });
+            },
+
+            openDB: function(onsuccess)
+            {
+                var db = indexedDB.open("internalDB", 1);
+                db.onsuccess = function(e)
+                {
+                    onsuccess(e.target.result);
+                };
+                db.onupgradeneeded = function(e)
+                {
+                    var db = e.target.result;
+
+                    if(!db.objectStoreNames.contains(h5.storage.table))
+                    {
+                        db.createObjectStore(h5.storage.table, {
+                            keyPath: "key"
+                        });
+                    }
+                };
+            }
         }
-    };
+    }
 })();

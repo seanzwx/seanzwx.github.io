@@ -2,17 +2,17 @@
 <html lang="zh">
 <head>
     <title>Tincat TV</title>
-    <link rel="Shortcut Icon" href="drawable/icon.png" type="image/png" />
-
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 
+    <link rel="Shortcut Icon" href="drawable/icon.png" type="image/png"/>
     <link href="../common/h5.css" rel="stylesheet"/>
 
+    <script src="libs/context.js"></script>
+    <script src="../common/h5.js"></script>
+    <script src="../common/tincat.js"></script>
     <script src="../common/vue.min.js"></script>
     <script src="../common/vue-form.min.js"></script>
-    <script src="../common/tincat.js"></script>
-    <script src="libs/context.js"></script>
 </head>
 
 <body style="background-color: #f6f6f6;">
@@ -29,7 +29,7 @@
                 <validate>
                     <div>Channel Title</div>
                     <div>
-                        <input class="h5-edittext" type="text" v-model="formdata.title" name="title" placeholder="channel title" required/>
+                        <input class="h5-edittext" type="text" v-model="formdata.channelName" name="channelName" placeholder="channel title" required/>
                     </div>
                 </validate>
                 <validate>
@@ -75,21 +75,8 @@
         methods: {
             onSubmit: function()
             {
-                if(confirm("add to your channel list?"))
-                {
-                    tincat.http.restful({
-                        url: Api.tincat_tv_addChannel_v1,
-                        body: {
-                            title: this.formdata.title,
-                            url: this.formdata.url
-                        },
-                        mask: true,
-                        callback: function()
-                        {
-                            tincat.system.toast("Add Success, need refresh your channel list");
-                        }
-                    });
-                }
+                var that = this;
+                Channel.addChannels([that.formdata]);
             },
 
             showM3U: function()
@@ -99,7 +86,23 @@
                     alert("m3u url is null");
                     return;
                 }
-                location.href = "channels.html?url=" + encodeURIComponent(this.m3uUrl);
+
+                var that = this;
+                tincat.http.get({
+                    url: this.url,
+                    mask: true,
+                    callback: function(result)
+                    {
+                        h5.storage.set("temp", result, function()
+                        {
+                            location.href = "channels.html";
+                        });
+                    },
+                    failCallback: function()
+                    {
+                        toast("network error");
+                    }
+                });
             }
         }
     });
