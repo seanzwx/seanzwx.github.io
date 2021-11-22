@@ -41,4 +41,14 @@
         style.innerHTML = classes;
         document.getElementsByTagName("HEAD").item(0).appendChild(style);
     }
+
+    window.vidcat.hasVideo = function()
+    {
+        var video = document.querySelector("video");
+        if(video)
+        {
+            return true;
+        }
+        return false;
+    };
 })();
