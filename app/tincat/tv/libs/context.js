@@ -1,7 +1,6 @@
 var Gateway = "http://47.241.101.128";
 
 window.Api = {
-    tincat_tv_addRecent_v1: Gateway + "/tincat/tv/addRecent/v1"
 };
 
 window.Channel = {

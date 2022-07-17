@@ -232,16 +232,6 @@
                     that.video.src = channel.url;
                     that.video.load();
                     that.video.play();
-
-                    // 加入最近播放列表
-                    tincat.http.restful({
-                        url: Api.tincat_tv_addRecent_v1,
-                        body: that.channelArray[channelIndex],
-                        mask: false,
-                        callback: function(data)
-                        {
-                        }
-                    });
                 };
 
                 this.playCount++;
