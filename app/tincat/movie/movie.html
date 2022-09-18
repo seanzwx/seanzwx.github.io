@@ -46,33 +46,25 @@
 		<img referrerpolicy="no-referrer" :src="movie.posterUrl" style="width: 80px; height: 120px;border-radius: 4px;box-shadow: 0px 0px 10px #dddddd;  z-index: 1;background-color: #ffffff;"/>
 		<div style="flex-grow: 1;z-index: 1;padding-left: 8px;">
 			<div class="h5-singleline" style="color: #ffffff; font-weight: bold;height: 40px;display: flex;align-items: center;font-size: 18px;">{{movie.title}}</div>
-			<div style="margin-top: 6px;">{{movie.year}}</div>
-			<div style="margin-top: 6px;color: #9a9a9a;">{{movie.size}}</div>
-			<div style="margin-top: 6px;">Rating {{movie.rating}}</div>
+			<div style="margin-top: 6px;">{{movie.country}} {{movie.year}}</div>
+			<div style="margin-top: 6px;color: #9a9a9a;">{{movie.minutes}}</div>
+			<div style="margin-top: 6px;color: #9a9a9a;">Rating {{movie.rating}}</div>
 		</div>
 	</div>
 
 	<div style="padding: 16px;">
 		<div style="display: flex; align-items: center;padding: 8px;background-color: #f6f6f6;border-radius: 8px;">
-			<img src="drawable/icon.png" style="width: 36px; height: 36px;">
-			<div style="padding-left: 8px; font-size: 14px; color: #9a9a9a;">Watch or Download 4K on Tincat Movie App</div>
+			<img src="drawable/icon.png" style="width: 50px; height: 50px;">
+			<div style="padding-left: 8px;">
+				<div style="font-weight: bold;">Watch Online in Tincat Movie App</div>
+				<div style="color: #9a9a9a;margin-top: 4px;font-size: 14px;">search "Tincat Movie" on Play Store</div>
+			</div>
 		</div>
-	</div>
-
-	<div style="text-align: center;">
-		<a href="4k.html">How to download 4k movie?</a>
 	</div>
 
 	<div style="padding: 8px 16px 8px 16px;font-size: 16px;font-weight: bold;">{{movie.title}}</div>
-	<div style="padding: 8px 16px 8px 16px;color: #9a9a9a;">{{movie.showDate}}</div>
+	<div style="padding: 8px 16px 8px 16px;color: #9a9a9a;">{{movie.releaseDate}}</div>
 	<div style="padding: 0px 16px 0px 16px;line-height: 1.4;color: #9a9a9a;">{{movie.description}}</div>
-
-	<div style="padding: 24px 16px 8px 16px;font-size: 16px;font-weight: bold;">Screen Shots</div>
-	<div>
-		<div v-for="it in movie.screenshots">
-			<img referrerpolicy="no-referrer" :src="it" style="width: 100%;"/>
-		</div>
-	</div>
 </div>
 </body>
 
@@ -103,7 +95,7 @@
 		methods: {
 			openTrailer ()
 			{
-				location.href = this.movie.trailerPageUrl;
+				location.href = "https://www.youtube.com/results?search_query=" + encodeURIComponent(this.movie.title + " trailer");
 			}
 		}
 	});
