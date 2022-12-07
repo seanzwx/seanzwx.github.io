@@ -14,7 +14,6 @@
 				{
 					e.preventDefault();
 					e.stopPropagation();
-					alert(dom.href);
 					location.href = dom.href;
 					break;
 				}
