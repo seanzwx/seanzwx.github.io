@@ -1,19 +1,26 @@
 (() =>
 {
-	/*调整全局页面跳转*/
-	document.querySelector("body").onclick = e =>
+	let hostname = location.hostname;
+
+	/* youtube */
+	if(hostname.indexOf("youtube.com") >= 0)
 	{
-		let dom = e.target;
-		while(dom.tagName.toLowerCase() !== 'body')
+		document.querySelector("body").onclick = e =>
 		{
-			if(dom.tagName.toLowerCase() === 'a' && dom.href)
+			let dom = e.target;
+			while(dom.tagName.toLowerCase() !== 'body')
 			{
-				e.preventDefault();
-				e.stopPropagation();
-				location.href = dom.href;
-				break;
+				if(dom.tagName.toLowerCase() === 'a' && dom.href)
+				{
+					e.preventDefault();
+					e.stopPropagation();
+					alert(dom.href);
+					location.href = dom.href;
+					break;
+				}
+				dom = dom.parentNode;
 			}
-			dom = dom.parentNode;
-		}
-	};
+		};
+		return;
+	}
 })();
