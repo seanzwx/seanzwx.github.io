@@ -678,7 +678,6 @@ ads.y-0.net
 ads.yimg.com
 ads.yldmgrimg.net
 ads.yourfreedvds.com
-ads.youtube.com
 ads.zdnet.com
 ads.ztod.com
 ads03.redtube.com
@@ -2906,5 +2905,6 @@ vyfrxuytzn.com/get/
 bg4nxu2u5t.com/get/
 s.orbsrv.com
 
+ads.youtube.com
 .youtube.com/aboutthisad
 .youtube.com/pagead
