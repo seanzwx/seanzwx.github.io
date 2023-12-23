@@ -5,8 +5,8 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 	<meta name="theme-color" content="#ffffff"/>
-	<link rel="stylesheet" href="../../style/style.css">
-	<script src="../../lib/vue.min.js"></script>
+	<link rel="stylesheet" href="https://seanzwx.github.io/style/style.css">
+	<script src="https://seanzwx.github.io/lib/vue.min.js"></script>
 </head>
 
 <body>
@@ -30,8 +30,8 @@
 	</div>
 
 	<div class="app-detail-gallery">
-		<a href="images/0.png">
-			<img src="images/0.png" style="width: 330px;"/>
+		<a href="https://seanzwx.github.io/app/tube/images/0.png">
+			<img src="https://seanzwx.github.io/app/tube/images/0.png" style="width: 330px;"/>
 		</a>
 		<a v-for="it in app.images" :href="it">
 			<img :src="it"/>
@@ -62,13 +62,13 @@
 	<div class="app-footer">
 		<div>
 			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="../../drawable/twitter.png"/>
+				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
 			</a>
 			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="../../drawable/telegram.png"/>
+				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
 			</a>
 			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="../../drawable/whatsapp.png"/>
+				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
 			</a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
@@ -77,21 +77,22 @@
 </body>
 
 <script>
+	let root = "https://seanzwx.github.io/app/tube";
 	new Vue({
 		el: '#app',
 		data: {
 			app: {
-				icon: "icon.png",
+				icon: root + "/icon.png",
 				title: "Tincat Tube",
 				subtitle: "Watch & Download Youtube Without Ads",
 				shortDesc: "Block Ads, Picture-In-Picture Mode Support, Night Mode Support",
 				images:[
-					"images/1.jpg",
-					"images/2.jpg",
-					"images/3.jpg",
-					"images/4.jpg",
-					"images/5.jpg",
-					"images/6.jpg",
+					root + "/images/1.jpg",
+					root + "/images/2.jpg",
+					root + "/images/3.jpg",
+					root + "/images/4.jpg",
+					root + "/images/5.jpg",
+					root + "/images/6.jpg",
 				]
 			}
 		}

@@ -5,8 +5,8 @@
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
 	<meta name="theme-color" content="#ffffff"/>
-	<link rel="stylesheet" href="style/style.css">
-	<script src="lib/vue.min.js"></script>
+	<link rel="stylesheet" href="https://seanzwx.github.io/style/style.css">
+	<script src="https://seanzwx.github.io/lib/vue.min.js"></script>
 </head>
 
 <body>
@@ -54,13 +54,13 @@
 	<div class="app-footer">
 		<div>
 			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="drawable/twitter.png"/>
+				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
 			</a>
 			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="drawable/telegram.png"/>
+				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
 			</a>
 			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="drawable/whatsapp.png"/>
+				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
 			</a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
@@ -69,43 +69,44 @@
 </body>
 
 <script>
+	let root = "https://seanzwx.github.io/app";
 	new Vue({
 		el: '#app',
 		data: {
 			topList: [{
-				icon: "app/vidcat/icon.png",
+				icon: root + "/vidcat/icon.png",
 				title: "Vidown",
 				url: "app/vidcat/index.html",
 				style: "flex-grow: 1;padding-top:12px;"
 			}, {
-				icon: "app/tincat/icon.png",
+				icon: root + "/tincat/icon.png",
 				title: "Tincat",
 				url: "app/tincat/index.html",
 				style: "flex-grow: 1"
 			}, {
-				icon: "app/tube/icon.png",
+				icon: root + "/tube/icon.png",
 				title: "Tube",
 				url: "app/tube/index.html",
 				style: "flex-grow: 1;padding-top:12px;"
 			}
 			],
 			appList: [{
-				icon: "app/tincat/icon.png",
+				icon: root + "/tincat/icon.png",
 				title: "Tincat Browser",
 				subtitle: "browser with m3u8, mpd download",
 				url: "app/tincat/index.html",
 			}, {
-				icon: "app/vidcat/icon.png",
+				icon: root + "/vidcat/icon.png",
 				title: "Video Download",
 				subtitle: "all video download, m3u8 mpd live",
 				url: "app/vidcat/index.html",
 			}, {
-				icon: "app/tube/icon.png",
+				icon: root + "/tube/icon.png",
 				title: "Tincat Tube",
 				subtitle: "watch & download youtube without ads",
 				url: "app/tube/index.html",
 			}, {
-				icon: "app/player/icon.png",
+				icon: root + "/player/icon.png",
 				title: "Tincat Player",
 				subtitle: "powerful music & video player",
 				url: "app/player/index.html"
