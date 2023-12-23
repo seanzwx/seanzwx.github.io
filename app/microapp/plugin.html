@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>MicroApp Plugin</title>
+	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<style>
+        * {
+            margin: 0rem;
+            padding: 0rem;
+            outline: none;
+            border: none;
+            background-color: transparent;
+
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+
+            font-weight: normal;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        button {
+            color: #ffffff;
+            background-color: #2879E4;
+            padding: 8px 8px 8px 8px;
+            border-radius: 4px;
+        }
+	</style>
+</head>
+<body>
+<div style="height: 50px;text-align: center; line-height: 50px;background-color: #2879E4;color: white;font-size: 18px;">MicroApp Plugin</div>
+<div style="padding: 16px;">
+	<div style="display: flex;align-items: center;">
+		<div>
+			<img src="youtube.jpeg" style="width: 46px; height: 46px;border-radius: 5px;"/>
+		</div>
+		<div style="flex-grow: 1;padding-left:12px;">
+			<div style="font-size: 16px;">Youtube Downloader</div>
+			<div style="color: #9a9a9a;margin-top: 4px;">download youtube video online</div>
+		</div>
+		<div>
+			<button onclick="openPlugin('YtActivity')">Open</button>
+		</div>
+	</div>
+	<div style="display: flex;align-items: center;margin-top: 16px;">
+		<div>
+			<img src="youtube-music.jpeg" style="width: 46px; height: 46px;border-radius: 5px;"/>
+		</div>
+		<div style="flex-grow: 1;padding-left:12px;">
+			<div style="font-size: 16px;">Youtube Music Downloader</div>
+			<div style="color: #9a9a9a;margin-top: 4px;">download youtube music online</div>
+		</div>
+		<div>
+			<button onclick="openPlugin('YtMusicActivity')">Open</button>
+		</div>
+	</div>
+</div>
+
+<div style="margin-top: 32px; text-align: center;color: #9a9a9a;">Open this page on MicroApp to use plugins</div>
+<div style="padding: 16px;">
+	<a href="https://play.google.com/store/apps/details?id=com.netsky.microapp">
+		<button style="width: 100%;padding: 12px 0px 12px 0px;">Get MicroApp on Google Play</button>
+	</a>
+</div>
+</body>
+
+<script>
+	window.openPlugin = function(pluginName)
+	{
+		if(!window.MicroApp)
+		{
+			alert("Open this page on MicroApp to use plugins");
+			return;
+		}
+
+		window.MicroApp.execute(JSON.stringify({
+			method: "plugin.open",
+			param: {
+				pluginName: pluginName
+			}
+		}));
+	};
+</script>
+</html>

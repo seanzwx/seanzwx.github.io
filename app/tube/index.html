@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>Tincat Tube: Fast & Block Ads</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+	<meta name="theme-color" content="#ffffff"/>
+	<link rel="stylesheet" href="../../style/style.css">
+	<script src="../../lib/vue.min.js"></script>
+</head>
+
+<body>
+<div id="app">
+	<div style="display: flex;align-items: center;padding: 16px;">
+		<div>
+			<div style="width: 60px; height: 60px;border-radius: 100px; padding: 12px;background-color: #f6f6f6;">
+				<img :src="app.icon" style="width: 100%; height: 100%; border-radius: 10px;"/>
+			</div>
+		</div>
+		<div style="flex-grow: 1;padding-left: 16px;">
+			<div style="font-weight: bold;">{{app.title}}</div>
+			<div style="margin-top: 8px;">{{app.subtitle}}</div>
+		</div>
+	</div>
+
+	<div class="app-detail-download">
+		<a href="">
+			<button style="background-color: #FF0000">Install</button>
+		</a>
+	</div>
+
+	<div class="app-detail-gallery">
+		<a href="images/0.png">
+			<img src="images/0.png" style="width: 330px;"/>
+		</a>
+		<a v-for="it in app.images" :href="it">
+			<img :src="it"/>
+		</a>
+	</div>
+
+	<div style="padding: 0px 16px 0px 16px;">
+		<div style="font-weight: bold;font-size: 16px;">About this app</div>
+		<div style="padding-top: 12px; line-height: 1.4;">{{app.shortDesc}}</div>
+		<div style="padding-top: 12px; color: #9a9a9a; line-height: 1.4;">
+			Tincat Tube is a really cool app that lets you watch Tube videos
+
+			feature:
+			*. limit video ads
+			*. night mode support
+			*. picture-in-picture support
+			*. fast load engine design
+			*. carefully designed to optimize your viewing experience
+
+			Tincat Tube is an app that helps you watch Tube videos. With it, you can watch Tube videos while browsing the web and other things, completely liberating your phone.
+
+			If you love watching Tube videos, be sure to try Tincat Tube
+
+			our email: zwish163@gmail.com thank you!
+		</div>
+	</div>
+
+	<div class="app-footer">
+		<div>
+			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
+				<img src="../../drawable/twitter.png"/>
+			</a>
+			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
+				<img src="../../drawable/telegram.png"/>
+			</a>
+			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
+				<img src="../../drawable/whatsapp.png"/>
+			</a>
+		</div>
+		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
+	</div>
+</div>
+</body>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			app: {
+				icon: "icon.png",
+				title: "Tincat Tube",
+				subtitle: "Watch & Download Youtube Without Ads",
+				shortDesc: "Block Ads, Picture-In-Picture Mode Support, Night Mode Support",
+				images:[
+					"images/1.jpg",
+					"images/2.jpg",
+					"images/3.jpg",
+					"images/4.jpg",
+					"images/5.jpg",
+					"images/6.jpg",
+				]
+			}
+		}
+	});
+</script>
+</html>
