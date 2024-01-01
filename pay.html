@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>NetskyX Pay</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+	<script src="https://www.paypal.com/sdk/js?client-id=AfFSNW7zg59cKC_jUdF89F_KmoprtVUHwU_krVqdnLRyVNMLGJV8ynGMRBl700DCP2Xi0KdqZk3yVB6P"></script>
+	<style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listitem {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            padding: 0px 16px 0px 16px;
+            border-bottom: solid 1px #eaeaea;
+        }
+
+        .listitem > div:nth-child(2) {
+            flex-grow: 1;
+            text-align: right;
+            font-weight: bold;
+        }
+	</style>
+</head>
+
+<body>
+<div>
+	<div style="line-height: 44px; font-weight: bold;text-align: center; border-bottom: solid 1px #dddddd;">Order Info</div>
+	<div class="listitem">
+		<div>Order ID</div>
+		<div id="orderId"></div>
+	</div>
+	<div class="listitem">
+		<div>Price (USD)</div>
+		<div id="price"></div>
+	</div>
+	<div class="listitem">
+		<div>Premium Days</div>
+		<div id="days"></div>
+	</div>
+	<div class="listitem">
+		<div>Create Time</div>
+		<div id="createTime"></div>
+	</div>
+</div>
+<div id="paypal-button-container"
+	 style="padding: 16px;"></div>
+</body>
+
+<script>
+	window.getParameter = function(name)
+	{
+		// 如果链接没有参数，或者链接中不存在我们要获取的参数，直接返回空
+		if(location.href.indexOf("?") === -1 || location.href.indexOf(name + "=") === -1)
+		{
+			return null;
+		}
+
+		// 获取链接中参数部分
+		var queryString = decodeURI(location.href.substring(location.href.lastIndexOf("?") + 1));
+		// 分离参数对 ?key=value&key2=value2
+		var parameters = queryString.split("&");
+		var pos, paraName, paraValue;
+		for(var i = 0; i < parameters.length; i++)
+		{
+			// 获取等号位置
+			pos = parameters[i].indexOf("=");
+			if(pos === -1)
+			{
+				continue;
+			}
+			// 获取name 和 value
+			paraName = parameters[i].substring(0, pos);
+			paraValue = parameters[i].substring(pos + 1);
+			// 如果查询的name等于当前name，就返回当前值，同时，将链接中的+号还原成空格
+			if(paraName === name)
+			{
+				return unescape(paraValue.replace(/\+/g, " "));
+			}
+		}
+		return null;
+	};
+
+	let orderId = getParameter("orderId");
+	fetch("https://api.netskyx.com/tincat/v1/order/checkOrder/" + orderId, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json"
+			}
+		}
+	).then(response => response.json()).then(data =>
+	{
+		if(data.code === 200)
+		{
+			let order = data.data;
+			document.querySelector("#orderId").innerHTML = order.orderId;
+			document.querySelector("#price").innerHTML = order.price;
+			document.querySelector("#days").innerHTML = order.days;
+			document.querySelector("#createTime").innerHTML = order.createTime;
+
+			paypal.Buttons({
+				createOrder: function(data, actions)
+				{
+					return actions.order.create({
+						purchase_units: [{
+							amount: {
+								value: order.price + "",
+								currencyCode: "USD"
+							}
+						}]
+					});
+				},
+				onApprove: function(data, actions)
+				{
+					return actions.order.capture().then(function(details)
+					{
+						console.log("PayPal Order ID: " + data.orderId);
+						return fetch("https://api.netskyx.com/tincat/v1/order/checkPay", {
+							method: "POST",
+							headers: {
+								"content-type": "application/json"
+							},
+							body: JSON.stringify({
+								orderId: order.orderId,
+								payOrderId: data.orderID
+							})
+						}).then(response => response.json()).then(data =>
+						{
+							if(data.code === 200)
+							{
+								document.querySelector("#paypal-button-container").innerHTML = "Pay successful, Please restart app.";
+							}
+							else
+							{
+								alert(data.msg);
+							}
+						});
+					});
+				}
+			}).render('#paypal-button-container');
+		}
+		else
+		{
+			alert(data.msg);
+		}
+	});
+</script>
+</html>
