@@ -30,12 +30,7 @@
 	</div>
 
 	<div class="app-detail-gallery">
-		<a href="https://seanzwx.github.io/app/tikcap/images/0.png">
-			<img src="https://seanzwx.github.io/app/tikcap/images/0.png" style="width: 330px;"/>
-		</a>
-		<a v-for="it in app.images" :href="it">
-			<img :src="it"/>
-		</a>
+		<a href="https://seanzwx.github.io/app/tikcap/images/0.png"> <img src="https://seanzwx.github.io/app/tikcap/images/0.png" style="width: 330px;"/> </a> <a v-for="it in app.images" :href="it"> <img :src="it"/> </a>
 	</div>
 
 	<div style="padding: 0px 16px 0px 16px;">
@@ -46,14 +41,11 @@
 
 			TikLive support the following video features:
 
-			1. No Watermark Tik Video Download
-			you can download tik HD videos without watermark in TikLive App.
+			1. No Watermark Tik Video Download you can download tik HD videos without watermark in TikLive App.
 
-			2. Tik Live Stream Download
-			you can download tik live stream with all resolutions in TikLive App.
+			2. Tik Live Stream Download you can download tik live stream with all resolutions in TikLive App.
 
-			3. Tik Author Status Monitor
-			after following, you can monitor tik authors's status (online or offline).
+			3. Tik Author Status Monitor after following, you can monitor tik authors's status (online or offline).
 
 			If you're looking for a tool to download tik videos. Then TikLive will be a good choice for you.
 
@@ -63,15 +55,7 @@
 
 	<div class="app-footer">
 		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
-			</a>
-			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
-			</a>
-			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
-			</a>
+			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
 	</div>
@@ -79,23 +63,26 @@
 </body>
 
 <script>
-	let root = "https://seanzwx.github.io/app/tikcap";
-	new Vue({
-		el: '#app',
-		data: {
-			app: {
-				icon: root + "/icon.png",
-				title: "TikLive",
-				subtitle: "Download Tiktok Live",
-				shortDesc: "Tiktok Live Stream Downloader,No Watermark Tiktok Video Downloader,Video Player",
-				images:[
-					root + "/images/2.jpg",
-					root + "/images/3.jpg",
-					root + "/images/4.jpg",
-					root + "/images/5.jpg"
-				]
+	window.onload = function()
+	{
+		let root = "https://seanzwx.github.io/app/tikcap";
+		new Vue({
+			el: '#app',
+			data: {
+				app: {
+					icon: root + "/icon.png",
+					title: "TikLive",
+					subtitle: "Download Tiktok Live",
+					shortDesc: "Tiktok Live Stream Downloader,No Watermark Tiktok Video Downloader,Video Player",
+					images: [
+						root + "/images/2.jpg",
+						root + "/images/3.jpg",
+						root + "/images/4.jpg",
+						root + "/images/5.jpg"
+					]
+				}
 			}
-		}
-	});
+		});
+	}
 </script>
 </html>

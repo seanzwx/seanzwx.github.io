@@ -30,12 +30,7 @@
 	</div>
 
 	<div class="app-detail-gallery">
-		<a href="https://seanzwx.github.io/app/tube/images/0.png">
-			<img src="https://seanzwx.github.io/app/tube/images/0.png" style="width: 330px;"/>
-		</a>
-		<a v-for="it in app.images" :href="it">
-			<img :src="it"/>
-		</a>
+		<a href="https://seanzwx.github.io/app/tube/images/0.png"> <img src="https://seanzwx.github.io/app/tube/images/0.png" style="width: 330px;"/> </a> <a v-for="it in app.images" :href="it"> <img :src="it"/> </a>
 	</div>
 
 	<div style="padding: 0px 16px 0px 16px;">
@@ -44,12 +39,7 @@
 		<div style="padding-top: 12px; color: #9a9a9a; line-height: 1.4;">
 			Tincat Tube is a really cool app that lets you watch Tube videos
 
-			feature:
-			*. limit video ads
-			*. night mode support
-			*. picture-in-picture support
-			*. fast load engine design
-			*. carefully designed to optimize your viewing experience
+			feature: *. limit video ads *. night mode support *. picture-in-picture support *. fast load engine design *. carefully designed to optimize your viewing experience
 
 			Tincat Tube is an app that helps you watch Tube videos. With it, you can watch Tube videos while browsing the web and other things, completely liberating your phone.
 
@@ -61,15 +51,7 @@
 
 	<div class="app-footer">
 		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
-			</a>
-			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
-			</a>
-			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
-			</a>
+			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
 	</div>
@@ -77,25 +59,28 @@
 </body>
 
 <script>
-	let root = "https://seanzwx.github.io/app/tube";
-	new Vue({
-		el: '#app',
-		data: {
-			app: {
-				icon: root + "/icon.png",
-				title: "Tincat Tube",
-				subtitle: "Watch & Download Youtube Without Ads",
-				shortDesc: "Block Ads, Picture-In-Picture Mode Support, Night Mode Support",
-				images:[
-					root + "/images/1.jpg",
-					root + "/images/2.jpg",
-					root + "/images/3.jpg",
-					root + "/images/4.jpg",
-					root + "/images/5.jpg",
-					root + "/images/6.jpg",
-				]
+	window.onload = function()
+	{
+		let root = "https://seanzwx.github.io/app/tube";
+		new Vue({
+			el: '#app',
+			data: {
+				app: {
+					icon: root + "/icon.png",
+					title: "Tincat Tube",
+					subtitle: "Watch & Download Youtube Without Ads",
+					shortDesc: "Block Ads, Picture-In-Picture Mode Support, Night Mode Support",
+					images: [
+						root + "/images/1.jpg",
+						root + "/images/2.jpg",
+						root + "/images/3.jpg",
+						root + "/images/4.jpg",
+						root + "/images/5.jpg",
+						root + "/images/6.jpg",
+					]
+				}
 			}
-		}
-	});
+		});
+	}
 </script>
 </html>

@@ -30,12 +30,7 @@
 	</div>
 
 	<div class="app-detail-gallery">
-		<a href="https://seanzwx.github.io/app/vidcat/images/0.png">
-			<img src="https://seanzwx.github.io/app/vidcat/images/0.png" style="width: 330px;"/>
-		</a>
-		<a v-for="it in app.images" :href="it">
-			<img :src="it"/>
-		</a>
+		<a href="https://seanzwx.github.io/app/vidcat/images/0.png"> <img src="https://seanzwx.github.io/app/vidcat/images/0.png" style="width: 330px;"/> </a> <a v-for="it in app.images" :href="it"> <img :src="it"/> </a>
 	</div>
 
 	<div style="padding: 0px 16px 0px 16px;">
@@ -46,23 +41,17 @@
 
 			The function list is as follows:
 
-			*Video Detection
-			Video Download has a powerful video sniffer nose that is able to detect most of the video resources on web pages.
+			*Video Detection Video Download has a powerful video sniffer nose that is able to detect most of the video resources on web pages.
 
-			*M3U8 Video Download
-			Video Download can download m3u8 videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
+			*M3U8 Video Download Video Download can download m3u8 videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
 
-			*MPD Video Download
-			Video Download can download mpd videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
+			*MPD Video Download Video Download can download mpd videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
 
-			*Live Show Video Record
-			Video Download supports online video live recording, and supports regular live streams in m3u8, mpd, flv formats
+			*Live Show Video Record Video Download supports online video live recording, and supports regular live streams in m3u8, mpd, flv formats
 
-			*Parallel Download
-			Video Download supports concurrent downloads, which will be very fast for downloading large files, effectively saving your download time.
+			*Parallel Download Video Download supports concurrent downloads, which will be very fast for downloading large files, effectively saving your download time.
 
-			*Build-In Video Player
-			Video Download has a very lightweight built-in video player, which is based on the ExoPlayer engine to provide a very smooth video playback experience.
+			*Build-In Video Player Video Download has a very lightweight built-in video player, which is based on the ExoPlayer engine to provide a very smooth video playback experience.
 
 			Overall, Video Download provides a one-stop video download and playback service, and can support most video websites
 
@@ -72,15 +61,7 @@
 
 	<div class="app-footer">
 		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
-			</a>
-			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
-			</a>
-			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
-			</a>
+			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
 	</div>
@@ -88,25 +69,28 @@
 </body>
 
 <script>
-	let root = "https://seanzwx.github.io/app/vidcat";
-	new Vue({
-		el: '#app',
-		data: {
-			app: {
-				icon: root + "/icon.png",
-				title: "Video Download",
-				subtitle: "All M3U8 MPD Video",
-				shortDesc: "Powerful Video Downloader(M3U8, MPD, LIVE), Build-In Video Player, Multi-Thread",
-				images:[
-					root + "/images/1.jpg",
-					root + "/images/2.jpg",
-					root + "/images/3.jpg",
-					root + "/images/4.jpg",
-					root + "/images/5.jpg",
-					root + "/images/6.jpg",
-				]
+	window.onload = function()
+	{
+		let root = "https://seanzwx.github.io/app/vidcat";
+		new Vue({
+			el: '#app',
+			data: {
+				app: {
+					icon: root + "/icon.png",
+					title: "Video Download",
+					subtitle: "All M3U8 MPD Video",
+					shortDesc: "Powerful Video Downloader(M3U8, MPD, LIVE), Build-In Video Player, Multi-Thread",
+					images: [
+						root + "/images/1.jpg",
+						root + "/images/2.jpg",
+						root + "/images/3.jpg",
+						root + "/images/4.jpg",
+						root + "/images/5.jpg",
+						root + "/images/6.jpg",
+					]
+				}
 			}
-		}
-	});
+		});
+	}
 </script>
 </html>
