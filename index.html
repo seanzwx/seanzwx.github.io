@@ -53,15 +53,7 @@
 
 	<div class="app-footer">
 		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn">
-				<img src="https://seanzwx.github.io/drawable/twitter.png"/>
-			</a>
-			<a href="https://t.me/joinchat/0wo15jG1KYtiYmNl">
-				<img src="https://seanzwx.github.io/drawable/telegram.png"/>
-			</a>
-			<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2">
-				<img src="https://seanzwx.github.io/drawable/whatsapp.png"/>
-			</a>
+			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
 		</div>
 		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyX. All Rights Reserved.</div>
 	</div>
@@ -69,56 +61,52 @@
 </body>
 
 <script>
-	let root = "https://seanzwx.github.io/app";
-	new Vue({
-		el: '#app',
-		data: {
-			topList: [{
-				icon: root + "/vidcat/icon.png",
-				title: "Vidown",
-				url: "app/vidcat/index.html",
-				style: "flex-grow: 1;padding-top:12px;"
-			}, {
-				icon: root + "/tincat/icon.png",
-				title: "Tincat",
-				url: "app/tincat/index.html",
-				style: "flex-grow: 1"
-			}, {
-				icon: root + "/tube/icon.png",
-				title: "Tube",
-				url: "app/tube/index.html",
-				style: "flex-grow: 1;padding-top:12px;"
+	window.onload = function()
+	{
+		let root = "https://seanzwx.github.io/app";
+		new Vue({
+			el: '#app',
+			data: {
+				topList: [{
+					icon: root + "/vidcat/icon.png",
+					title: "Vidown",
+					url: "app/vidcat/index.html",
+					style: "flex-grow: 1;padding-top:12px;"
+				}, {
+					icon: root + "/tincat/icon.png",
+					title: "Tincat",
+					url: "app/tincat/index.html",
+					style: "flex-grow: 1"
+				}, {
+					icon: root + "/tube/icon.png",
+					title: "Tube",
+					url: "app/tube/index.html",
+					style: "flex-grow: 1;padding-top:12px;"
+				}
+				],
+				appList: [{
+					icon: root + "/tincat/icon.png",
+					title: "Tincat Browser",
+					subtitle: "browser with m3u8, mpd download",
+					url: "app/tincat/index.html",
+				}, {
+					icon: root + "/vidcat/icon.png",
+					title: "Video Download",
+					subtitle: "all video download, m3u8 mpd live",
+					url: "app/vidcat/index.html",
+				}, {
+					icon: root + "/tikcap/icon.png",
+					title: "TikLive",
+					subtitle: "download tiktok live video",
+					url: "app/tikcap/index.html",
+				}, {
+					icon: root + "/tube/icon.png",
+					title: "Tincat Tube",
+					subtitle: "watch & download youtube without ads",
+					url: "app/tube/index.html",
+				}]
 			}
-			],
-			appList: [{
-				icon: root + "/tincat/icon.png",
-				title: "Tincat Browser",
-				subtitle: "browser with m3u8, mpd download",
-				url: "app/tincat/index.html",
-			}, {
-				icon: root + "/vidcat/icon.png",
-				title: "Video Download",
-				subtitle: "all video download, m3u8 mpd live",
-				url: "app/vidcat/index.html",
-			}, {
-				icon: root + "/tikcap/icon.png",
-				title: "TikLive",
-				subtitle: "download tiktok live video",
-				url: "app/tikcap/index.html",
-			}, {
-				icon: root + "/tube/icon.png",
-				title: "Tincat Tube",
-				subtitle: "watch & download youtube without ads",
-				url: "app/tube/index.html",
-			}]
-		}
-	});
-
-	// {
-	// 	icon: root + "/player/icon.png",
-	// 		title: "Tincat Player",
-	// 	subtitle: "powerful music & video player",
-	// 	url: "app/player/index.html"
-	// }
+		});
+	}
 </script>
 </html>
