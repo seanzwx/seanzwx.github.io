@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>Premium Purchase</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+	<style>
+        * {
+            font-family: Arial;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listitem {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            padding: 0px 16px 0px 16px;
+            border-bottom: solid 1px #eaeaea;
+        }
+
+        .listitem > div:nth-child(2) {
+            flex-grow: 1;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            height: 44px;
+            background-color: #4B7BFE;
+            color: white;
+            border: none;
+            border-radius: 44px;
+            font-size: 16px;
+        }
+
+        button:active {
+            background-color: #1976d2;
+        }
+	</style>
+</head>
+
+<body>
+<div>
+	<div class="listitem">
+		<div>Order ID</div>
+		<div id="orderId"></div>
+	</div>
+	<div class="listitem">
+		<div>Price (USD)</div>
+		<div id="price"></div>
+	</div>
+	<div class="listitem">
+		<div>Premium Days</div>
+		<div id="days"></div>
+	</div>
+	<div class="listitem">
+		<div>Create Time</div>
+		<div id="createTime"></div>
+	</div>
+	<div style="padding: 32px 32px 16px 32px;">
+		<a href="pay-help.html">
+			<button>How to Pay?</button>
+		</a>
+	</div>
+</div>
+</body>
+<script>
+	if(window.PaymentNative)
+	{
+		let order = JSON.parse(window.PaymentNative.getOrderInfo());
+		document.querySelector("#orderId").innerHTML = order.orderId;
+		document.querySelector("#price").innerHTML = order.price;
+		document.querySelector("#days").innerHTML = order.days;
+		document.querySelector("#createTime").innerHTML = order.createTime;
+	}
+</script>
+</html>

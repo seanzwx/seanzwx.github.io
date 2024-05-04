@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>Payment Guide</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
+	<style>
+        * {
+            font-family: Arial;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .listitem {
+            padding: 16px;
+        }
+
+        .listitem > div:nth-child(1) {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .listitem > div:nth-child(2) {
+            color: #6a6a6a;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        button {
+            width: 100%;
+            height: 44px;
+            background-color: #4B7BFE;
+            color: white;
+            border: none;
+            border-radius: 44px;
+            font-size: 16px;
+        }
+
+        button:active {
+            background-color: #1976d2;
+        }
+	</style>
+</head>
+
+<body>
+<div>
+	<div class="listitem">
+		<div>1. Confirm Order Amount</div>
+		<div>the paypal payment amount musit be the same as the order amount</div>
+	</div>
+	<div class="listitem">
+		<div>2. Enter Order ID</div>
+		<div>enter the order ID in paypal payment remark. Order ID has been automatically copied to clipboard</div>
+	</div>
+	<div class="listitem">
+		<div>3. Choose Friends and Family Mode</div>
+		<div>select paypal payment type as "Friends and Family"</div>
+	</div>
+	<div class="listitem">
+		<div>4. Complete payment and wait Email</div>
+		<div>Once the payment is completed, we will verify the payment, which may take up to 24 hours. You will be notified via email upon completion of verification</div>
+	</div>
+	<div>
+		<div style="padding: 16px 0px 0px 16px; font-weight: bold;">E.G.</div>
+		<div style="background-color: #f6f6f6;margin: 16px;padding: 16px; border-radius: 10px;">
+			<img src="drawable/pay-guide.jpg" style="width: 100%"/>
+		</div>
+	</div>
+	<div style="padding: 16px 32px 16px 32px;">
+		<a id="payUrl">
+			<button>Already Understood, Go to Pay</button>
+		</a>
+		<div style="text-align: center; margin-top: 12px; color: #6a6a6a;">Order ID has been copied to clipboard</div>
+	</div>
+
+	<div style="padding: 16px;line-height: 1.4;">If you have any questions about payment, you can send us an email at zwish163@gmail.com</div>
+</div>
+</body>
+<script>
+	if(window.PaymentNative)
+	{
+		let order = JSON.parse(window.PaymentNative.getOrderInfo());
+		document.querySelector("#payUrl").href = "https://paypal.me/zwey163/" + order.price + "USD";
+	}
+</script>
+</html>
