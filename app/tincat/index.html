@@ -1,85 +1,905 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-	<title>Tincat Browser: M3U8 MPD Downloader</title>
+	<title>Tincat Browser: M3U8 MPD Video Downloader & Live Recorder</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
-	<meta name="theme-color" content="#ffffff"/>
-	<link rel="stylesheet" href="https://seanzwx.github.io/style/style.css">
+	<meta name="theme-color" content="#1e3a5f"/>
+	<meta name="description" content="Tincat Browser - A fast, safe browser with powerful M3U8 & MPD video downloader. Record live streams, download videos, block ads, and enjoy a clean browsing experience on Android."/>
+	<meta name="keywords" content="Tincat Browser, M3U8 downloader, MPD downloader, live stream recorder, video downloader, ad blocker browser, Android browser, HLS download, DASH download, live recording, m3u8 video download, mpd video download"/>
+	<meta name="author" content="NetskyTech"/>
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+	<link rel="canonical" href="https://netskyx.com/app/tincat/index.html"/>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="Tincat Browser: M3U8 MPD Video Downloader & Live Recorder"/>
+	<meta property="og:description" content="Fast & safe Android browser with built-in M3U8/MPD video downloader, live stream recorder, ad blocker, and more. Download videos from any webpage."/>
+	<meta property="og:image" content="https://netskyx.com/app/tincat/icon.png"/>
+	<meta property="og:url" content="https://netskyx.com/app/tincat/index.html"/>
+	<meta property="og:site_name" content="Tincat Browser"/>
+	<meta property="og:locale" content="en_US"/>
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:title" content="Tincat Browser: M3U8 MPD Video Downloader & Live Recorder"/>
+	<meta name="twitter:description" content="Fast & safe Android browser with built-in M3U8/MPD video downloader, live stream recorder, ad blocker, and more."/>
+	<meta name="twitter:image" content="https://netskyx.com/app/tincat/icon.png"/>
+	<meta name="twitter:site" content="@QcZ7ZyjgpfmO1vn"/>
+
+	<!-- JSON-LD Structured Data -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Tincat Browser",
+			"operatingSystem": "Android",
+			"applicationCategory": "BrowserApplication",
+			"description": "A fast, safe browser with powerful M3U8 & MPD video downloader. Record live streams, download videos, block ads, and enjoy a clean browsing experience on Android.",
+			"url": "https://netskyx.com/app/tincat/index.html",
+			"image": "https://netskyx.com/app/tincat/icon.png",
+			"author": {
+				"@type": "Organization",
+				"name": "NetskyTech"
+			},
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.7",
+				"ratingCount": "980"
+			}
+		}
+	</script>
+
 	<script src="https://seanzwx.github.io/lib/vue.min.js"></script>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: #1e3a5f;
+        }
+
+        body {
+            user-select: none;
+            background-color: #f5f7fa;
+            color: #1e3a5f;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes float-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            padding: 0 20px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .page-header a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-header .home-icon {
+            width: 34px;
+            height: 34px;
+            padding: 4px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .page-header .home-icon:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .page-header .header-title {
+            font-size: 17px;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        /* Hero */
+        .hero-section {
+            background: linear-gradient(160deg, #1e3a5f 0%, #2d5a87 50%, #1a4971 100%);
+            padding: 40px 24px 48px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(81, 125, 162, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            margin-bottom: 20px;
+            animation: float-up 0.6s ease;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #38bdf8;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        .hero-badge span {
+            font-size: 12px;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            color: #fff;
+            animation: float-up 0.6s ease 0.1s both;
+        }
+
+        .hero-section h1 .text-accent {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section .hero-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 520px;
+            margin: 0 auto;
+            animation: float-up 0.6s ease 0.2s both;
+        }
+
+        .hero-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            animation: float-up 0.6s ease 0.3s both;
+        }
+
+        .hero-platforms .platform-tag {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 100px;
+        }
+
+        /* Download */
+        .download-section {
+            max-width: 680px;
+            margin: -22px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .download-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .download-card .app-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .download-card .app-icon-wrap img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .download-card .app-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .download-card .app-meta .app-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1e3a5f;
+            line-height: 1.3;
+        }
+
+        .download-card .app-meta .app-sub {
+            font-size: 13px;
+            color: #8e8ea0;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.3);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .gallery-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+            padding: 0 4px 16px;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 0;
+        }
+
+        .gallery-scroll a {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+
+        .gallery-scroll a:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-scroll a img {
+            height: 280px;
+            display: block;
+        }
+
+        /* Features */
+        .features-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .features-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+            padding: 0 4px 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card .feature-icon.blue {
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+        .feature-card .feature-icon.indigo {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-card .feature-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .feature-card .feature-icon.orange {
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .feature-card .feature-icon.red {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .feature-card .feature-icon.purple {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .feature-card .feature-icon.teal {
+            background: rgba(20, 184, 166, 0.1);
+        }
+
+        .feature-card .feature-icon.cyan {
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        .feature-card .feature-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1e3a5f;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .feature-card .feature-desc {
+            font-size: 12px;
+            color: #8e8ea0;
+            line-height: 1.5;
+        }
+
+        /* About */
+        .about-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .about-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+            padding: 0 4px 16px;
+        }
+
+        .about-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .about-card .about-desc {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #f0f0f5;
+        }
+
+        .about-platforms {
+            margin-bottom: 22px;
+        }
+
+        .about-platforms .about-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-platforms .about-label span {
+            font-size: 15px;
+        }
+
+        .about-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .about-chips .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+            border: 1px solid #d4e4f7;
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #2d5a87;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .about-chips .chip:hover {
+            border-color: #a8c8e8;
+            background: #e0eefa;
+        }
+
+        .about-chips .chip .chip-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .about-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .about-step {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #f0f0f5;
+            transition: border-color 0.2s;
+        }
+
+        .about-step:hover {
+            border-color: #d4e4f7;
+        }
+
+        .about-step .step-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .about-step .step-num.c1 {
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+        }
+
+        .about-step .step-num.c2 {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .about-step .step-num.c3 {
+            background: linear-gradient(135deg, #22c55e, #14b8a6);
+        }
+
+        .about-step .step-num.c4 {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+        }
+
+        .about-step .step-num.c5 {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        }
+
+        .about-step .step-num.c6 {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        }
+
+        .about-step .step-num.c7 {
+            background: linear-gradient(135deg, #14b8a6, #22c55e);
+        }
+
+        .about-step .step-num.c8 {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        .about-step .step-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .about-step .step-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .about-step .step-desc {
+            font-size: 12px;
+            color: #8e8ea0;
+            line-height: 1.6;
+        }
+
+        .about-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #1e3a5f, #2d5a87);
+            border-radius: 12px;
+        }
+
+        .about-contact .contact-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .about-contact .contact-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .about-contact .contact-email {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .app-footer {
+            padding: 24px 0 16px;
+            margin-top: 32px;
+            background-color: #fff;
+            border-top: 1px solid #f0f0f5;
+        }
+
+        .app-footer .social-row {
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-footer .social-row a img {
+            width: 30px;
+            height: 30px;
+            padding: 4px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .app-footer .social-row a img:hover {
+            background-color: #f0f0f5;
+        }
+
+        .app-footer .copyright {
+            color: #8e8ea0;
+            font-size: 12px;
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        /* Desktop */
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 56px 32px 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 36px;
+            }
+
+            .hero-section .hero-desc {
+                font-size: 16px;
+            }
+
+            .gallery-scroll a img {
+                height: 360px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+	</style>
 </head>
 
 <body>
 <div id="app">
-	<div style="height: 50px; background-color: #517DA2; display: flex;justify-content: left; align-items: center;">
-		<a href="../../index.html">
-			<img src="../../drawable/home.svg" style="width: 50px; height: 50px; padding: 12px;"/>
-		</a>
-		<span style="font-size: 16px;color: #fff;font-weight: bold;">Tincat Browser</span>
-	</div>
+	<!-- Header -->
+	<header class="page-header" role="banner">
+		<nav aria-label="Main navigation">
+			<a href="../../index.html" title="Back to Home"> <img src="../../drawable/home.svg" class="home-icon" alt="Tincat Browser Home" width="34" height="34"/> <span class="header-title">Tincat Browser</span> </a>
+		</nav>
+	</header>
 
-	<div style="display: flex;align-items: center;padding: 16px;">
-		<div>
-			<div style="width: 60px; height: 60px;border-radius: 100px; padding: 12px;background-color: #f6f6f6;">
-				<img :src="app.icon" style="width: 100%; height: 100%; border-radius: 10px;"/>
+	<main>
+
+		<!-- Hero -->
+		<section class="hero-section" aria-label="Tincat Browser - M3U8 MPD Video Downloader">
+			<div class="hero-badge">
+				<span class="dot"></span> <span>Video Downloader</span>
 			</div>
-		</div>
-		<div style="flex-grow: 1;padding-left: 16px;">
-			<div style="font-weight: bold;">{{app.title}}</div>
-			<div style="margin-top: 8px;">{{app.subtitle}}</div>
-		</div>
-	</div>
+			<h1>Download <span class="text-accent">M3U8 & MPD</span><br>Videos Easily</h1>
+			<p class="hero-desc">A fast, safe Android browser with a powerful built-in video downloader. Download M3U8, MPD, and live streams from any webpage with one tap.</p>
+			<div class="hero-platforms">
+				<span class="platform-tag">M3U8</span> <span class="platform-tag">MPD / DASH</span> <span class="platform-tag">Live Streams</span> <span class="platform-tag">HLS</span> <span class="platform-tag">FLV</span>
+				<span class="platform-tag">TORRENT</span>
+			</div>
+		</section>
 
-	<div class="app-detail-download">
-		<a href="https://seanzwx.github.io/app/tincat/tincat-release.apk" target="_blank">
-			<button>Download Apk</button>
-		</a>
-	</div>
+		<!-- Download -->
+		<section class="download-section" aria-label="Download Tincat Browser">
+			<div class="download-card">
+				<div class="app-icon-wrap">
+					<img :src="app.icon" alt="Tincat Browser app icon" width="56" height="56"/>
+				</div>
+				<div class="app-meta">
+					<h2 class="app-name">{{app.title}}</h2>
+					<p class="app-sub">{{app.subtitle}}</p>
+				</div>
+				<a href="https://seanzwx.github.io/app/tincat/tincat-release.apk" target="_blank" rel="noopener" title="Download Tincat Browser APK" aria-label="Download Tincat Browser APK file">
+					<button class="download-btn" type="button">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-5 4h10v-2H7v2z"/>
+						</svg>
+						Download
+					</button>
+				</a>
+			</div>
+		</section>
 
-	<div class="app-detail-gallery">
-		<a href="https://seanzwx.github.io/app/tincat/images/0.png"> <img src="https://seanzwx.github.io/app/tincat/images/0.png" style="width: 330px;"/> </a> <a v-for="it in app.images" :href="it"> <img :src="it"/> </a>
-	</div>
+		<!-- Gallery -->
+		<section class="gallery-section" aria-label="App Screenshots">
+			<h2 class="section-title">Screenshots</h2>
+			<div class="gallery-scroll" role="list">
+				<a :href="img" v-for="(img, idx) in app.images" :key="idx" target="_blank" rel="noopener" role="listitem" :aria-label="'View Tincat Browser screenshot ' + (idx + 1)"> <img :src="img" :alt="'Tincat Browser screenshot ' + (idx + 1) + ' - video downloader interface'" loading="lazy"/> </a>
+			</div>
+		</section>
 
-	<div style="padding: 0px 16px 0px 16px;">
-		<div style="font-weight: bold;font-size: 16px;">About this app</div>
-		<div style="padding-top: 12px; line-height: 1.4;">{{app.shortDesc}}</div>
-		<pre style="padding-top: 12px; color: #9a9a9a; line-height: 1.4; white-space: pre-wrap;word-wrap: break-word;">
-Tincat is a safe and fast browser, and it uses a very powerful downloader that supports m3u8, mpd, live and other video downloads. In addition, Tincat also has very useful functions:
+		<!-- Features -->
+		<section class="features-section" aria-label="Key Features">
+			<h2 class="section-title">Key Features</h2>
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon blue">&#9658;</div>
+					<div class="feature-name">M3U8 Download</div>
+					<div class="feature-desc">Download M3U8/HLS videos from any page, even when download buttons are disabled</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon indigo">&#9679;</div>
+					<div class="feature-name">MPD Download</div>
+					<div class="feature-desc">Download MPD/DASH videos from any webpage with full quality support</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon red">&#9673;</div>
+					<div class="feature-name">Live Recording</div>
+					<div class="feature-desc">Record live streams in M3U8, MPD, and FLV formats in real time</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon green">&#9745;</div>
+					<div class="feature-name">Ad Blocker</div>
+					<div class="feature-desc">Block ads with built-in rules, or add your own custom ad-blocking rules</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon orange">&#8628;</div>
+					<div class="feature-name">Parallel Download</div>
+					<div class="feature-desc">Multi-threaded concurrent downloads for large files, saving your time</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon purple">&#9788;</div>
+					<div class="feature-name">Dark Mode</div>
+					<div class="feature-desc">Built-in dark mode to protect your eyes during nighttime browsing</div>
+				</div>
+			</div>
+		</section>
 
-The function list is as follows:
+		<!-- About -->
+		<article class="about-section" aria-label="About Tincat Browser">
+			<h2 class="section-title">About This App</h2>
+			<div class="about-card">
+				<div class="about-desc">{{app.shortDesc}}</div>
 
-*Pure & Fast Tincat Browser is very small and fast, will not push any ads or news to your device, so that you will not be affected when browsing the web.
+				<!-- Protocols -->
+				<div class="about-platforms">
+					<div class="about-label"><span>&#127760;</span> Supported Protocols</div>
+					<div class="about-chips">
+						<span class="chip"><span class="chip-dot" style="background:#38bdf8"></span>M3U8 / HLS</span> <span class="chip"><span class="chip-dot" style="background:#6366f1"></span>MPD / DASH</span> <span class="chip"><span class="chip-dot" style="background:#ef4444"></span>Live Streams</span> <span class="chip"><span class="chip-dot" style="background:#22c55e"></span>FLV</span> <span class="chip"><span class="chip-dot" style="background:#f97316"></span>MP4</span>
+					</div>
+				</div>
 
-*Android Tablet Support Tincat Browser also supports Android tablets, making it more convenient for you to experience the browser on the tablet.
+				<!-- Feature Steps -->
+				<div class="about-steps">
+					<div class="about-step">
+						<div class="step-num c1">1</div>
+						<div class="step-body">
+							<div class="step-title">Pure &amp; Fast Browsing</div>
+							<div class="step-desc">Tincat is lightweight and fast. No ads or news pushed to your device — browse the web without distractions.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c2">2</div>
+						<div class="step-body">
+							<div class="step-title">M3U8 Video Download</div>
+							<div class="step-desc">Download M3U8/HLS videos from anywhere on the page, even when the developer has disabled the download button.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c3">3</div>
+						<div class="step-body">
+							<div class="step-title">MPD Video Download</div>
+							<div class="step-desc">Download MPD/DASH videos from any webpage with full quality support. Convenient and fast.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c4">4</div>
+						<div class="step-body">
+							<div class="step-title">Live Stream Recording</div>
+							<div class="step-desc">Record online live streams in real time. Support M3U8, MPD, and FLV live stream formats.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c5">5</div>
+						<div class="step-body">
+							<div class="step-title">Parallel Download</div>
+							<div class="step-desc">Concurrent multi-thread downloads make downloading large files very fast, effectively saving your time.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c6">6</div>
+						<div class="step-body">
+							<div class="step-title">Ad Blocker</div>
+							<div class="step-desc">Block ads with default rules out of the box. You can also add custom rules to block specific content.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c7">7</div>
+						<div class="step-body">
+							<div class="step-title">Page Element Delete</div>
+							<div class="step-desc">Easily delete any element on a web page to get a clean, distraction-free browsing experience.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c8">8</div>
+						<div class="step-body">
+							<div class="step-title">Request Monitor</div>
+							<div class="step-desc">Monitor all network requests made by web pages and block unwanted ones for privacy and speed.</div>
+						</div>
+					</div>
+				</div>
 
-*M3U8 Video Download Tincat Browser can download m3u8 videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
+				<!-- Contact -->
+				<div class="about-contact">
+					<div class="contact-icon">&#9993;</div>
+					<div>
+						<div class="contact-label">Contact Us</div>
+						<div class="contact-email">zwish163@gmail.com</div>
+					</div>
+				</div>
+			</div>
+		</article>
 
-*MPD Video Download Tincat Browser can download mpd videos anywhere on the page, whether the developer has disabled the download button for the video.It is very convenient for you to download videos.
-
-*Live Show Video Record Tincat Browser supports online video live recording, and supports regular live streams in m3u8, mpd, flv formats
-
-*Parallel Download Tincat Browser supports concurrent downloads, which will be very fast for downloading large files, effectively saving your download time.
-
-*Ad Blocker Tincat Browser allow to block ads with default rules. also support add other rules by user.
-
-*Page Element Delete Tincat Browser can easily delete any element on the web page and give you a clean web page
-
-*Request Monitor Tincat Browser provides web page request monitor, you can monitor all requests made by the web page and ban it.
-
-*Dark Mode Tincat Browser also support dark mode for you. dark mode will protect your eyes at night.
-
-Our email address is zwish163@gmail.com, you are welcome to write to us!
-		</pre>
-	</div>
-
-	<div class="app-footer">
-		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
-		</div>
-		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyTech. All Rights Reserved.</div>
-	</div>
+		<!-- Footer -->
+		<footer class="app-footer" role="contentinfo">
+			<nav class="social-row" aria-label="Social media links">
+				<a href="https://twitter.com/QcZ7ZyjgpfmO1vn" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" title="Twitter"> <img src="https://seanzwx.github.io/drawable/twitter.png" alt="Twitter" width="30" height="30" loading="lazy"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram group" title="Telegram">
+				<img src="https://seanzwx.github.io/drawable/telegram.png" alt="Telegram" width="30" height="30" loading="lazy"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2" target="_blank" rel="noopener noreferrer" aria-label="Join our WhatsApp group" title="WhatsApp"> <img src="https://seanzwx.github.io/drawable/whatsapp.png" alt="WhatsApp" width="30" height="30" loading="lazy"/> </a>
+			</nav>
+			<p class="copyright">Copyright &copy; NetskyTech. All Rights Reserved.</p>
+		</footer>
+	</main>
 </div>
-</body>
 
 <script>
 	window.onload = function()
@@ -91,14 +911,13 @@ Our email address is zwish163@gmail.com, you are welcome to write to us!
 				app: {
 					icon: root + "/icon.png",
 					title: "Tincat Browser",
-					subtitle: "M3U8 MPD Downloader",
-					shortDesc: "Private & Fast & Secure, Build-in Video Player, With M3U8 MPD LIVE Downloader",
+					subtitle: "M3U8 MPD Video Downloader",
+					shortDesc: "A safe and fast browser with a powerful built-in video downloader. Support M3U8, MPD, live stream download, ad blocking, page element deletion, request monitoring, dark mode, and more.",
 					images: [
+						root + "/images/0.png",
 						root + "/images/1.jpg",
 						root + "/images/2.jpg",
 						root + "/images/3.jpg",
-						// root + "/images/4.jpg",
-						// root + "/images/5.jpg",
 						root + "/images/6.jpg",
 					]
 				}
@@ -106,4 +925,24 @@ Our email address is zwish163@gmail.com, you are welcome to write to us!
 		});
 	}
 </script>
+
+<noscript>
+	<h1>Tincat Browser: M3U8 MPD Video Downloader &amp; Live Recorder</h1>
+	<p>A fast, safe Android browser with a powerful built-in video downloader. Download M3U8, MPD, and live streams from any webpage.</p>
+	<h2>Key Features</h2>
+	<ul>
+		<li>M3U8 Download - Download M3U8/HLS videos from any page, even when download buttons are disabled</li>
+		<li>MPD Download - Download MPD/DASH videos from any webpage with full quality support</li>
+		<li>Live Recording - Record live streams in M3U8, MPD, and FLV formats in real time</li>
+		<li>Ad Blocker - Block ads with built-in rules, or add custom ad-blocking rules</li>
+		<li>Parallel Download - Multi-threaded concurrent downloads for large files</li>
+		<li>Dark Mode - Built-in dark mode to protect your eyes during nighttime browsing</li>
+		<li>Page Element Delete - Remove any element on a web page for a clean experience</li>
+		<li>Request Monitor - Monitor and block unwanted network requests from web pages</li>
+	</ul>
+	<h2>Download</h2>
+	<p>Download Tincat Browser APK: <a href="https://netskyx.com/app/tincat/tincat-release.apk">https://netskyx.com/app/tincat/tincat-release.apk</a></p>
+	<p>Contact: zwish163@gmail.com</p>
+</noscript>
+</body>
 </html>
