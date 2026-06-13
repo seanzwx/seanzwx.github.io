@@ -1,74 +1,871 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-	<title>Tincat Tube: Fast & Block Ads</title>
+	<title>Tincat Tube: Watch & Download YouTube Videos Without Ads</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"/>
-	<meta name="theme-color" content="#ffffff"/>
-	<link rel="stylesheet" href="https://seanzwx.github.io/style/style.css">
+	<meta name="theme-color" content="#1a1a2e"/>
+	<meta name="description" content="Tincat Tube - Watch YouTube videos ad-free with built-in ad blocker. Download YouTube videos, use picture-in-picture mode, night mode, and enjoy a fast, clean viewing experience."/>
+	<meta name="keywords" content="Tincat Tube, YouTube without ads, YouTube ad blocker, YouTube video downloader, YouTube PiP, picture-in-picture, night mode, ad-free YouTube, watch YouTube offline, YouTube player"/>
+	<meta name="author" content="NetskyTech"/>
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+	<link rel="canonical" href="https://netskyx.com/app/tube/index.html"/>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="Tincat Tube: Watch & Download YouTube Videos Without Ads"/>
+	<meta property="og:description" content="Ad-free YouTube experience with video download, picture-in-picture mode, night mode and fast loading engine. Watch YouTube the way you want."/>
+	<meta property="og:image" content="https://netskyx.com/app/tube/icon.png"/>
+	<meta property="og:url" content="https://netskyx.com/app/tube/index.html"/>
+	<meta property="og:site_name" content="Tincat Tube"/>
+	<meta property="og:locale" content="en_US"/>
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:title" content="Tincat Tube: Watch & Download YouTube Videos Without Ads"/>
+	<meta name="twitter:description" content="Ad-free YouTube experience with video download, picture-in-picture mode, night mode and fast loading engine."/>
+	<meta name="twitter:image" content="https://netskyx.com/app/tube/icon.png"/>
+	<meta name="twitter:site" content="@QcZ7ZyjgpfmO1vn"/>
+
+	<!-- JSON-LD Structured Data -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Tincat Tube",
+			"operatingSystem": "Android",
+			"applicationCategory": "MultimediaApplication",
+			"description": "Watch YouTube videos without ads. Download YouTube videos, use picture-in-picture mode, night mode, and enjoy a fast, clean viewing experience.",
+			"url": "https://netskyx.com/app/tube/index.html",
+			"image": "https://netskyx.com/app/tube/icon.png",
+			"author": {
+				"@type": "Organization",
+				"name": "NetskyTech"
+			},
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.7",
+				"ratingCount": "800"
+			}
+		}
+	</script>
+
 	<script src="https://seanzwx.github.io/lib/vue.min.js"></script>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: #1a1a2e;
+        }
+
+        body {
+            user-select: none;
+            background-color: #f5f5f8;
+            color: #1a1a2e;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes float-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2b55 100%);
+            padding: 0 20px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .page-header a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-header .home-icon {
+            width: 34px;
+            height: 34px;
+            padding: 4px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .page-header .home-icon:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .page-header .header-title {
+            font-size: 17px;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        /* Hero */
+        .hero-section {
+            background: linear-gradient(160deg, #1a1a2e 0%, #2d2b55 50%, #3a1845 100%);
+            padding: 40px 24px 48px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 99, 71, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            margin-bottom: 20px;
+            animation: float-up 0.6s ease;
+        }
+
+        .hero-badge .play-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        .hero-badge span {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ff4444;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 14px;
+            color: #fff;
+            animation: float-up 0.6s ease 0.1s both;
+        }
+
+        .hero-section h1 .text-accent {
+            background: linear-gradient(90deg, #ff4444, #ff6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section .hero-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 520px;
+            margin: 0 auto;
+            animation: float-up 0.6s ease 0.2s both;
+        }
+
+        .hero-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            animation: float-up 0.6s ease 0.3s both;
+        }
+
+        .hero-platforms .platform-tag {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 100px;
+        }
+
+        /* Download Button */
+        .download-section {
+            max-width: 680px;
+            margin: -22px auto 0;
+            padding: 0 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .download-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .download-card .app-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .download-card .app-icon-wrap img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .download-card .app-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .download-card .app-meta .app-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a1a2e;
+            line-height: 1.3;
+        }
+
+        .download-card .app-meta .app-sub {
+            font-size: 13px;
+            color: #8e8ea0;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .gallery-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            padding: 0 4px 16px;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 0;
+        }
+
+        .gallery-scroll a {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+
+        .gallery-scroll a:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-scroll a img {
+            height: 280px;
+            display: block;
+        }
+
+        /* Features */
+        .features-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .features-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            padding: 0 4px 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card .feature-icon.red {
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .feature-card .feature-icon.orange {
+            background: rgba(249, 115, 22, 0.1);
+        }
+
+        .feature-card .feature-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-card .feature-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .feature-card .feature-icon.purple {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .feature-card .feature-icon.teal {
+            background: rgba(20, 184, 166, 0.1);
+        }
+
+        .feature-card .feature-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #1a1a2e;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .feature-card .feature-desc {
+            font-size: 12px;
+            color: #8e8ea0;
+            line-height: 1.5;
+        }
+
+        /* About */
+        .about-section {
+            max-width: 680px;
+            margin: 28px auto 0;
+            padding: 0 16px;
+        }
+
+        .about-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            padding: 0 4px 16px;
+        }
+
+        .about-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .about-card .about-desc {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #f0f0f5;
+        }
+
+        /* Feature highlight chips in about */
+        .about-highlights {
+            margin-bottom: 22px;
+        }
+
+        .about-highlights .about-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-highlights .about-label span {
+            font-size: 15px;
+        }
+
+        .about-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .about-chips .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #f8f8fc 0%, #f0f0f8 100%);
+            border: 1px solid #e8e8f0;
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #3a3a5c;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .about-chips .chip:hover {
+            border-color: #c8c8e0;
+            background: #f0f0fa;
+        }
+
+        .about-chips .chip .chip-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* Steps list in about */
+        .about-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .about-step {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px 16px;
+            background: #f8f8fc;
+            border-radius: 12px;
+            border: 1px solid #f0f0f5;
+            transition: border-color 0.2s;
+        }
+
+        .about-step:hover {
+            border-color: #e0e0ea;
+        }
+
+        .about-step .step-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .about-step .step-num.c1 {
+            background: linear-gradient(135deg, #ff0000, #ff4444);
+        }
+
+        .about-step .step-num.c2 {
+            background: linear-gradient(135deg, #ff6347, #f97316);
+        }
+
+        .about-step .step-num.c3 {
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        }
+
+        .about-step .step-num.c4 {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .about-step .step-num.c5 {
+            background: linear-gradient(135deg, #22c55e, #14b8a6);
+        }
+
+        .about-step .step-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .about-step .step-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .about-step .step-desc {
+            font-size: 12px;
+            color: #8e8ea0;
+            line-height: 1.6;
+        }
+
+        /* Contact row in about */
+        .about-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #1a1a2e, #2d2b55);
+            border-radius: 12px;
+        }
+
+        .about-contact .contact-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .about-contact .contact-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .about-contact .contact-email {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .app-footer {
+            padding: 24px 0 16px;
+            margin-top: 32px;
+            background-color: #fff;
+            border-top: 1px solid #f0f0f5;
+        }
+
+        .app-footer .social-row {
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .app-footer .social-row a img {
+            width: 30px;
+            height: 30px;
+            padding: 4px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .app-footer .social-row a img:hover {
+            background-color: #f0f0f5;
+        }
+
+        .app-footer .copyright {
+            color: #8e8ea0;
+            font-size: 12px;
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        /* Desktop */
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 56px 32px 60px;
+            }
+
+            .hero-section h1 {
+                font-size: 36px;
+            }
+
+            .hero-section .hero-desc {
+                font-size: 16px;
+            }
+
+            .gallery-scroll a img {
+                height: 360px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+	</style>
 </head>
 
 <body>
 <div id="app">
-	<div style="height: 50px; background-color: #FF0000; display: flex;justify-content: left; align-items: center;">
-		<a href="../../index.html">
-			<img src="../../drawable/home.svg" style="width: 50px; height: 50px; padding: 12px;"/>
-		</a>
-		<span style="font-size: 16px;color: #fff;font-weight: bold;">Tincat Tube</span>
-	</div>
+	<!-- Header -->
+	<header class="page-header" role="banner">
+		<nav aria-label="Main navigation">
+			<a href="../../index.html" title="Back to Home"> <img src="../../drawable/home.svg" class="home-icon" alt="Tincat Tube Home" width="34" height="34"/> <span class="header-title">Tincat Tube</span> </a>
+		</nav>
+	</header>
 
-	<div style="display: flex;align-items: center;padding: 16px;">
-		<div>
-			<div style="width: 60px; height: 60px;border-radius: 100px; padding: 12px;background-color: #f6f6f6;">
-				<img :src="app.icon" style="width: 100%; height: 100%; border-radius: 10px;"/>
+	<main>
+
+		<!-- Hero -->
+		<section class="hero-section" aria-label="Tincat Tube - Watch & Download YouTube Videos Without Ads">
+			<div class="hero-badge">
+				<span class="play-dot"></span> <span>Ad-Free YouTube</span>
 			</div>
-		</div>
-		<div style="flex-grow: 1;padding-left: 16px;">
-			<div style="font-weight: bold;">{{app.title}}</div>
-			<div style="margin-top: 8px;">{{app.subtitle}}</div>
-		</div>
-	</div>
+			<h1>Watch & Download<br><span class="text-accent">YouTube Videos</span> Without Ads</h1>
+			<p class="hero-desc">Enjoy a clean, ad-free YouTube experience. Download videos, use picture-in-picture mode, enable night mode, and browse with a blazing-fast engine.</p>
+			<div class="hero-platforms">
+				<span class="platform-tag">Block Ads</span> <span class="platform-tag">Video Download</span> <span class="platform-tag">Picture-in-Picture</span> <span class="platform-tag">Night Mode</span> <span class="platform-tag">Fast Engine</span>
+			</div>
+		</section>
 
-	<div class="app-detail-download">
-		<a href="https://seanzwx.github.io/app/tube/tube-release.apk" target="_blank">
-			<button style="background-color: #FF0000">Download Apk</button>
-		</a>
-	</div>
+		<!-- Download -->
+		<section class="download-section" aria-label="Download Tincat Tube">
+			<div class="download-card">
+				<div class="app-icon-wrap">
+					<img :src="app.icon" alt="Tincat Tube app icon" width="56" height="56"/>
+				</div>
+				<div class="app-meta">
+					<h2 class="app-name">{{app.title}}</h2>
+					<p class="app-sub">{{app.subtitle}}</p>
+				</div>
+				<a href="https://seanzwx.github.io/app/tube/tube-release.apk" target="_blank" rel="noopener" title="Download Tincat Tube APK" aria-label="Download Tincat Tube APK file">
+					<button class="download-btn" type="button">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-5 4h10v-2H7v2z"/>
+						</svg>
+						Download
+					</button>
+				</a>
+			</div>
+		</section>
 
-	<div class="app-detail-gallery">
-		<a href="https://seanzwx.github.io/app/tube/images/0.png"> <img src="https://seanzwx.github.io/app/tube/images/0.png" style="width: 330px;"/> </a> <a v-for="it in app.images" :href="it"> <img :src="it"/> </a>
-	</div>
+		<!-- Gallery -->
+		<section class="gallery-section" aria-label="App Screenshots">
+			<h2 class="section-title">Screenshots</h2>
+			<div class="gallery-scroll" role="list">
+				<a :href="img" v-for="(img, idx) in app.images" :key="idx" target="_blank" rel="noopener" role="listitem" :aria-label="'View Tincat Tube screenshot ' + (idx + 1)"> <img :src="img" :alt="'Tincat Tube screenshot ' + (idx + 1) + ' - ad-free YouTube video player interface'" loading="lazy"/> </a>
+			</div>
+		</section>
 
-	<div style="padding: 0px 16px 0px 16px;">
-		<div style="font-weight: bold;font-size: 16px;">About this app</div>
-		<div style="padding-top: 12px; line-height: 1.4;">{{app.shortDesc}}</div>
-		<pre style="padding-top: 12px; color: #9a9a9a; line-height: 1.4; white-space: pre-wrap;word-wrap: break-word;">
-Tincat Tube is a really cool app that lets you watch Tube videos
+		<!-- Features -->
+		<section class="features-section" aria-label="Key Features">
+			<h2 class="section-title">Key Features</h2>
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon red">&#9679;</div>
+					<div class="feature-name">Block Video Ads</div>
+					<div class="feature-desc">Automatically block YouTube video ads for an uninterrupted viewing experience</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon orange">&#8681;</div>
+					<div class="feature-name">Video Download</div>
+					<div class="feature-desc">Download YouTube videos to your device and watch offline anytime</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon blue">&#9654;</div>
+					<div class="feature-name">Picture-in-Picture</div>
+					<div class="feature-desc">Watch videos in a floating window while using other apps or browsing the web</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon purple">&#9790;</div>
+					<div class="feature-name">Night Mode</div>
+					<div class="feature-desc">Easy on the eyes with a beautifully designed dark mode for comfortable night viewing</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon green">&#9889;</div>
+					<div class="feature-name">Fast Engine</div>
+					<div class="feature-desc">Optimized loading engine for instant video playback with minimal buffering</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon teal">&#10003;</div>
+					<div class="feature-name">Clean Design</div>
+					<div class="feature-desc">Carefully crafted interface that puts your viewing experience first</div>
+				</div>
+			</div>
+		</section>
 
-feature:
-*. limit video ads
-*. night mode support
-*. picture-in-picture support
-*. fast load engine design
-*. carefully designed to optimize your viewing experience
+		<!-- About -->
+		<article class="about-section" aria-label="About Tincat Tube">
+			<h2 class="section-title">About This App</h2>
+			<div class="about-card">
+				<div class="about-desc">{{app.shortDesc}}</div>
 
-Tincat Tube is an app that helps you watch Tube videos. With it, you can watch Tube videos while browsing the web and other things, completely liberating your phone.
+				<!-- Highlights -->
+				<div class="about-highlights">
+					<div class="about-label"><span>&#127916;</span> Feature Highlights</div>
+					<div class="about-chips">
+						<span class="chip"><span class="chip-dot" style="background:#ff0000"></span>Ad Blocker</span>
+						<span class="chip"><span class="chip-dot" style="background:#f97316"></span>Video Download</span>
+						<span class="chip"><span class="chip-dot" style="background:#3b82f6"></span>Picture-in-Picture</span>
+						<span class="chip"><span class="chip-dot" style="background:#8b5cf6"></span>Night Mode</span>
+						<span class="chip"><span class="chip-dot" style="background:#22c55e"></span>Fast Engine</span>
+						<span class="chip"><span class="chip-dot" style="background:#14b8a6"></span>Background Play</span>
+					</div>
+				</div>
 
-If you love watching Tube videos, be sure to try Tincat Tube
+				<!-- Feature Steps -->
+				<div class="about-steps">
+					<div class="about-step">
+						<div class="step-num c1">1</div>
+						<div class="step-body">
+							<div class="step-title">Watch YouTube Without Ads</div>
+							<div class="step-desc">Block all video ads automatically. Enjoy uninterrupted YouTube content with our built-in ad blocking engine.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c2">2</div>
+						<div class="step-body">
+							<div class="step-title">Download Videos for Offline</div>
+							<div class="step-desc">Save YouTube videos directly to your device. Watch your favorite content anytime, anywhere without internet.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c3">3</div>
+						<div class="step-body">
+							<div class="step-title">Picture-in-Picture Mode</div>
+							<div class="step-desc">Watch videos in a floating window while multitasking. Browse the web, chat with friends, or use other apps simultaneously.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c4">4</div>
+						<div class="step-body">
+							<div class="step-title">Night Mode &amp; Dark Theme</div>
+							<div class="step-desc">Switch to a beautifully designed dark mode. Reduce eye strain and enjoy comfortable viewing in low-light environments.</div>
+						</div>
+					</div>
+					<div class="about-step">
+						<div class="step-num c5">5</div>
+						<div class="step-body">
+							<div class="step-title">Fast Loading Engine</div>
+							<div class="step-desc">Optimized video engine for instant playback. Minimal buffering and smooth streaming even on slower connections.</div>
+						</div>
+					</div>
+				</div>
 
-our email: zwish163@gmail.com thank you!
-		</pre>
-	</div>
+				<!-- Contact -->
+				<div class="about-contact">
+					<div class="contact-icon">&#9993;</div>
+					<div>
+						<div class="contact-label">Contact Us</div>
+						<div class="contact-email">zwish163@gmail.com</div>
+					</div>
+				</div>
+			</div>
+		</article>
 
-	<div class="app-footer">
-		<div>
-			<a href="https://twitter.com/QcZ7ZyjgpfmO1vn"> <img src="https://seanzwx.github.io/drawable/twitter.png"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl"> <img src="https://seanzwx.github.io/drawable/telegram.png"/> </a> <a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2"> <img src="https://seanzwx.github.io/drawable/whatsapp.png"/> </a>
-		</div>
-		<div style="color: #9a9a9a; font-size: 13px; text-align: center; ">Copyright © NetskyTech. All Rights Reserved.</div>
-	</div>
+		<!-- Footer -->
+		<footer class="app-footer" role="contentinfo">
+			<nav class="social-row" aria-label="Social media links">
+				<a href="https://twitter.com/QcZ7ZyjgpfmO1vn" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" title="Twitter"> <img src="https://seanzwx.github.io/drawable/twitter.png" alt="Twitter" width="30" height="30" loading="lazy"/> </a> <a href="https://t.me/joinchat/0wo15jG1KYtiYmNl" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram group" title="Telegram"> <img src="https://seanzwx.github.io/drawable/telegram.png" alt="Telegram" width="30" height="30" loading="lazy"/> </a>
+				<a href="https://chat.whatsapp.com/FWDmIg4Z173InrPu87cew2" target="_blank" rel="noopener noreferrer" aria-label="Join our WhatsApp group" title="WhatsApp"> <img src="https://seanzwx.github.io/drawable/whatsapp.png" alt="WhatsApp" width="30" height="30" loading="lazy"/> </a>
+			</nav>
+			<p class="copyright">Copyright &copy; NetskyTech. All Rights Reserved.</p>
+		</footer>
+	</main>
 </div>
-</body>
 
 <script>
 	window.onload = function()
@@ -80,9 +877,10 @@ our email: zwish163@gmail.com thank you!
 				app: {
 					icon: root + "/icon.png",
 					title: "Tincat Tube",
-					subtitle: "Watch & Download Youtube Without Ads",
-					shortDesc: "Block Ads, Picture-In-Picture Mode Support, Night Mode Support",
+					subtitle: "Watch & Download YouTube Without Ads",
+					shortDesc: "Tincat Tube is a powerful YouTube companion app that lets you watch YouTube videos completely ad-free. With built-in video download, picture-in-picture mode, night mode, and a fast loading engine, it's carefully designed to give you the best YouTube viewing experience.",
 					images: [
+						root + "/images/0.png",
 						root + "/images/1.jpg",
 						root + "/images/2.jpg",
 						root + "/images/3.jpg",
@@ -95,4 +893,22 @@ our email: zwish163@gmail.com thank you!
 		});
 	}
 </script>
+
+<noscript>
+	<h1>Tincat Tube: Watch &amp; Download YouTube Videos Without Ads</h1>
+	<p>Enjoy a clean, ad-free YouTube experience. Download videos, use picture-in-picture mode, enable night mode, and browse with a blazing-fast engine.</p>
+	<h2>Key Features</h2>
+	<ul>
+		<li>Block Video Ads - Automatically block YouTube video ads for an uninterrupted viewing experience</li>
+		<li>Video Download - Download YouTube videos to your device and watch offline anytime</li>
+		<li>Picture-in-Picture - Watch videos in a floating window while using other apps</li>
+		<li>Night Mode - Beautifully designed dark mode for comfortable night viewing</li>
+		<li>Fast Engine - Optimized loading engine for instant video playback</li>
+		<li>Clean Design - Carefully crafted interface that puts your viewing experience first</li>
+	</ul>
+	<h2>Download</h2>
+	<p>Download Tincat Tube APK: <a href="https://seanzwx.github.io/app/tube/tube-release.apk">https://seanzwx.github.io/app/tube/tube-release.apk</a></p>
+	<p>Contact: zwish163@gmail.com</p>
+</noscript>
+</body>
 </html>
