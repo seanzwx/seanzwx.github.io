@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+    import {getAnalytics} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCHIU2KGwwE6rR3WVRIzpoS72v4Kg1B7Dw",
+        authDomain: "tincat-c5d90.firebaseapp.com",
+        databaseURL: "https://tincat-c5d90.firebaseio.com",
+        projectId: "tincat-c5d90",
+        storageBucket: "tincat-c5d90.firebasestorage.app",
+        messagingSenderId: "789032087023",
+        appId: "1:789032087023:web:04abfa0a81b61509611a1a",
+        measurementId: "G-QV6NGXLGH3"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log("Firebase initialized");
+</script>
+</body>
+</html>
